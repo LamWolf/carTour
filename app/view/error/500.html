@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="zh-cn">
+    <meta charset="utf-8" /> {% include "../layout/meta.njk" %}
+    <title>页面没有找到</title>
+    <script>
+        ! function(n, e) {
+            var t = n.documentElement,
+                i = "orientationchange" in window ? "orientationchange" : "resize",
+                d = function() {
+                    var n = t.clientWidth;
+                    n && (t.style.fontSize = 50 * (n / 375) > 100 ? "100px" : 50 * (n / 375) + "px")
+                };
+            d();
+            n.addEventListener && (e.addEventListener(i, d, !1), n.addEventListener("DOMContentLoaded", d, !1))
+        }(document, window);
+    </script>
+    <style>
+        .nopage {
+            width: 6.2250000000000005rem;
+            max-width: 640px;
+            margin: 0 auto;
+            padding-top: 2.4000000000000004rem;
+            background-image: url(https://fr-static.huangbaoche.com/hbc-pc/static/img/404.e4a2c13c0487a38e.png);
+            background-position: top;
+            background-repeat: no-repeat;
+            -webkit-background-size: 100% 100%;
+            -moz-background-size: 100%;
+            -o-background-size: 100%;
+            background-size: 100%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            position: absolute;
+        }
+
+        .nopage h2 {
+            font-size: 20px;
+            color: #b9bdc6;
+        }
+
+        .nopage p {
+            padding-top: 10px;
+            font-size: 14px;
+            color: #b9bdc6;
+            line-height: 25px;
+        }
+
+        .nopage p a,
+        .nopage p span {
+            color: #ffc100;
+            margin-right: 20px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="wrap">
+        <div class='nopage'>
+            <h2>很抱歉！页面崩溃了…</h2>
+            <p>{{err | dump}}</p>
+            <p>您可以<br><a href="https://m.huangbaoche.com" title="皇包车">去首页</a><span id="back" onclick="javascript:window.history.back();">返回上一页</span></p>
+        </div>
+    </div>
+</body>
+
+</html>

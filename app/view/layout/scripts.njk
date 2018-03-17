@@ -1,0 +1,32 @@
+{% set _ = tplData %}
+<script>
+    window.__ACC_KEY = '{{akString.data}}'
+</script>
+{% if _.isInjectSwiper %}
+    <link rel="stylesheet" href="https://fr-static.huangbaoche.com/hbc-cdn/static/css/swiper/3.4.2/swiper.min.css">
+{% endif %}
+
+{% if _.isInjectWX and wxData %}
+    <script src="https://fr-static.huangbaoche.com/hbc-cdn/static/js/wx/jweixin-1.1.0.js"></script>
+    <script>
+        wx.config({
+            debug: false,
+            appId: '{{wxData.data.appId}}',
+            timestamp: '{{wxData.data.timestamp}}',
+            nonceStr: '{{wxData.data.noncestr}}',
+            signature: '{{wxData.data.signature}}',
+            jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'onMenuShareQZone',
+                'hideMenuItems',
+                'showMenuItems'
+            ], // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+    </script>
+{% endif %}
+{% if _.isInjectSwiper %}
+    <script src="https://fr-static.huangbaoche.com/hbc-cdn/static/js/swiper/3.4.2/swiper.min.min.js"></script>
+{% endif %}
