@@ -1,3 +1,24 @@
 {
-  "extends": "eslint-config-egg"
+  extends: "eslint-config-egg",
+  parser: 'babel-eslint',
+  rules: {
+    // see https://github.com/eslint/eslint/issues/6274
+    'generator-star-spacing': 'off',
+    'babel/generator-star-spacing': 'off',
+    "indent": ["error", 4],
+    "linebreak-style": ["error", "unix"],
+    "quotes":          ["error", "single"],
+    "semi":            ["error", "always"],
+    "comma-dangle":    ["error", "never"],
+    "no-cond-assign":  ["error", "always"],
+
+    "no-console":      "off",
+  },
+   "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
 }
