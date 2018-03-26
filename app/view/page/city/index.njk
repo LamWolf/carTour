@@ -1,0 +1,190 @@
+{% set errorGood = 'https://fr-static.huangbaoche.com/20180313/item-pic.5892363124cb5877.png' %}
+{% set errorGuide = 'https://fr-static.huangbaoche.com/20180313/error-guide.9a12fc16b757cd33.png' %}
+
+{% if goodsCount == 0 and cityService.hasAirporService == 0 and cityService.hasDailyservice == 0 and cityService.hasSingleService == 0 %}
+    <header class="min-header hackmaxAuto">
+        <h1>{{cityContent.cityName}}</h1>
+        <b class="back icon-ioc48"></b>
+        <b class="search icon-ioc1"></b>
+    </header>
+{% else %}
+    <div class="header hackmaxAuto">
+        <h1>{{cityContent.cityName}}</h1>
+        <strong>{{cityGuides.guideAmount}}
+            位当地中文司导</strong>
+        <div class="banner lazy" data-src="{{helper.getComImg({url:cityContent.cityPicture,param:getImgRule(750,400)})}}"></div>
+        <div class="guider">
+            {% for item in cityGuides.guideAvatars %}
+                <img class="lazy" data-src="{{helper.getComImg({url:item,param:getImgRule(56,56)})}}" onerror="javascript:this.src='{{errorGuide}}';"/>
+            {% endfor %}
+            {% if cityGuides.guideAmount > 5 %}
+                <span class='guider-more'>
+                    <b class='icon-ioc104'></b>
+                </span>
+            {% endif %}
+        </div>
+        <b class="back icon-ioc47"></b>
+        <b class="search icon-ioc1"></b>
+        <div class="bg"></div>
+    </div>
+{% endif %}
+
+<ul class="nav">
+    {% if cityService.hasDailyservice == 1 %}
+        <li class="nav-car">
+            <b class="icon-ioc100"></b>
+            <span>按天包车游</span>
+        </li>
+    {% endif %}
+    {% if cityService.hasAirporService == 1 %}
+        <li class="nav-plane">
+            <b class="icon-ioc98"></b>
+            <span>接送机</span>
+        </li>
+    {% endif %}
+    {% if cityService.hasSingleService == 1 %}
+        <li class="nav-single">
+            <b class="icon-ioc103"></b>
+            <span>单次接送</span>
+        </li>
+    {% endif %}
+</ul>
+
+{% if goodsCount %}
+    <div class="line-count">
+        <b class="icon-ioc103"></b>{{goodsCount}}种包车游线路或玩法</div>
+{% endif %}
+
+{% if goodsCount > 0 %}
+    <div class="menu">
+        <div class="menu-item">
+            <span class="menu-text">
+                <var id="menu-type-text">类型</var>
+                <b></b>
+            </span>
+            <div class="menu-select">
+                <ul id="menu-type" class="menu-type">
+                    <li data-id="1" data-text="超省心">超省心（固定线路）</li>
+                    <li data-id="2" data-text="超自由">超自由（推荐线路）</li>
+                </ul>
+                <div class="menu-button">
+                    <button id="menu-type-reset">重置</button>
+                    <button id="menu-type-confirm">确定</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span class="menu-text">
+                <var id="menu-day-text">天数</var>
+                <b></b>
+            </span>
+            <div class="menu-select">
+                <ul id="menu-day" class="menu-day">
+                    <li data-min="1" data-max="1" data-text="1日">1日</li>
+                    <li data-min="2" data-max="0" data-text="多日">多日</li>
+                </ul>
+                <div class="menu-button">
+                    <button id="menu-day-reset">重置</button>
+                    <button id="menu-day-confirm">确定</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <span class="menu-text">
+                <var id="menu-theme-text">主题</var>
+                <b></b>
+            </span>
+            <div class="menu-select">
+                <div class="scroll">
+                    {% if goodsThemes %}
+                        <ul id="menu-theme" class="menu-theme">
+                            {% for theme in goodsThemes %}
+
+                                <li data-id="{{theme.themeId}}" data-text="{{theme.themeName}}">{{theme.themeName}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="menu-theme-empty">暂无主题可供筛选</p>
+                    {% endif %}
+                </div>
+                <div class="menu-button">
+                    <button id="menu-theme-reset">重置</button>
+                    <button id="menu-theme-confirm">确定</button>
+                </div>
+            </div>
+        </div>
+        <div class="empty-menu">
+            <p>暂无满足条件的线路</p>
+        </div>
+    </div>
+{% endif %}
+<div class="menu-bg"></div>
+
+<div class="list">
+    {% for good in goodses %}
+        {% if good.headLable == '超省心' %}
+            <div class="item item-economize" data-goodsno="{{good.goodsNo}}">
+                <div class="item-pic">
+                    <em>超省心</em>
+                    <span class="item-guide">{{good.guideAmount}}
+                        位当地中文司导
+                        <b></b>
+                    </span>
+                    {% if good.goodsPicture %}
+                        <div class="item-img lazy" data-src="{{helper.getComImg({url:good.goodsPicture,param:getImgRule(660,355)})}}"></div>
+                    {% else %}
+                        <div class="item-img lazy" data-src="{{errorGood}}"></div>
+                    {% endif %}
+                </div>
+                <p class="item-title">{{good.goodsName}}</p>
+                <div class="item-price">
+                    <strong>
+                        <small>¥
+                        </small>{{good.perPrice}}</strong>
+                    <span>起/人·{{good.daysCount}}日{% if good.hotelStatus %}·含酒店{% endif %}
+                    </span>
+                </div>
+            </div>
+        {% else %}
+            <div class="item item-free" data-goodsno="{{good.goodsNo}}">
+                <h2>{{good.depCityName}}{{good.daysCount}}日玩法推荐</h2>
+                <span class="item-guide">{{good.guideAmount}}
+                    位当地中文司导
+                    <b></b>
+                </span>
+                <div class="item-pic">
+                    <em>超自由</em>
+                    {% if good.goodsPics[0] %}
+                        <div class="item-img lazy" data-src="{{helper.getComImg({url:good.goodsPics[0],param:getImgRule(330,235)})}}"></div>
+                    {% else %}
+                        <div class="item-img lazy" data-src="{{helper.getComImg({url:errorGood, param:getImgRule(660,355)})}}"></div>
+                    {% endif %}
+                    {% if good.goodsPics[1] %}
+                        <div class="item-img lazy" data-src="{{helper.getComImg({url:good.goodsPics[1],param:getImgRule(330,235)})}}"></div>
+                    {% else %}
+                        <div class="item-img lazy" data-src="{{helper.getComImg({url:errorGood, param:getImgRule(660,355)})}}"></div>
+                    {% endif %}
+                </div>
+                <p class="item-title">{{good.goodsName}}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    {% if goodsCount == 0 and cityService.hasAirporService == 0 and cityService.hasDailyservice == 0 and cityService.hasSingleService == 0 %}
+        <div class="empty">
+            <p>很抱歉，该城市暂未开通服务</p>
+        </div>
+    {%  elif goodsCount == 0  %}
+        <div class="empty-nav">
+            <p>包车游线路会尽快补充，敬请期待~</p>
+            {% if cityService.hasDailyservice == 1 %}
+                <span>可以先按天包个车，<br/>找个中文司导带你玩</span>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+
+<div class="give-coupon"></div>
+<div class="city-data" data-cityid="{{cityContent.cityId}}">
+
+</div>

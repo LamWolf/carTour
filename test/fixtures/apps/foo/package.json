@@ -16,7 +16,6 @@
     "egg-mock": "^3.15.1",
     "eslint": "^4.11.0",
     "eslint-config-egg": "^6.0.0",
-    "mm": "^2.2.0",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
@@ -32,7 +31,6 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "lintweb": "eslint ./app/web/static/city/ --fix",
-    "lintmock": "eslint ./mock/mockData/ --fix",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
   },

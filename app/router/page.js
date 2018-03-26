@@ -2,7 +2,7 @@
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
-    const {router, controller} = app;
+    const { router, controller } = app;
     // 路由
     //
     // router.get('/goods/detail/:goodsNo', controller.page.detail.index.index);
@@ -14,4 +14,6 @@ module.exports = app => {
     router.get('/', controller.page.home.index);
     router.get('/error/404.html', controller.error.notfound);
     router.get('/error/500.html', controller.error.error);
+
+    router.get('/city/:cityId', controller.page.city.index.index);
 };

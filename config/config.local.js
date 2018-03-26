@@ -5,10 +5,10 @@ module.exports = appInfo => {
     config.keys = appInfo.name + '_1520651248505_291';
     //
     // // add your config here
-    config.middleware = [];
+    config.middleware = [ 'useragent' ];
     config.development = {
         watchDirs: [ 'app', 'lib' ],
-        ignoreDirs: [ 'app/web', 'app/public' ],
+        ignoreDirs: [ 'app/web', 'app/public' ]
     };
     return config;
 };

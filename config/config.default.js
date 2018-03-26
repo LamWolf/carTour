@@ -1,3 +1,5 @@
+const Apis = require('../lib/apis');
+const Http = require('../lib/httpReq');
 
 module.exports = appInfo => {
     const config = exports = {};
@@ -20,7 +22,7 @@ module.exports = appInfo => {
     };
 
     config.onerror = {
-    // 线上页面发生异常时，重定向到这个页面上
+        // 线上页面发生异常时，重定向到这个页面上
         errorPageUrl: '/error/500.html'
     };
 
@@ -30,5 +32,7 @@ module.exports = appInfo => {
         }
     };
 
+    config.apis = new Apis('test');
+    config.http = new Http();
     return config;
 };

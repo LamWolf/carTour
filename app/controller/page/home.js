@@ -1,11 +1,10 @@
-'use strict';
 
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
     async index() {
         const {
-            ctx, service,
+            ctx
             /* ,logger */
         } = this;
         await ctx.render('error/404.html', {});
