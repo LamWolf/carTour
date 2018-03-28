@@ -1,0 +1,130 @@
+@media screen and (min-width: 750px) {
+  .hackmax {
+    max-width: 7.5rem;
+    margin: 0 auto;
+    left: 50% !important;
+    margin-left: -3.75rem;
+    height: 100%;
+    position: relative; } }
+#J-SearchAreaCode {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  // min-height: 100%;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+
+  header.header{
+    position: relative
+  }
+
+  .J-sp-fix {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    background: #fff;
+    z-index: 10;
+    max-width: 7.5rem;
+    margin-left: -3.75rem;
+  }
+  .sp-input-wrap {
+    margin: 0.5rem;
+    border: 1px solid #898989;
+    border-radius: 20px;
+    display: flex;
+    height: 0.8rem;
+    align-items: center;
+    padding: 0 15px;
+    line-height: .8rem;
+
+    & > span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    & > input {
+      flex: 1;
+      text-align: center;
+      font-size: 14px;
+      padding: 5px;
+      color:#333;
+      display : block;
+    }
+    & > span.sp-search-icon {
+      background-image: url(./images/search.png);
+      vertical-align: middle;
+    }
+    & > span.sp-clear-icon {
+      display: none;
+      background-image: url(./images/clear-icon.png);
+      vertical-align: middle;
+    }
+  }
+  .sp-res-wrap {
+    font-size: 14px;
+    top: 2.8rem;
+    z-index: 5;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+
+    /*padding : 20px;*/
+    & > ul {
+    }
+    li:first-of-type {
+      border-top: 1px solid #898989;
+    }
+    li {
+      padding: 10px 10px;
+      border-bottom: 1px solid #898989;
+
+      a {
+        color: #333;
+      }
+    }
+  }
+  .sp-loading {
+    display: none;
+    background-image: url('./images/loading.png');
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 11;
+    left: 50%;
+    margin-left: -25px;
+    top: 50%;
+    margin-top: -25px;
+    animation: sp-load 1.4s infinite linear;
+    transform-origin: center center !important;
+  }
+}
+@-webkit-keyframes sp-load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes sp-load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

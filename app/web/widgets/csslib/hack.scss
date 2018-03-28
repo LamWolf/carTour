@@ -1,0 +1,25 @@
+.hackmax{
+    @media screen and (min-width: 750px){
+      max-width: 7.5rem;
+      margin: 0 auto;
+      left: 50%!important;
+      margin-left: -3.75rem;
+      height:100%;
+      position:relative
+    }
+}
+.hackmaxAuto{
+    @media screen and (min-width: 750px){
+      max-width: 7.5rem;
+      margin: 0 auto;
+      left: 50%!important;
+      margin-left: -3.75rem;
+      position:relative
+    }
+}
+.hackmaxNomal{
+    @media screen and (min-width: 750px){
+      max-width: 7.5rem;
+      margin: 0 auto;
+    }
+}

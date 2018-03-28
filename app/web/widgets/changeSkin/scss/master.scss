@@ -1,0 +1,39 @@
+.J-ismaster{
+  #page{
+    //登录
+    .J_user{
+      h2{
+        display : none;
+      }
+      p.login-master-bottom{
+        text-align: left;
+        padding : 0 .26rem;
+      }
+    }
+  //  填单页
+    .coupon strong{
+      right : .2rem;
+    }
+    .J-CouponDes{
+      display: none;
+    }
+    pre.J-CouponRight{
+      display : none;
+    }
+    p.J-Master-discount{
+      display : none;
+    }
+
+    #orderForm{
+      .count_area .detail_btn{
+        display : none;
+      }
+    }
+  }
+  //个人中心
+  .page-user-info{
+    .user-coupon div.coupon{
+      display : none;
+    }
+  }
+}

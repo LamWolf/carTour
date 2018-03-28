@@ -1,0 +1,134 @@
+$grey89:#898989;
+$grey72:#727272;
+$white: #fff;
+$black: #000;
+$grey5:#e5e5e5;
+$yellow: #fdd631;
+
+img {
+  width: 100%;
+}
+dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+input[placeholder], [placeholder], *[placeholder], ::-webkit-input-placeholder {
+  color: $grey89;
+}
+%area {
+  border: 1px solid $grey72;
+  padding: 0 .24rem;
+  background: $white;
+  border-radius: .1rem;
+}
+.bor_n {
+  border: none !important;
+}
+body {
+  font-size: .36rem;
+  color: $grey89;
+  background: #f4f4f4;
+}
+#J_editInfo {
+  @extend body;
+
+  .header {
+    position: static;
+  }
+  .con {
+    padding: 0 .28rem;
+
+    h2 {
+      font-size: .26rem;
+      color: $black;
+      text-align: center;
+      padding: .43rem 0 .2rem;
+    }
+    ul {
+      @extend %area;
+    }
+    input {
+      font-size: .36rem;
+      color: $black;
+
+      &.birthday {
+        display: block;
+        width: 100%;
+        height: 1.23rem;
+        line-height: 1.23rem;
+        text-align: left;
+
+        &.hackFuck {
+          padding-top: 0.4rem !important;
+        }
+      }
+      &.passportNo {
+        text-transform: uppercase;
+      }
+    }
+    ul {
+      margin-bottom: .1rem;
+
+      li {
+        line-height: 1.23rem;
+        border-bottom: 1px solid $grey5;
+        display: flex;
+
+        span {
+          flex: 1;
+          display: block;
+
+          &.sex {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+
+            em {
+              display: block;
+
+              &.selected {
+                color: $black;
+
+                i {
+                  background-position: left bottom;
+                }
+              }
+              &:nth-of-type(2) {
+                padding-right: 1rem;
+              }
+              i {
+                position: relative;
+                top: .03rem;
+              }
+            }
+          }
+          &:nth-of-type(1) {
+            flex: none;
+            width: 35%;
+          }
+          em {
+            color: $grey89;
+
+            i.icon {
+              display: inline-block;
+              width: 15px;
+              height: 15px;
+              background: url('../img/select.png') no-repeat left top;
+              background-size: 15px;
+              margin-right: .05rem;
+            }
+          }
+        }
+      }
+    }
+    #okBtn {
+      display: block;
+      height: .98rem;
+      line-height: .98rem;
+      text-align: center;
+      background: $yellow;
+      color: #000;
+      margin-top: .9rem;
+    }
+  }
+}

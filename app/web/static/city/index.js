@@ -12,7 +12,6 @@ const LazyLoad = require('vanilla-lazyload');
 require('widgets/csslib/base.css');
 require('widgets/csslib/fonts/fonts.css');
 require('./scss/index.scss');
-require('widgets/sensors/index.js');
 require('widgets/csslib/hack.scss');
 new (require('widgets/changeSkin/index'))();
 

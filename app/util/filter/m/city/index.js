@@ -10,5 +10,5 @@ module.exports = {
     getImgRule: (w, h) => {
         const imgRule = `x-oss-process=image/resize,m_fill,limit_0,w_${w},h_${h}/format,jpg/interlace,1/quality,q_85`;
         return imgRule;
-    },
+    }
 };

@@ -1,0 +1,185 @@
+.WG-Canlendar-wrap{
+  background : #fff;
+  font-family: PingFangSC-Regular;
+  .W-Can-title{
+    display : flex;
+    height : 1rem;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px dashed #DBDBDB;
+    &>span{
+      font-size: .26rem;
+      color: #151515;
+      flex : 1;
+      display : block;
+    }
+    &>div.W-Can-op{
+      font-family: PingFangSC-Light;
+      font-size: .26rem;
+      color: #7F7F7F;
+      letter-spacing: 3.47px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &>span{
+        margin : .2rem;
+        display: block;
+      }
+      &>.W-Can-op-left-btn,.W-Can-op-right-btn{
+        width : .3rem;
+        height : 1rem;
+        background : url(./arrow-r.png) no-repeat center;
+        background-size: .12rem .24rem;
+        display: inline-block;
+      }
+      &>i.W-Can-op-left-btn{
+        background : url(./arrow_l.png) no-repeat center;
+        background-size: .12rem .24rem;
+      }
+    }
+  }
+  .W-Can-main{
+    text-align: center;
+    &>div.W-Can-main-week{
+      font-family: PingFangSC-Light;
+      font-size: .2rem;
+      color: #7F7F7F;
+      &>ul{
+        overflow: hidden;
+        padding: .25rem 0;
+        &>li{
+          float : left;
+          width : 14%;
+        }
+        &>li:first-of-type,&>li:last-of-type{
+          width: 15%;
+        }
+      }
+    }
+    &>div.W-Can-main-date{
+      .W-Can-main-dates{
+        min-height : 5rem;
+        .swiper-container{
+
+        }
+      }
+      .W-Can-main-des{
+        text-align: right;
+        font-family: PingFangSC-Light;
+        font-size: .22rem;
+        color: #929292;
+        letter-spacing: 0;
+        line-height: 22px;
+        padding: .2rem;
+        span{
+          background : url('./clock.png') no-repeat left center;
+          background-size: .2rem .2rem;
+          padding-left: .25rem;
+        }
+      }
+      .W-Can-main-date-wrap {
+        overflow: hidden;
+        & > li {
+          float: left;
+          width: 14%;
+          height: 1rem;
+          padding: 0.1rem 0;
+          font-weight: 400;
+          font-size: 0.26rem;
+          line-height: 0.8rem;
+          overflow: hidden;
+          text-align: center;
+          color : #151515;
+        }
+        & > li:nth-of-type(7n),  & > li:nth-of-type(7n+1) {
+          width: 15%;
+          color: #FF2525;
+        }
+
+        li.can-invalid{
+          color : #cfcfcf;
+        }
+        li.can-today,li.can-active-start,li.can-active-end{
+          background-color: #fdd631;
+          color : #fff;
+          font-size : 0.18rem;
+          &>em{
+            line-height : 0.4rem;
+            display: block;
+          }
+          &>i{
+            line-height : 0.4rem;
+            height : 0.4rem;
+            display: block;
+          }
+        }
+        li.can-today{
+          &>i:before{
+            content : '今天';
+            text-align: center;
+            font-style : normal;
+          }
+        }
+        li.can-active-start{
+          &>i:before{
+            content : '开始';
+            text-align: center;
+            font-style : normal;
+          }
+        }
+        li.can-active-end{
+          &>i:before{
+            content : '结束';
+            text-align: center;
+            font-style : normal;
+          }
+        }
+
+        li.can-range{
+          background-color : rgba(253,214,49,0.5);
+          color : #fff;
+        }
+        li.can-active,li.can-active-start,li.can-active-end{
+          background-color: #fdd631;
+          color : #fff;
+          font-size : 0.18rem;
+        }
+        li.can-notpast.can-hole{
+          position : relative;
+          color : #cfcfcf;
+          i{
+            display: block;
+            height: 1px;
+            background: #cfcfcf;
+            transform: rotate(-60deg);
+            transform-origin: center;
+            top: 50%;
+            position: absolute;
+            left: 20%;
+            /* right: 0; */
+            width: 60%;
+          }
+        }
+        li.can-notpast.can-half{
+          position : relative;
+          i{
+            position: absolute;
+            right: 0.2rem;
+            top: 0.18rem;
+            width : .22rem;
+            height: .22rem;
+            background : url('./clock.png') no-repeat center;
+            background-size: 0.2rem 0.2rem;
+
+          }
+        }
+        li.can-notpast.ui-today.can-half{
+          i{
+            right: 0;
+          }
+        }
+      }
+
+    }
+  }
+}

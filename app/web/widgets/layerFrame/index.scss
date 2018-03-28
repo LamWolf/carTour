@@ -1,0 +1,52 @@
+.layerFrame {
+  position: fixed;
+  z-index: 11;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 7.5rem;
+  font-size: .3rem;
+  z-index: 10;
+  color: #000;
+
+  .layerArea {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    h2.title {
+      font-size: .3rem;
+      height: 1rem;
+      line-height: 1rem;
+      background: #fed631;
+      text-align: center;
+      font-weight: normal;
+      position: relative;
+
+      span {
+        position: absolute;
+        left: .5rem;
+        top: .3rem;
+        line-height: normal;
+
+        &:nth-of-type(2) {
+          left: auto;
+          right: .5rem;
+        }
+      }
+    }
+  }
+  .mask {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #111;
+    opacity: 0;
+  }
+}

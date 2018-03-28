@@ -1,0 +1,176 @@
+$grey89:#898989;
+$grey72:#727272;
+$white: #fff;
+$black: #000;
+$grey5:#e5e5e5;
+$yellow: #fdd631;
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+%area {
+  border: 1px solid $grey72;
+  padding: 0 .24rem;
+  background: $white;
+  border-radius: .1rem;
+}
+.bor_n {
+  border: none !important;
+}
+body {
+  font-size: .36rem;
+  color: $grey89;
+  background: #f4f4f4;
+}
+#J_insurance {
+  @extend body;
+  padding-bottom: .4rem;
+
+  input[placeholder], [placeholder], *[placeholder], ::-webkit-input-placeholder {
+    color: $grey89;
+  }
+  &.fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+    width: 100%;
+    min-height: 100%;
+  }
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+  }
+  .detail {
+    //padding-top: 1rem;
+    background-color: $white;
+    font-size: .26rem;
+    padding-bottom: .2rem;
+    color: $black;
+
+    &.ota {
+      padding-top: 1rem;
+    }
+    img {
+      padding-bottom: .2rem;
+      height: 2.45rem;
+    }
+    p {
+      line-height: 160%;
+      padding: 0 .28rem;
+    }
+  }
+  .con {
+    padding: .3rem .28rem .68rem;
+    font-size: .36rem;
+
+    ul, dl {
+      @extend %area;
+    }
+    input {
+      font-size: .36rem;
+      color: $black;
+
+      &.flightNo {
+        text-transform: uppercase;
+        color: $black;
+      }
+    }
+    ul {
+      margin-bottom: .1rem;
+
+      li {
+        line-height: 1.23rem;
+        border-bottom: 1px solid $grey5;
+        display: flex;
+
+        input.date {
+          text-align: left;
+          display: block;
+          flex: 1;
+          line-height: 1.23rem;
+        }
+        span {
+          flex: 1;
+          display: block;
+
+          &.date {
+            color: $black;
+          }
+          &:nth-of-type(1) {
+            flex: none;
+            width: 35%;
+          }
+          em {
+            color: $grey89;
+          }
+        }
+      }
+    }
+    dl {
+      display: flex;
+      line-height: .9rem;
+      margin-top: .3rem;
+
+      dt {
+        width: 35%;
+        display: block;
+      }
+      dd {
+        flex: 1;
+        display: block;
+
+        &.name {
+          color: $black;
+          word-wrap: break-word;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+
+          em {
+            color: $grey89;
+          }
+        }
+        &:nth-of-type(2) {
+          flex: none;
+          text-align: center;
+          position: relative;
+          right: 0;
+
+          img {
+            width: .38rem;
+          }
+        }
+      }
+    }
+  }
+  .ok {
+    display: block;
+    height: .98rem;
+    line-height: .98rem;
+    text-align: center;
+    background: $yellow;
+    color: #000;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+}
+.J-toScroll {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  bottom: 1rem;
+  width: 100%;
+  //height: 100%;
+  overflow: hidden;
+}

@@ -29,27 +29,6 @@
     </div>
 {% endif %}
 
-<ul class="nav">
-    {% if cityService.hasDailyservice == 1 %}
-        <li class="nav-car">
-            <b class="icon-ioc100"></b>
-            <span>按天包车游</span>
-        </li>
-    {% endif %}
-    {% if cityService.hasAirporService == 1 %}
-        <li class="nav-plane">
-            <b class="icon-ioc98"></b>
-            <span>接送机</span>
-        </li>
-    {% endif %}
-    {% if cityService.hasSingleService == 1 %}
-        <li class="nav-single">
-            <b class="icon-ioc103"></b>
-            <span>单次接送</span>
-        </li>
-    {% endif %}
-</ul>
-
 {% if goodsCount %}
     <div class="line-count">
         <b class="icon-ioc103"></b>{{goodsCount}}种包车游线路或玩法</div>

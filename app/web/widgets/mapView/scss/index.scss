@@ -1,0 +1,75 @@
+html,
+body,
+.wrap {
+  height: 100%;
+  width: 100%;
+}
+
+.J-map-view {
+  position: relative;
+  width: 100%;
+  .amap-marker {
+    .marker-route {
+      position: absolute;
+      width: .4rem;
+      height: .5rem;
+      color: #33CCCC;
+      font-size: .22rem;
+      background: url('../images/poi-bg.png') no-repeat left bottom;
+      background-size: .4rem .5rem;
+      cursor: pointer;
+      text-align: center;
+      padding-top: .04rem;
+    }
+  }
+  .amap-logo,
+  .amap-copyright {
+    display: none !important;
+  }
+  .amap-container {
+    .info-window {
+      background: #fff;
+      width: 2.16rem;
+      height: .8rem;
+      line-height: .8rem;
+      text-align: center;
+      border-radius: .04rem;
+      box-shadow: 0 .06rem .1rem rgba(152, 152, 152, .5);
+      display: flex;
+      align-items: center;
+      font-size: .26rem;
+      .info-left {
+        flex: none;
+        flex-basis: 1.2rem;
+        flex-grow: 0;
+      }
+      .info-left,
+      .info-right {
+        flex: 1;
+        display: block;
+      }
+      .info-right {
+        position: relative;
+        text-align: center;
+        line-height: .8rem;
+        &:after {
+          position: absolute;
+          content: '';
+          left: 50%;
+          bottom: -.15rem;
+          transform: translateX(-50%);
+          border-width: .08rem;
+          border-style: solid;
+          border-color: #fff transparent transparent transparent;
+        }
+      }
+      img {
+        border-radius: .04rem;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        width: 1.2rem !important;
+        height: .8rem !important;
+      }
+    }
+  }
+}

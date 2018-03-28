@@ -1,0 +1,696 @@
+$base: #09B6F2;
+$white: #fff;
+$black: #111;
+$red: #F63308;
+$col-c: #ccc;
+$imp: !important;
+%button-normal {
+    border: 1px solid $base;
+    border-radius: .4rem;
+    background: $white;
+    color: $base;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+%button-small {
+    @extend %button-normal;
+    font-size: .26rem;
+    border-radius: .24rem;
+    height: .48rem;
+    line-height: .48rem;
+}
+
+.J-iscbc {
+    // introduce.html
+    /* .title .quo {
+    color: $base
+  } */
+    .foot-btn button {
+        @extend %button-normal;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+    // userInfo.html
+    .page-user-info {
+        .user-coupon div.coupon {
+            display: none;
+            border: 1px solid $base;
+            /* em {
+          background-color: $base;
+          color: $white;
+        } */
+        }
+    }
+    // orderList.html
+    .page-order-list {
+        .order-title span {
+            color: $base
+        }
+    }
+    // widgets/coupon
+    .coupon-item {
+        border: 2px solid $base;
+        strong {
+            color: $base;
+        }
+        p {
+            a {
+                border-left: 2px solid $base;
+            }
+        }
+    }
+    .coupon-item-cancel {
+        border: 1px solid $base;
+    }
+    .coupon-list {
+        .check {
+            b {
+                background-color: $base;
+            }
+            strong {
+                background-color: $base;
+                color: $white;
+            }
+        }
+    }
+    // insure.html
+    #J_common {
+        .add {
+            @extend %button-normal;
+        }
+    }
+    // widgets/insurance/edit
+    #J_editInfo {
+        .con {
+            padding: 0;
+            ul {
+                border: none;
+            }
+            #okBtn {
+                @extend %button-normal;
+            }
+        }
+    }
+    // widgets/insurance/index
+    #J_insurance {
+        .con {
+            padding: .3rem 0 .68rem;
+            ul,
+            dl {
+                border: none;
+                border-radius: 0;
+            }
+        }
+        .ok {
+            @extend %button-normal;
+            margin-bottom: 1px;
+        }
+    }
+    // daily.html
+    .box {
+        border-radius: 0;
+        width: auto;
+    }
+    .menu {
+        li.check {
+            color: $base;
+            border-bottom: 3px solid $base
+        }
+    }
+    .item-list {
+        li i {
+            border: 1px solid $base
+        }
+    }
+    .choose {
+        @extend %button-normal;
+    }
+    // widgets/newSearchCity
+    .search-con {
+        ul em {
+            color: $base
+        }
+    }
+    // widgets/selectPeople
+    .passenger {
+        header {
+            background: $base;
+            color: $white;
+            h2 {
+                color: $white
+            }
+            a {
+                color: $white
+            }
+        }
+    }
+    // widgets/newdatepicker
+    .can {
+        .can-main {
+            h2 {
+                background: $base;
+                color: $white;
+            }
+            .can-days {
+                h2 {
+                    background: $white;
+                    color: $black;
+                }
+                .can-day {
+                    li {
+                        &.can-active,
+                        &.can-active-start,
+                        &.can-active-end {
+                            em {
+                                background: $base;
+                                color: $white;
+                            }
+                            i {
+                                color: $base;
+                            }
+                            &:before {
+                                background-color: rgba(9, 182, 242, 0.4);
+                                z-index: -1;
+                            }
+                        }
+                        &.can-active-start.can-only-start,
+                        &.can-active-start.can-active-end {
+                            &:before {
+                                background: none;
+                            }
+                        }
+                        &.can-range {
+                            em {
+                                background-color: rgba(9, 182, 242, 0.4)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // widgets/cityTips
+    .layerSelect .conArea h2 {
+        background: $base;
+        color: $white;
+    }
+    // car.html
+    .info {
+        h2 {
+            border-bottom: 1px solid $base
+        }
+        .info-single,
+        .info-sku {
+            li b {
+                color: $base
+            }
+        }
+    }
+    .list-item-order {
+        button {
+            @extend %button-small;
+            width: 1.1rem;
+        }
+    }
+    .list-item {
+        border: none;
+        width: auto;
+        border-radius: 0;
+    }
+
+    .list-item-checked{
+        background: $base;
+        border: 1px solid $base;
+    }
+
+    .sku-car .sku-price-confirm .skucar-next-btn{
+        background-color: $base;
+    }
+
+
+
+    // orderForm.html
+    #orderForm {
+        .detial {
+            &.confirm {
+                h2 {
+                    border-bottom: 1px solid $base
+                }
+            }
+            ul li:before {
+                color: $base
+            }
+        }
+        .con {
+            padding: 0 0 .4rem;
+            .remark_area {
+                padding: .4rem 0 .7rem 0;
+            }
+            .info,
+            .remark_area textarea {
+                border: none;
+                border-radius: 0
+            }
+            .coupon pre.J-CouponRight {
+                display: none;
+            }
+            .coupon .J-CouponDes {
+                // display: none;
+                &.empty {
+                    display: block;
+                }
+            }
+            .coupon strong {
+                right: .2rem;
+            }
+        }
+        .count_area {
+            background: $white;
+            align-items: center;
+            &:before {
+                //content: '建行APP内支付，首单立减200';
+                font-size: 12px;
+                position: absolute;
+                top: -25px;
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+                width: 100%;
+                background-color: $base;
+                color: $white;
+            }
+            .count {
+                padding: 0 0 0 .3rem;
+                p {
+                    span {
+                        color: $red;
+                    }
+                }
+            }
+            .count,
+            .detail_btn {
+                background: none;
+                color: $black;
+            }
+            .confirm_btn {
+                @extend %button-normal;
+                margin-right: .3rem;
+            }
+        }
+        .order-price-pay {
+            background-color: #09b6f2;
+        }
+        .order-content {
+            .order-button-on{
+                background-image: url('../images/switch-on_ccb.png');
+            }
+        }
+        .order-coupon {
+            .coupon {
+                em {
+                    background-color: #09b6f2;
+                }
+            }
+        }
+    }
+    // widgets/coupon, widgets/insurance
+    .coupon,
+    #insurance {
+        border: none;
+        border-radius: 0
+    }
+    #insurance {
+        li:nth-of-type(1) span:nth-of-type(2) .turnBtn {
+            border: none $imp;
+            background: $col-c $imp;
+            width: .7rem $imp;
+            height: .4rem $imp;
+            &.open {
+                background: $base $imp;
+                i {
+                    left: auto $imp;
+                    right: 2px $imp;
+                }
+            }
+            i {
+                background: $white $imp;
+                width: .33rem $imp;
+                height: .33rem $imp;
+                border: none $imp;
+                left: 2px $imp;
+                top: 2px $imp;
+            }
+        }
+    }
+    // widgets/hmpicker
+    #J-DateTimePicker {
+        .da-wrap .da-title {
+            background-color: $base;
+            color: $white;
+        }
+    }
+    // widgets/header
+    header.header {
+        background-color: $base;
+        color: #ffffff;
+        .contact-show {
+            display: none $imp
+        }
+        b.back {
+           color: #ffffff;
+        }
+        h2 {
+            color: #ffffff;
+        }
+    }
+    // pickup.html & transfer.html
+    .plane {
+        .box {
+            width: auto;
+            border-radius: 0;
+        }
+        .plane-info {
+            .info-title {
+                li.active {
+                    border-bottom: 0.08rem solid $base;
+                    a {
+                        color: $base;
+                    }
+                }
+            }
+        }
+        .plane-car {
+            .cars {
+                .box-line {
+                    &.checked {
+                        .car-item {
+                            .radio {
+                                .out {
+                                    background-color: $base;
+                                }
+                            }
+                        }
+                    }
+                    .car-type {
+                        .detail {
+                            color: $base;
+                        }
+                    }
+                }
+            }
+        }
+        .plane-agreement {
+            margin: 0 0.4rem 0.6rem 0.4rem;
+        }
+        .plane-confirm {
+            &:before {
+                //content: '建行APP内支付，首单立减200';
+                font-size: 12px;
+                position: absolute;
+                top: -25px;
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+                width: 100%;
+                background-color: $base;
+                color: $white;
+            }
+            .confirm-box {
+                background: $white;
+                .price-info {
+                    background: none;
+                    color: $black;
+                    line-height: 1.3;
+                    padding: 0.15rem 0.3rem;
+                    width: 4.4rem;
+                    .J-actual-price {
+                        span {
+                            color: $red;
+                            font-size: .4rem;
+                        }
+                    }
+                    small {
+                        color: #151515;
+                    }
+                }
+                .submit {
+                    @extend %button-normal;
+                    margin: .2rem .3rem 0 0;
+                    float: right;
+                }
+            }
+        }
+        .plane-assist {
+            ul {
+                li {
+                    .turnBtn {
+                        width: .7rem;
+                        height: .4rem;
+                        background: $col-c;
+                        border: none;
+                        &.open {
+                            background: $base;
+                            i {
+                                left: auto;
+                                right: 2px;
+                            }
+                        }
+                        i {
+                            border: none;
+                            width: .33rem;
+                            height: .33rem;
+                            left: 2px;
+                            top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .chooseNo {
+        .con {
+            border-radius: 0;
+            margin: .18rem 0;
+            h3 {
+                span.selected {
+                    border-bottom: 0.08rem solid $base;
+                    color: $base;
+                }
+            }
+        }
+        .search-btn {
+            @extend %button-normal
+        }
+    }
+    // widgets/newSearchPlace
+    .city-nav {
+        .select {
+            color: $base;
+            &:before {
+                border-color: $base;
+            }
+        }
+    }
+    .city-main {
+        .list {
+            ul {
+                .fail {
+                    color: $base;
+                }
+            }
+        }
+    }
+    // single.html
+    .single-inputCity {
+        padding: 0;
+        width: auto;
+        text-align: left;
+        span {
+            text-align: left;
+            padding-left: 27px;
+        }
+    }
+    .single-box {
+        padding-top: 0;
+        >small {
+            top: .75rem;
+        }
+    }
+    &.J-P-android {
+        .single-button {
+            @extend %button-normal;
+            width: 5.2rem;
+        }
+    }
+    &.J-P-ios {
+        .single-button {
+            @extend %button-normal;
+            width: 5.2rem;
+            position: absolute;
+            left: 50%;
+            bottom: .7rem;
+            transform: translateX(-50%);
+        }
+    }
+    // customDemand.html
+    .demand .submit {
+        @extend %button-normal;
+    }
+    // insuranceSucc.html
+    .succ {
+        h2 {
+            background: url('https://fr-static.huangbaoche.com/20180305/success_cbc.b44026e01d99bc76.png') no-repeat center;
+            background-size: 1.73rem 1.73rem;
+        }
+        .download a {
+            @extend %button-small;
+        }
+    }
+    // widgets/download
+    .widget-download a {
+        @extend %button-small;
+    }
+    // city.html
+    .menu-select li.selected {
+        color: $base;
+    }
+    .menu-button button:last-child {
+        background-color: $base;
+        color: $white;
+    }
+    // detail.html
+    .details {
+        .list {
+            h5 {
+                border-left: 0.1rem solid $base;
+            }
+        }
+    }
+    .order-box button {
+        background-color: $base;
+        color: $white;
+    }
+    .price-num {
+        background: $base !important;
+        // @extend %button-normal
+    }
+    .J-detail .user-evaluate .checkAll {
+        @extend %button-small
+    }
+    // searchCity.html
+    .content {
+        .J-history span.his-tag {
+            border-left: 4px solid $base;
+            &:before {
+                background-color: $base;
+            }
+        }
+        .J-main {
+            .main-left {
+                li.selected {
+                    &:before {
+                        background-color: $base;
+                    }
+                }
+            }
+            .main-right {
+                .J-Sub-Wrap {
+                    li.has-sub.selected {
+                        &:before {
+                            background: $base;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .J-SearchWrap {
+        .searchContent {
+            i,
+            li.c-citySplit {
+                color: $base;
+            }
+            li.c-citySplit {
+                p .split-left-tag {
+                    background: $base;
+                }
+            }
+        }
+    }
+    // story.html
+    .book button {
+        @extend %button-normal;
+    }
+
+
+
+
+    // sku.html
+    .info-simple dl dd.info-simple-name {
+        border-bottom: 1px solid $base;
+    }
+    .info-select .info-select-box {
+        border: none;
+        a {
+            @extend %button-normal;
+        }
+    }
+    .next-btn .next-btn-content {
+        background-color: $base;
+    }
+    .WG-Canlendar-wrap .W-Can-main > div.W-Can-main-date .W-Can-main-date-wrap li.can-today, .WG-Canlendar-wrap .W-Can-main > div.W-Can-main-date .W-Can-main-date-wrap li.can-active-start, .WG-Canlendar-wrap .W-Can-main > div.W-Can-main-date .W-Can-main-date-wrap li.can-active-end, .WG-Canlendar-wrap .W-Can-main > div.W-Can-main-date .W-Can-main-date-wrap li.ui-select{
+        background-color: $base;
+    }
+
+
+    // line.html
+    .empty a {
+        @extend %button-small;
+    }
+    .header b.search {
+        display: none;
+    }
+    // login.html/reg.html/resetPw.html
+    .J_user {
+        .userInfo {
+            padding: 0 0 .4rem;
+        }
+        h2 span.selected {
+            border-bottom: 3px solid $base;
+        }
+    }
+    &.J-P-android {
+        .J_user {
+            .confirm_btn {
+                @extend %button-normal;
+                width: 5.2rem;
+            }
+        }
+    }
+    &.J-P-ios {
+        .J_user {
+            .confirm_btn {
+                @extend %button-normal;
+                width: 5.2rem;
+                position: absolute;
+                left: 50%;
+                bottom: .7rem;
+                transform: translateX(-50%);
+            }
+        }
+    }
+    // demandSucc.html
+    .J-succ {
+        h2 {
+            background: url('https://fr-static.huangbaoche.com/20180305/success_cbc.b44026e01d99bc76.png') no-repeat center;
+            background-size: 1.73rem 1.73rem;
+        }
+        .download a {
+            @extend %button-small;
+        }
+    }
+}

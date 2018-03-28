@@ -36,13 +36,13 @@ module.exports = {
         if (!error) {
             return {
                 status: 500,
-                message: '服务器忙翻了~',
+                message: '服务器忙翻了~'
             };
         }
         this.ctx.app.logger.error(error);
         return {
             status: 500,
-            message: `服务端异常,${error.path}  ${error.status}`,
+            message: `服务端异常,${error.path}  ${error.status}`
         };
-    },
+    }
 };

@@ -1,0 +1,27 @@
+.can-week{
+  position: fixed;
+  z-index: 2;
+  top: 0rem;
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 0.16rem;
+  line-height: 0.62rem;
+  border-bottom: 1px solid #c8c8c8;
+  background: #f7f7f7;
+  text-align: center;
+
+  &>ul{
+    overflow: hidden;
+    &>li{
+      float : left;
+      width : 14%;
+    }
+    &>li:first-of-type,&>li:last-of-type{
+      width: 15%;
+      color: #ff902d;
+    }
+  }
+}

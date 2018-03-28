@@ -19,7 +19,7 @@ class ComImg {
         this.version = '$1.0.5';
         this.option = option;
         this.data = {
-            name: this.name,
+            name: this.name
         };
         this.init();
     }

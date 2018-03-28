@@ -1,0 +1,113 @@
+#J-DateTimePicker {
+  font-size: 0.3rem;
+  position: fixed;
+  z-index: 200;
+  left: 0px;
+  width: 100%;
+  top: 0;
+  bottom: 0px;
+  color:#111;
+
+  .da-mask {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 9998;
+  }
+  .da-wrap {
+    background: #fff;
+    width: 100%;
+    // height: 269px;
+    margin: auto;
+    position: fixed;
+    overflow: hidden;
+    z-index: 9999;
+    left: 0;
+    bottom: 0;
+
+    .da-title {
+      display: flex;
+      height: 49px;
+      line-height: 49px;
+      background-color: #fed631;
+      color: #000000;
+
+      & > span {
+        display: inline-block;
+        padding: 0 10px;
+        //color: #0076ff;
+      }
+      & > p {
+        flex: 1;
+        text-align: center;
+      }
+    }
+    .da-main {
+      display: flex;
+      text-align: center;
+      height: 220px;
+      overflow: hidden;
+
+      .da-items.da-items-flex2 {
+        flex: 2;
+      }
+      .da-items {
+        flex: 1;
+        position: relative;
+        height: 220px;
+
+        & > ul {
+          //position: absolute;
+          //top: 0px;
+          //bottom: 0px;
+          //height: 100%;
+          //left: 0px;
+        }
+        li {
+          height: 44px;
+          line-height: 44px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .da-items-mask {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: -webkit-linear-gradient(#fff 0, rgba(245, 245, 245, 0) 52%, rgba(245, 245, 245, 0) 48%, #fff 100%);
+      }
+      .da-items-lines {
+        width: 100%;
+        height: 44px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -23px;
+        border-top: #dfdfdf 1px solid;
+        border-bottom: #dfdfdf 1px solid;
+      }
+    }
+    .tips {
+      font-size: .22rem;
+      color: #F5A623;
+      margin: .35rem .53rem .3rem .4rem;
+      padding-left: .16rem;
+      position: relative;
+
+      &:before {
+        content: '*';
+        position: absolute;
+        left: 0;
+        top: 0
+      }
+    }
+  }
+}

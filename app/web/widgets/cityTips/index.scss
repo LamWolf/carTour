@@ -1,0 +1,68 @@
+.layerSelect, #SearchCity {
+  position: fixed;
+  z-index: 11;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 7.5rem;
+}
+.layerSelect {
+  // position: fixed;
+  font-size: .3rem;
+  z-index: 10;
+  color: #000;
+
+  .conArea {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    h2, h3 {
+      font-size: .3rem;
+    }
+    h2 {
+      height: 1rem;
+      line-height: 1rem;
+      background: #fed631;
+      text-align: center;
+      font-weight: normal;
+    }
+    .conList {
+      background: #fff;
+      border-top: 1px solid #979797;
+      padding: .34rem;
+      font-size: .28rem;
+      font-family: PingFang SG Light;
+
+      ul li {
+        padding-bottom: .34rem;
+        border-bottom: 1px solid #D2D2D2;
+        margin-bottom: .3rem;
+
+        p {
+          padding: .08rem 0 0;
+          text-align: justify;
+          color: #999
+        }
+        &:last-child {
+          margin: 0;
+          border: none;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+  .mask {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #111;
+    opacity: 0;
+  }
+}

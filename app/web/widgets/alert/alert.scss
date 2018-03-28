@@ -1,0 +1,71 @@
+body.forbiden-scroll {
+  overflow: hidden;
+}
+
+.pop_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.pop_main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 6rem;
+  z-index: 2000;
+  transform: translate(-50%, -50%);
+  width: 5.1rem;
+  z-index: 2000;
+  .pop_msg {
+    background-color: #ffffff;
+    z-index: 2000;
+    border-radius: 0.14rem;
+    font-size: 0;
+    .cont {
+      line-height: 0.36rem;
+      font-size: 0.26rem;
+      color: #6C6B6B;
+      padding: 0.45rem 0.3rem;
+      text-align: center;
+      white-space: pre-line;
+    }
+    .btn_content {
+      height: 0.9rem;
+      margin: 0 0.2rem;
+      padding: .15rem 0;
+      border-top: 1px solid #E5E5E5;
+      display: flex;
+      span {
+        line-height: 0.6rem;
+        display: block;
+        background-color: #ffffff;
+        font-size: 0.32rem;
+        text-align: center;
+        flex: 1;
+      }
+      .cancel_btn {
+        border-right: 1px solid #E5E5E5;
+        text-align: center;
+      }
+      .msg_btn {
+        color: #FFAF00;
+      }
+    } // button {
+    //   display: block;
+    //   height: 0.9rem;
+    //   font-size: 0.32rem;
+    //   color: #FFAF00;
+    //   background-color: #ffffff;
+    //   line-height: 0.9rem;
+    //   text-align: center;
+    //   width: 4.7rem;
+    //   margin: 0 0.2rem;
+    //   border-top: 1px solid #E5E5E5;
+    // }
+  }
+}

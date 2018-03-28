@@ -1,0 +1,65 @@
+.pop_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  .pop_msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6rem;
+    //margin-top: -2.8rem;
+    margin-left: -3rem;
+    background: #ffffff;
+    z-index: 2000;
+    border-radius: 6px;
+    transform: translateY(-50%);
+    .cont {
+      line-height: 1;
+      padding: .2rem;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      font-size: .32rem;
+      text-align: center;
+      color: black;
+      p {
+        font-size: .26rem;
+        line-height: 1;
+        margin-bottom: .2rem;
+        text-align: left;
+      }
+      p span {
+        color: #fcc91a;
+      }
+    }
+    button {
+      width: 100%;
+      border: 1px solid #fcc91a;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      border-top: 1px solid #f0bb00;
+      line-height: 2;
+      background: #fcc91a;
+      color: #370005;
+      font-size: .36rem;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+  .close {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-size: 2em;
+    color: #fff;
+  }
+  .comment_detail {
+    padding: 4em 2em 2em;
+    line-height: 2;
+    font-size: 1.2em;
+    color: #fff;
+  }
+}

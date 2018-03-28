@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+    color: #111;
+    font-family: PingFangSC-Regular, Helvetica, sans-serif;
+    // text-align: center;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wrap {
+    max-width: 7.5rem;
+    margin: 0 auto;
+}
+
+.hide {
+    display: none;
+}
+
+.guide-big-album {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 7.5rem;
+    height: 100%;
+    overflow: hidden;
+    margin-left: -3.75rem;
+    background: #333;
+    z-index: 6000;
+    .iosBar {
+        display: none;
+    }
+    &.iosBarHeight {
+        .iosBar {
+            display: block;
+            height: 0.4rem;
+            background-color: #fff;
+        }
+        .swiper-pagination-fraction {
+            bottom: 0.6rem;
+        }
+    }
+    .image-div {
+        width: 7.5rem;
+        height: 100%;
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    .album-head {
+        position: relative;
+        line-height: .88rem;
+        text-align: center;
+        font-size: .3rem;
+        background: #fff;
+        z-index: 6000;
+    }
+    .album-cont {
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+        position: relative;
+        margin-top: -.88rem;
+        .ablum-swiper-container {
+            height: 100%;
+            .swiper-wrapper {
+                height: 100%;
+            }
+            .swiper-slide {
+                height: 100%;
+                position: relative;
+            }
+            .swiper-pagination-fraction {
+                font-size: .36rem;
+                color: #ededed;
+            }
+            .swiper-pagination-bullet {
+                width: 10px;
+                height: 10px;
+                background: #fff;
+                opacity: .3;
+            }
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: auto;
+                margin-top: -50%;
+                margin-left: -50%;
+                vertical-align: middle;
+            }
+        }
+    }
+    .album-close {
+        position: absolute;
+        top: 50%;
+        left: .05rem;
+        width: .8rem;
+        margin-top: -.4rem;
+        line-height: .8rem;
+        text-align: center;
+        font-size: .3rem;
+        cursor: pointer;
+    }
+    h2 {
+        font-size: .34rem;
+    }
+}

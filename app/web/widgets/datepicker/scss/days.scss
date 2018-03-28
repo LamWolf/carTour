@@ -1,0 +1,80 @@
+.can-days {
+  margin-top: 2rem;
+  background : #fff;
+  h2 {
+    height: 0.5rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.28rem;
+    line-height: 0.5rem;
+    background: #fff;
+  }
+  .can-day {
+    overflow: hidden;
+    & > li {
+      float: left;
+      width: 14%;
+      height: 1rem;
+      padding: 0.1rem 0;
+      font-weight: 400;
+      font-size: 0.30rem;
+      line-height: 0.8rem;
+      overflow: hidden;
+      text-align: center;
+      color : #000;
+    }
+    & > li:nth-of-type(7n),  & > li:nth-of-type(7n+1) {
+      width: 15%;
+      color: #ff902d;
+    }
+
+    li.can-invalid{
+      color : #cfcfcf;
+    }
+    li.can-today,li.can-active-start,li.can-active-end{
+      background-color: #fdd631;
+      color : #fff;
+      font-size : 0.18rem;
+      &>em{
+        line-height : 0.4rem;
+        display: block;
+      }
+      &>i{
+        line-height : 0.4rem;
+        height : 0.4rem;
+        display: block;
+      }
+    }
+    li.can-today{
+      &>i:before{
+        content : '今天';
+        text-align: center;
+        font-style : normal;
+      }
+    }
+    li.can-active-start{
+      &>i:before{
+        content : '开始';
+        text-align: center;
+        font-style : normal;
+      }
+    }
+    li.can-active-end{
+      &>i:before{
+        content : '结束';
+        text-align: center;
+        font-style : normal;
+      }
+    }
+
+    li.can-range{
+      background-color : rgba(253,214,49,0.5);
+      color : #fff;
+    }
+    li.can-active,li.can-active-start,li.can-active-end{
+      background-color: #fdd631;
+      color : #fff;
+      font-size : 0.18rem;
+    }
+  }
+}

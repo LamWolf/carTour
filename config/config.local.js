@@ -10,5 +10,9 @@ module.exports = appInfo => {
         watchDirs: [ 'app', 'lib' ],
         ignoreDirs: [ 'app/web', 'app/public' ]
     };
+    exports.static = {
+        prefix: '/'
+    };
+
     return config;
 };

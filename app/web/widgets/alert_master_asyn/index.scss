@@ -1,0 +1,101 @@
+.pop_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  .pop_msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5.14rem;
+    background: #ffffff;
+    z-index: 2000;
+    border-radius: 6px;
+    padding: .6rem;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    &.pop_wrap_err{
+      .pop_title_img{
+        background : url(./error.png) no-repeat center;
+        background-size: 100%;
+      }
+    }
+    &.pop_wrap_succ{
+      .pop_title_img{
+        background : url(./succ.png) no-repeat center;
+        background-size: 100%;
+      }
+      .pop_title>p{
+        color : #FFC100;
+      }
+    }
+    .pop_close_btn{
+      position: absolute;
+      left: .25rem;
+      top: .25rem;
+      width: .26rem;
+      height: .26rem;
+      background : url(./close.png) no-repeat center;
+      background-size : 100%;
+    }
+    .pop_title{
+      .pop_title_img{
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: auto;
+      }
+      &>p{
+        margin-top: .2rem;
+      }
+    }
+    .cont {
+      line-height: 1;
+      padding: .2rem;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      text-align: center;
+      font-family: PingFangSC-Regular;
+      font-size: .26rem;
+      color: #151515;
+      margin : 1.45rem -.6rem .55rem -.6rem;
+      p {
+        font-size: .26rem;
+        text-align: center;
+        line-height: 1.2;
+        margin-bottom: .1rem;
+      }
+      p span {
+        color: #FF2525;
+      }
+    }
+    button {
+      width: 3rem;
+      margin : auto;
+      border: 1px solid #929292;
+      border-radius: 40px;
+      line-height: 2;
+      cursor: pointer;
+      outline: none;
+      font-family: PingFangSC-Regular;
+      font-size: .24rem;
+      color: #666666;
+      letter-spacing: 0;
+    }
+  }
+  .close {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-size: 2em;
+    color: #fff;
+  }
+  .comment_detail {
+    padding: 4em 2em 2em;
+    line-height: 2;
+    font-size: 1.2em;
+    color: #fff;
+  }
+}

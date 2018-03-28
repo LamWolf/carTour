@@ -7,7 +7,8 @@ class HomeController extends Controller {
             ctx
             /* ,logger */
         } = this;
-        await ctx.render('error/404.html', {});
+        // await ctx.render('error/404.html', {});
+        ctx.body = 'hi, egg';
         console.log(this.ctx);
     }
 }

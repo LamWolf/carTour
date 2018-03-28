@@ -80,7 +80,7 @@ class UserAgent {
             'guzzlehttp',
             'vkshare',
             'discordbot',
-            'whatsapp',
+            'whatsapp'
         ];
     }
 
@@ -109,7 +109,7 @@ class UserAgent {
             UC: /UCBrowser\/([\d\w\.]+)/i,
             Hbcg: /Hbcg\/([\d\w\.\-]+)/i,
             Hbcc: /Hbcc\/([\d\w\.\-]+)/i,
-            weChat: /micromessenger\/([\d\w\.\-]+)/i,
+            weChat: /micromessenger\/([\d\w\.\-]+)/i
         };
     }
     static get browsers() {
@@ -134,7 +134,7 @@ class UserAgent {
             Firefox: /firefox/i,
             WinJs: /msapphost/i,
             PhantomJS: /phantomjs/i,
-            UC: /UCBrowser/i,
+            UC: /UCBrowser/i
         };
     }
 
@@ -174,7 +174,7 @@ class UserAgent {
             iPad: /\(iPad.*os (\d+)[._](\d+)/i,
             iPhone: /\(iPhone.*os (\d+)[._](\d+)/i,
             Bada: /Bada\/(\d+)\.(\d+)/i,
-            Curl: /curl\/(\d+)\.(\d+)\.(\d+)/i,
+            Curl: /curl\/(\d+)\.(\d+)\.(\d+)/i
         };
     }
 
@@ -192,7 +192,7 @@ class UserAgent {
             Android: /android/i,
             Blackberry: /blackberry/i,
             Samsung: /samsung/i,
-            Curl: /curl/i,
+            Curl: /curl/i
         };
     }
 
@@ -248,7 +248,7 @@ class UserAgent {
             os: 'unknown',
             platform: 'unknown',
             geoIp: {},
-            source: '',
+            source: ''
         };
     }
 

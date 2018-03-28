@@ -1,0 +1,253 @@
+body {
+  font-size: .36rem;
+  background: #f4f4f4;
+}
+.hide {
+  display: none
+}
+#J-SelectPeople {
+  @extend body;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  min-height: 100%;
+  width: 100%;
+
+  .J_se_con {
+    padding: .27rem;
+    padding-bottom: 0;
+
+    .select_area {
+      background: #fff;
+      border-radius: .1rem;
+      border: 1px solid #727272;
+      padding: .36rem .5rem;
+
+      h2 {
+        padding-bottom: .48rem;
+        font-weight: normal;
+        font-size: .36rem;
+      }
+      ul li {
+        padding-bottom: .7rem;
+
+        &:nth-of-type(3) {
+          padding-bottom: 0;
+        }
+        dl {
+          display: flex;
+
+          dt, dd {
+            position: relative;
+            display: block;
+          }
+          dt {
+            padding-left: .65rem;
+            flex: 1;
+
+            em {
+              font-size: .5rem;
+              color: #888;
+              position: absolute;
+              left: 0;
+              top: -.05rem;
+
+              &:before {
+                vertical-align: middle;
+              }
+            }
+            i {
+              position: absolute;
+              left: .65rem;
+              bottom: -.35rem;
+              font-size: .26rem;
+              color: #898989;
+            }
+          }
+          dd {
+            display: inline;
+            text-align: right;
+
+            span {
+              float: left;
+              width: .38rem;
+              height: .48rem;
+              padding: .33rem;
+
+              &:nth-of-type(2) {
+                width: 1rem;
+                padding: 0;
+              }
+              &.reduce {
+                background: url('../img/reduce.png') no-repeat center;
+                background-size: .38rem .38rem;
+              }
+              &.plus {
+                background: url('../img/plus.png') no-repeat center;
+                background-size: .38rem .38rem;
+              }
+              &:nth-of-type(2) {
+                em {
+                  position: relative;
+                  top: -.02rem;
+                  border: none;
+                  font-size: .48rem;
+                  text-align: center;
+                  width: 100%;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+        &:nth-of-type(3) dl dt {
+          em {
+            font-size: .6rem;
+          }
+        }
+      }
+    }
+    p {
+      font-size: .27rem;
+      color: #898989;
+      padding: .24rem 0 0;
+    }
+    #ok {
+      display: block;
+      background: #fdd545;
+      text-align: center;
+      margin-top: .5rem;
+      height: 1rem;
+      line-height: 1rem;
+    }
+  }
+}
+.passenger-wapper {
+  position: fixed;
+  z-index: 11;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 7.5rem;
+
+  .mask {
+    position: fixed;
+    z-index: 12;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #111;
+    opacity: 0;
+  }
+}
+.passenger {
+  position: fixed;
+  z-index: 13;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #111;
+
+  header {
+    height: 1rem;
+    line-height: 1rem;
+    background: #fed631;
+    text-align: center;
+    font-weight: normal;
+    position: relative;
+    text-align: center;
+
+    h2 {
+      font-size: 0.3rem;
+      color: #111;
+    }
+    a {
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 0.28rem;
+      position: absolute;
+      top: 0;
+    }
+    a.cancel {
+      left: 0.5rem;
+    }
+    a.confirm {
+      right: 0.5rem;
+    }
+  }
+  .passenger-content {
+    background-color: #ffffff;
+    padding: 0.34rem;
+
+    ul {
+      padding-bottom: 0.3rem;
+    }
+    li {
+      height: 0.7rem;
+      line-height: 0.7rem;
+      padding-top: 0.5rem;
+      margin-left: 0.5rem;
+      margin-bottom: 0.7rem;
+
+      span {
+        display: inline-block;
+        height: 0.7rem;
+        line-height: 0.7rem;
+        position: relative;
+        font-size: 0.36rem;
+
+        b {
+          position: absolute;
+          left: 0;
+          top: 0.04rem;
+          font-size: 0.6rem;
+        }
+        strong {
+          font-weight: normal;
+        }
+        small {
+          position: absolute;
+          left: 0.7rem;
+          bottom: -0.4rem;
+          font-size: 0.28rem;
+          color: #d2d2d2;
+        }
+        var {
+          display: block;
+          width: 0.5rem;
+          height: 0.5rem;
+          line-height: 0.4rem;
+          font-size: 0.4rem;
+          color: #999999;
+          border: 1px solid #999999;
+          border-radius: 0.5rem;
+        }
+        &:first-child {
+          width: 3rem;
+          padding-left: 0.7rem;
+          top: 0.04rem;
+        }
+        &:last-child {
+          width: 2rem;
+          margin-left: 1rem;
+          text-align: center;
+
+          var.reduce {
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+          }
+          var.plus {
+            position: absolute;
+            right: 0;
+            top: 0.1rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+%before {
+  content: '';
+  width: 50%;
+  height: .46rem;
+  line-height: .46rem;
+  display: block;
+  background-color: rgba(254, 214, 49, 0.4);
+  position: absolute;
+  right: 0;
+  top: .08rem;
+}
+%em {
+  width: .6rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  margin: 0 auto;
+  color: #111;
+  display: block;
+  background: #FED631 100%;
+  border-radius: 50%;
+  font-size: .28rem;
+}
+.can-days {
+  margin-top: .1rem;
+  background: #fff;
+  padding-bottom: 2.1rem;
+
+  h2 {
+    height: 0.5rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.3rem;
+    line-height: 0.5rem;
+    background: #fff;
+  }
+  .can-day {
+    overflow: hidden;
+    padding-top: .1rem;
+
+    & > li {
+      float: left;
+      width: 14%;
+      height: .93rem;
+      padding: 0;
+      font-weight: 400;
+      font-size: 0.28rem;
+      line-height: 0.8rem;
+      overflow: hidden;
+      text-align: center;
+      color: #000;
+
+      em {
+        display: block;
+        height: .6rem;
+        line-height: .6rem;
+      }
+    }
+    & > li:nth-of-type(7n), & > li:nth-of-type(7n+1) {
+      width: 15%;
+      color: #ff902d;
+    }
+    li.can-invalid {
+      color: #cfcfcf;
+    }
+    li.can-today, li.can-active-start, li.can-active-end {
+      color: #fff;
+      font-size: 0.2rem;
+
+      &>em {
+        @extend %em;
+      }
+      &>i {
+        line-height: 0.4rem;
+        height: 0.4rem;
+        display: block;
+        color: #fdd631;
+      }
+    }
+    li.can-today {
+      em {
+        background: none
+      }
+
+      /* &>i:before {
+        content: '今天';
+        text-align: center;
+        font-style: normal;
+      } */
+    }
+    li.can-active-start {
+      position: relative;
+
+      &:before {
+        @extend %before
+      }
+      &>i:before {
+        content: '开始';
+        text-align: center;
+        font-style: normal;
+      }
+      &.can-only-start {
+        &:before {
+          background: none
+        }
+      }
+    }
+    li.can-active-end {
+      position: relative;
+
+      &:before {
+        @extend %before;
+        right: auto;
+        left: 0;
+      }
+      &>i:before {
+        content: '结束';
+        text-align: center;
+        font-style: normal;
+      }
+    }
+    li.can-active-start.can-active-end {
+      &:before {
+        background: none
+      }
+      &>i:before {
+        content: '开始 结束';
+        text-align: center;
+        font-style: normal;
+      }
+    }
+    li.can-active.can-today,li.can-active-start.can-today {
+      em {
+        background: #FED631 100%;
+      }
+    }
+    li.can-range {
+      em {
+        background-color: rgba(254, 214, 49, .4);
+        color: #111;
+        display: block;
+        height: .46rem;
+        line-height: .46rem;
+        margin-top: .08rem;
+      }
+    }
+    li.can-active, li.can-active-start, li.can-active-end {
+      color: #fff;
+      font-size: 0.2rem;
+    }
+    li.can-active {
+      &>em {
+        @extend %em;
+      }
+    }
+  }
+}
