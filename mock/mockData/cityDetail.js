@@ -39,55 +39,6 @@ module.exports = {
                 arrCityName: '柏林',
                 characteristicLables: [
                     {
-                        lableName: '按固定线路游玩',
-                        lableType: 3
-                    }
-                ],
-                daysCount: 5,
-                depCityId: 131,
-                depCityName: '柏林',
-                goodsClass: 1,
-                goodsName: '东德巡礼 | 柏林→莱比锡→德累斯顿 中文5日包车游，柏林往返',
-                goodsNo: 'LT1173600015',
-                goodsPics: [ 'https://hbcdn.huangbaoche.com/fr-hd/Dtt-Sysx0A0!m' ],
-                goodsPicture: 'https://hbcdn.huangbaoche.com/fr-hd/Dtt-Sysx0A0!m',
-                goodsType: 7,
-                goodsVersion: 7,
-                guideAmount: 94,
-                headLable: '超省心',
-                hotelCostAmount: 0,
-                hotelCostPrice: 0,
-                hotelStatus: 0,
-                passbyCitys: [
-                    {
-                        passbyId: 131,
-                        passbyName: '柏林'
-                    }, {
-                        passbyId: 131,
-                        passbyName: '柏林'
-                    }, {
-                        passbyId: 1329,
-                        passbyName: '莱比锡'
-                    }, {
-                        passbyId: 1082,
-                        passbyName: '德累斯顿'
-                    }, {
-                        passbyId: 131,
-                        passbyName: '柏林'
-                    }
-                ],
-                perPrice: 3703,
-                places: '柏林-柏林',
-                publishStatus: 0,
-                salePoints: '在柏林游览柏林大教堂；德国历史博物馆了解德国历史；去莱比锡参观巴赫博物馆；在萨克森小瑞士国家公园感受德国壮丽美景。',
-                shareURL: 'https://m.huangbaoche.com/app/detail.html?t=1521706529630&goodsNo=LT1173600015',
-                skuDetailUrl: 'https://m.huangbaoche.com/app/detail.html?t=1521706529630&goodsNo=LT1173600015',
-                transactionVolumes: 35
-            }, {
-                arrCityId: 131,
-                arrCityName: '柏林',
-                characteristicLables: [
-                    {
                         lableName: '每日10小时300公里畅游',
                         lableType: 4
                     }, {
