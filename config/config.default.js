@@ -8,7 +8,7 @@ module.exports = appInfo => {
     config.keys = appInfo.name + '_1520651248505_291';
 
     // add your config here
-    config.middleware = [ 'useragent' ];
+    config.middleware = ['useragent'];
 
     config.view = {
         mapping: {
@@ -29,6 +29,16 @@ module.exports = appInfo => {
     config.security = {
         csrf: {
             headerName: 'x-csrf-token' // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
+        }
+    };
+
+    exports.mongoose = {
+        clients: {
+            // clientId, access the client instance by app.mongooseDB.get('clientId')
+            city: {
+                url: 'mongodb://localhost:27017/carTour',
+                options: {}
+            }
         }
     };
 

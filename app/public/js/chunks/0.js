@@ -1,9 +1,10 @@
-webpackJsonp([ 0 ], {
+webpackJsonp([0],{
 
-/** */ 46(module, exports) {
+/***/ 46:
+/***/ (function(module, exports) {
 
-        // removed by extract-text-webpack-plugin
+// removed by extract-text-webpack-plugin
 
-        /** */ }
+/***/ })
 
 });

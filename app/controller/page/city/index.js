@@ -30,17 +30,17 @@ class CityIndexController extends Controller {
             return;
         }
 
-        const cityObj = {
-            cityId: 101,
-            cityHeadPicSize: 750, // 城市头图图片大小（默认201）
-            themeId: 0, // 主题ID 多选逗号分隔，不限传0
-            daysCountMin: 0, // 包车天数最小值（1天时传1，多天时传2，不限传0）
-            daysCountMax: 0, // 包车天数最大值（1天时传1，多天时传0，不限传0）
-            goodsClass: 0, // 商品类型：1，超省心（固定线路）；2，超自由（推荐线路）；不限传0
-            offset: 0,
-            limit: 10
-        };
-        const data = await service.city.index.index(cityObj);
+        // const cityObj = {
+        //     cityId: 101,
+        //     cityHeadPicSize: 750, // 城市头图图片大小（默认201）
+        //     themeId: 0, // 主题ID 多选逗号分隔，不限传0
+        //     daysCountMin: 0, // 包车天数最小值（1天时传1，多天时传2，不限传0）
+        //     daysCountMax: 0, // 包车天数最大值（1天时传1，多天时传0，不限传0）
+        //     goodsClass: 0, // 商品类型：1，超省心（固定线路）；2，超自由（推荐线路）；不限传0
+        //     offset: 0,
+        //     limit: 10
+        // };
+        const data = await service.city.index.index(cityId);
         const { status, data: cityData } = data.cityDetail;
         let renderData = {};
         if (status === 200) {

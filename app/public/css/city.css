@@ -1346,7 +1346,7 @@ div.menu {
   border-bottom: 1px solid #e5e5e5;
   position: absolute;
   left: 0;
-  top: 7rem;
+  top: 5.2rem;
   z-index: 11;
   /* 下层的蒙板10 */
   -webkit-transform: translate3d(0, 0, 0); }
