@@ -8,7 +8,7 @@ module.exports = appInfo => {
     config.keys = appInfo.name + '_1520651248505_291';
 
     // add your config here
-    config.middleware = ['useragent'];
+    config.middleware = [ 'useragent' ];
 
     config.view = {
         mapping: {

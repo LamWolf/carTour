@@ -60,7 +60,7 @@ class CityIndexService extends Service {
                         goodses: goodses.goodses
                     },
                     status
-                }
+                };
                 return {
                     client,
                     cityDetail
