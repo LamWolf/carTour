@@ -1,5 +1,5 @@
 const Apis = require('../lib/apis');
-const Http = require('../lib/httpReq');
+// const Http = require('../lib/httpReq');
 
 module.exports = appInfo => {
     const config = exports = {};
@@ -43,6 +43,6 @@ module.exports = appInfo => {
     };
 
     config.apis = new Apis('test');
-    config.http = new Http();
+    // config.http = new Http();
     return config;
 };

@@ -37,21 +37,21 @@ class CityBaseService extends Service {
         }
     }
 
-    async cityService(cityId) {
-        const { ctx } = this;
-        const { helper } = ctx;
-
-        // const http = new Http('city');
-        try {
-            // const result = await http.curlRequest('/cityDetail');
-            const result = await ctx.model.City.CityService.find({ cityId });
-
-            // return helper.handleServerData(result);
-            return result[0];
-        } catch (error) {
-            return helper.wrapErrorData(error);
-        }
-    }
+    // async cityService(cityId) {
+    //     const { ctx } = this;
+    //     const { helper } = ctx;
+    //
+    //     // const http = new Http('city');
+    //     try {
+    //         // const result = await http.curlRequest('/cityDetail');
+    //         const result = await ctx.model.City.CityService.find({ cityId });
+    //
+    //         // return helper.handleServerData(result);
+    //         return result[0];
+    //     } catch (error) {
+    //         return helper.wrapErrorData(error);
+    //     }
+    // }
 
     async goodsCount(cityId) {
         const { ctx } = this;
