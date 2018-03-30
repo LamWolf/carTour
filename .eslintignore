@@ -1,3 +1,5 @@
 coverage
 app/web/widgets
 app/public
+mock
+mongoNode
