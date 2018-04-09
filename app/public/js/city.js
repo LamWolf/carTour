@@ -142,7 +142,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 24);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -152,7 +152,7 @@
 "use strict";
 
 
-module.exports = __webpack_require__(13);
+module.exports = __webpack_require__(12);
 
 /***/ }),
 /* 1 */
@@ -310,38 +310,10 @@ module.exports = __webpack_require__(13);
         }return this.compile(f, e).render(g, e._method);
     };typeof module !== 'undefined' && module.exports ? module.exports = c : this.juicer = c;
 })();
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -356,11 +328,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  */
 var $ = __webpack_require__(0);
 var apiConfig = __webpack_require__(4);
-var ajax = __webpack_require__(6);
-var loading = __webpack_require__(5);
-var cookie = __webpack_require__(7);
-var Layer = __webpack_require__(16);
-var _extend = __webpack_require__(19);
+var ajax = __webpack_require__(5);
+var loading = __webpack_require__(7);
+var cookie = __webpack_require__(6);
+var Layer = __webpack_require__(10);
+var _extend = __webpack_require__(16);
 module.exports = _defineProperty({
     replaceUrl: function replaceUrl(url) {
         if (history.replaceState) {
@@ -838,6 +810,34 @@ module.exports = _defineProperty({
 });
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -871,7 +871,7 @@ module.exports = {
     sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
     codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
     getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
-
+    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
     cdnHost: '',
     packNo: '20161222114936',
     channelId: '1108019942',
@@ -890,41 +890,6 @@ module.exports = {
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by Gorden on 16/6/2.
- */
-
-var css = __webpack_require__(14);
-// var $ = require("zepto");
-var $ = __webpack_require__(0);
-module.exports = {
-    init: function init() {
-        this.cacheDom();
-        this.renderUI();
-    },
-    cacheDom: function cacheDom() {
-        this.dom = $('body');
-    },
-    renderUI: function renderUI() {
-        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
-        this.dom.append(this.loading);
-    },
-    hide: function hide() {
-        this.loading.hide();
-    },
-    remove: function remove() {
-        $('.J-loading').remove();
-        // this.loading.remove();
-    }
-};
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1029,7 +994,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1231,7 +1196,48 @@ function same(s) {
 }
 
 /***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by Gorden on 16/6/2.
+ */
+
+var css = __webpack_require__(13);
+// var $ = require("zepto");
+var $ = __webpack_require__(0);
+module.exports = {
+    init: function init() {
+        this.cacheDom();
+        this.renderUI();
+    },
+    cacheDom: function cacheDom() {
+        this.dom = $('body');
+    },
+    renderUI: function renderUI() {
+        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
+        this.dom.append(this.loading);
+    },
+    hide: function hide() {
+        this.loading.hide();
+    },
+    remove: function remove() {
+        $('.J-loading').remove();
+        // this.loading.remove();
+    }
+};
+
+/***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 var g;
@@ -1258,420 +1264,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 10 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-(function webpackUniversalModuleDefinition(root, factory) {
-    if (( false ? 'undefined' : _typeof2(exports)) === 'object' && ( false ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory();else if (true) !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {
-        var a = factory();
-        for (var i in a) {
-            ((typeof exports === 'undefined' ? 'undefined' : _typeof2(exports)) === 'object' ? exports : root)[i] = a[i];
-        }
-    }
-})(undefined, function () {
-    return (/******/function (modules) {
-            // webpackBootstrap
-            /******/ // The module cache
-            /******/var installedModules = {};
-            /******/
-            /******/ // The require function
-            /******/function __webpack_require__(moduleId) {
-                /******/
-                /******/ // Check if module is in cache
-                /******/if (installedModules[moduleId])
-                    /******/return installedModules[moduleId].exports;
-                /******/
-                /******/ // Create a new module (and put it into the cache)
-                /******/var module = installedModules[moduleId] = {
-                    /******/i: moduleId,
-                    /******/l: false,
-                    /******/exports: {}
-                    /******/ };
-                /******/
-                /******/ // Execute the module function
-                /******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-                /******/
-                /******/ // Flag the module as loaded
-                /******/module.l = true;
-                /******/
-                /******/ // Return the exports of the module
-                /******/return module.exports;
-                /******/
-            }
-            /******/
-            /******/
-            /******/ // expose the modules object (__webpack_modules__)
-            /******/__webpack_require__.m = modules;
-            /******/
-            /******/ // expose the module cache
-            /******/__webpack_require__.c = installedModules;
-            /******/
-            /******/ // identity function for calling harmony imports with the correct context
-            /******/__webpack_require__.i = function (value) {
-                return value;
-            };
-            /******/
-            /******/ // define getter function for harmony exports
-            /******/__webpack_require__.d = function (exports, name, getter) {
-                /******/if (!__webpack_require__.o(exports, name)) {
-                    /******/Object.defineProperty(exports, name, {
-                        /******/configurable: false,
-                        /******/enumerable: true,
-                        /******/get: getter
-                        /******/ });
-                    /******/
-                }
-                /******/
-            };
-            /******/
-            /******/ // getDefaultExport function for compatibility with non-harmony modules
-            /******/__webpack_require__.n = function (module) {
-                /******/var getter = module && module.__esModule ?
-                /******/function getDefault() {
-                    return module['default'];
-                } :
-                /******/function getModuleExports() {
-                    return module;
-                };
-                /******/__webpack_require__.d(getter, 'a', getter);
-                /******/return getter;
-                /******/
-            };
-            /******/
-            /******/ // Object.prototype.hasOwnProperty.call
-            /******/__webpack_require__.o = function (object, property) {
-                return Object.prototype.hasOwnProperty.call(object, property);
-            };
-            /******/
-            /******/ // __webpack_public_path__
-            /******/__webpack_require__.p = "/";
-            /******/
-            /******/ // Load entry module and return exports
-            /******/return __webpack_require__(__webpack_require__.s = 0);
-            /******/
-        }(
-        /************************************************************************/
-        /******/[
-        /* 0 */
-        /***/function (module, exports, __webpack_require__) {
-
-            "use strict";
-
-            var __WEBPACK_AMD_DEFINE_RESULT__; /*
-                                               * Utils - 1.0.0
-                                               * 功能：公共方法
-                                               * 说明：***
-                                               * 参数： {
-                                               **
-                                               * }
-                                               */
-
-            var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
-                return typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
-            } : function (obj) {
-                return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
-            };
-
-            var _gol = window || undefined;
-
-            var Utils = {
-                _getRequestParam: function _getRequestParam(param, uri) {
-                    var value = void 0;
-                    uri = uri || window.location.href;
-                    value = uri.match(new RegExp('[\?\&]' + param + '=([^\&\#]*)([\&\#]?)', 'i'));
-                    return value ? decodeURIComponent(value[1]) : value;
-                },
-                _getQueryJson: function _getQueryJson() {
-                    // let ret = {}; //定义数组
-                    // window.location.search.substr(1).replace(/(\w+)=(\w+)/ig, function (a, b, c) {
-                    //     ret[b] = unescape(c);
-                    // });
-                    // return ret;
-                    return Utils._getQueryObjJson();
-                },
-                _getQueryObjJson: function _getQueryObjJson(u) {
-                    var obj = {};
-                    var keyvalue = [];
-                    var key = '',
-                        value = '';
-                    var url = u || window.location.href;
-                    var paraString = url.substring(url.indexOf('?') + 1, url.length).replace(/#.+/, '').split('&');
-                    for (var i in paraString) {
-                        keyvalue = paraString[i].split('=');
-                        key = keyvalue[0];
-                        value = keyvalue[1];
-                        obj[key] = decodeURIComponent(value);
-                    }
-                    return obj;
-                },
-                _symbol: function _symbol(n) {
-                    return (n + '').replace(/(?=(?!\b)(\d{3})+$)/g, ',');
-                },
-                _isWX: function _isWX() {
-                    var plateForm = this._plateForm();
-                    return plateForm.app == 'micromessenger';
-                },
-                _isIOS: function _isIOS() {
-                    var plateForm = this._plateForm();
-                    return plateForm.os == 'iphone' || plateForm.os == 'cpu';
-                },
-                _isAndroid: function _isAndroid() {
-                    var plateForm = this._plateForm();
-                    return plateForm.os == 'android' || plateForm.os == 'linux';
-                },
-                _plateForm: function _plateForm() {
-                    var that = this;
-                    var UA = navigator.userAgent.toLowerCase();
-                    var res = {};
-                    var OS = [/(cpu|iphone)\sos\s([\d]+)/, /(linux|android)\s([\d]+)/],
-                        APP = [/(micromessenger)\/([\d.]+)?/, /(hbcc|hbcg)\/([\d.]+)/],
-                        PC = [/(chrome)\/([\d.]+)/, /(safari)\/([\d.]+)/, /(firefox)\/([\d.]+)/, /(msie)\/([\d.]+)/];
-
-                    OS.forEach(function (v, i) {
-                        var ma = UA.match(v);
-                        if (ma) {
-                            that._extend(res, {
-                                os: ma[1],
-                                version: ma[2]
-                            });
-                        }
-                    });
-                    if (res.os) {
-                        APP.forEach(function (a, j) {
-                            var tch = UA.match(a);
-                            if (tch) {
-                                that._extend(res, {
-                                    app: tch[1],
-                                    edition: tch[2]
-                                });
-                            }
-                        });
-                    } else {
-                        PC.forEach(function (v, i) {
-                            var ma = UA.match(v);
-                            if (ma) {
-                                that._extend(res, {
-                                    os: ma[1],
-                                    version: ma[2]
-                                });
-                            }
-                        });
-                    }
-                    return res;
-                },
-                _bindScrollToWrapBtm: function _bindScrollToWrapBtm(callback, wrap, tag) {
-                    var timeout = null;
-
-                    function interval(callback, tag) {
-                        // timeout = setTimeout(function() {
-                        check();
-                        // }, 0);
-                    }
-
-                    function detach() {
-                        if (!wrap[0]) {
-                            return;
-                        }
-                        wrap[0].removeEventListener('scroll', interval, false);
-                        wrap[0].removeEventListener('resize', interval, false);
-                    }
-
-                    function check() {
-                        interval && clearTimeout(timeout);
-                        if (!wrap[0]) {
-                            return;
-                        }
-                        var winHeight = window.innerHeight,
-                            scrollTop = wrap[0].scrollTop,
-                            i = 0,
-                            offset;
-
-                        offset = wrap ? wrap[0].scrollHeight : document.body.scrollHeight;
-
-                        if (scrollTop + winHeight + 350 >= offset) {
-                            detach();
-                            callback && tag && callback();
-                        }
-                    }
-
-                    if (!wrap[0]) {
-                        return;
-                    }
-                    // detach();
-                    wrap[0].addEventListener('scroll', interval, false);
-                    wrap[0].addEventListener('resize', interval, false);
-                },
-                _bindScrollTobottom: function _bindScrollTobottom(callback, tag) {
-                    function interval() {
-                        setTimeout(function () {
-                            check();
-                        }, 3);
-                    }
-
-                    function detach() {
-                        window.removeEventListener('scroll', interval, false);
-                        window.removeEventListener('resize', interval, false);
-                    }
-
-                    function check() {
-                        var winHeight = window.innerHeight,
-                            scrollTop = window.pageYOffset,
-                            i = 0,
-                            offset = void 0;
-
-                        offset = document.body.scrollHeight;
-
-                        if (scrollTop + winHeight + 50 >= offset) {
-                            detach();
-                            callback && tag && callback();
-                        }
-                    }
-
-                    window.addEventListener('scroll', interval, false);
-                    window.addEventListener('resize', interval, false);
-                },
-                _extend: function _extend() {
-                    var y = 1,
-                        len = arguments.length,
-                        deepCopy = function deepCopy(sub, base) {
-                        var i = void 0;
-                        for (i in base) {
-                            if (base === undefined || base === null) continue;
-                            if (base.hasOwnProperty(i)) sub[i] = base[i];
-                        }
-                    };
-                    if (Object.assign) return Object.assign.apply(Object, arguments);
-                    if (arguments[0].extend) return arguments[0].extend(arguments.slice(1));
-                    for (; y < len; y++) {
-                        deepCopy(arguments[0], arguments[y]);
-                    }return arguments[0];
-                },
-                _lazyLoad: function _lazyLoad($, cls, attr) {
-                    var _$ = _gol.$ || _gol.Zepto || $;
-                    var $el = _$(cls || '.lazy-image');
-                    var attr = attr || 'lazy-url';
-
-                    function interval() {
-                        setTimeout(function () {
-                            check();
-                        }, 30);
-                    }
-
-                    function detach() {
-                        window.removeEventListener('scroll', interval, false);
-                        window.removeEventListener('resize', interval, false);
-                    }
-
-                    function check() {
-                        var winHeight = window.innerHeight,
-                            scrollTop = window.pageYOffset,
-                            i = 0,
-                            con,
-                            img,
-                            offset;
-
-                        while (i < $el.length) {
-                            con = _$($el[i]);
-                            offset = con.offset();
-                            if (scrollTop + winHeight + 20 >= offset.top) {
-                                con.css({
-                                    'backgroundImage': 'url(' + con.attr(attr) + ')'
-                                });
-                                con.removeClass(cls || 'lazy-image');
-                                [].splice.call($el, i, 1);
-                                i--;
-                                if (!$el.length) {
-                                    detach();
-                                }
-                            }
-                            i++;
-                        }
-                    }
-                    window.addEventListener('scroll', interval, false);
-                    window.addEventListener('resize', interval, false);
-
-                    check();
-                },
-
-                _contains: function _contains(root, node) {
-                    root = root.length > 0 ? root[0] : root;
-                    node = node.length > 0 ? node[0] : node;
-                    if (root.contains) return root != node && root.contains(node);else if (root.compareDocumentPosition) return !!(root.compareDocumentPosition(node) & 16);else if (node) {
-                        while (node = node.parentNode) {
-                            if (node === root) return true;
-                        }
-                    }
-                    return false;
-                },
-                _setParam: function _setParam(obj) {
-                    var arr = [];
-                    for (var name in obj) {
-                        arr.push(name + '=' + JSON.stringify(obj[name]));
-                    }
-                    return arr.join('&');
-                },
-                _nl2br: function _nl2br(str) {
-                    var regRN = /\r\n/g;
-                    str = str || '';
-                    return str.replace(regRN, '<br />');
-                },
-                _ellipsis: function _ellipsis(text) {
-                    var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 22;
-
-                    var reg = /[^\x00-\xff]/g;
-                    var length = text.replace(reg, 'aa').length;
-                    var realLen = function realLen(str, len) {
-                        var _str = str.split(''),
-                            _len = 0,
-                            _res = 0;
-                        for (var i = 0, lens = _str.length; i < lens; i++) {
-                            if (_len >= len) break;
-                            if (reg.test(_str[i])) _len += 2;else _len += 1;
-                            _res = i;
-                        };
-                        return _res || 1;
-                    };
-                    if (length > len) return text.slice(0, realLen(text, len)) + '...';
-                    return text;
-                }
-            };
-
-            if (true) {
-                !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
-                    return Utils;
-                }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-            } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = Utils;else _gol.Utils = Utils;
-
-            /***/
-        }]
-        /******/)
-    );
-});
-//# sourceMappingURL=main.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
-
-/***/ }),
-/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1681,477 +1274,76 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var $ = __webpack_require__(0);
-var apiConfig = __webpack_require__(4);
-var loading = __webpack_require__(5);
-var ajax = __webpack_require__(6);
-var tplItem = __webpack_require__(15);
-var juicer = __webpack_require__(1);
-var util = __webpack_require__(3);
-var IScroll = __webpack_require__(20);
-var PopCoupon = __webpack_require__(21);
-var ComImg = __webpack_require__(40);
-var LazyLoad = __webpack_require__(41);
-__webpack_require__(9);
-__webpack_require__(10);
-__webpack_require__(42);
-__webpack_require__(43);
-new (__webpack_require__(44))();
+/**
+ * Created By Raisun on 2016/9/15.
+ * Layer msg
+ * new Layer({
+ *   msg:opt.msg
+ * })
+ */
+var tpl = __webpack_require__(14);
+__webpack_require__(15);
+var template = __webpack_require__(1);
 
-var City = function () {
-    function City() {
-        _classCallCheck(this, City);
+var Layer = function () {
+    function Layer(opt) {
+        _classCallCheck(this, Layer);
 
+        this.opt = opt;
         this.cacheData();
         this.cacheDom();
-        this.lazyload = new LazyLoad({ elements_selector: '.lazy' });
+        this.renderUI();
         this.bindEvent();
-        if ($('.scroll').length > 0) {
-            this.renderIsroll();
-        }
-        this.addJuicerHelper();
-        if (this.param.offset == this.param.limit) {
-            this.bindNext();
-        }
     }
 
-    _createClass(City, [{
-        key: 'cacheData',
-        value: function cacheData() {
-            var that = this;
-            that.data = {};
-            that.data.img = {
-                guide: 'https://fr-static.huangbaoche.com/20180313/guide.0ca8d80948c9964b.png',
-                errorGood: 'https://fr-static.huangbaoche.com/20180313/item-pic.5892363124cb5877.png',
-                errorGuide: 'https://fr-static.huangbaoche.com/20180313/error-guide.9a12fc16b757cd33.png'
-            };
-            that.param = {
-                // cityId: util.getRequestParam('cityId'),
-                cityHeadPicSize: 750, // 城市头图图片大小（默认201）
-                themeId: 0, // 主题ID 多选逗号分隔，不限传0
-                daysCountMin: 0, // 包车天数最小值（1天时传1，多天时传2，不限传0）
-                daysCountMax: 0, // 包车天数最大值（1天时传1，多天时传0，不限传0）
-                goodsClass: 0, // 商品类型：1，超省心（固定线路）；2，超自由（推荐线路）；不限传0
-                channelId: util.getRightChannelId(),
-                offset: $('.item').length,
-                limit: 10
-            };
-            // 获取城市id
-            that.param.cityId = that.getCityId();
-
-            that._scroll = '';
-            that.__iscroll = null; // IScroll
-        }
-    }, {
+    _createClass(Layer, [{
         key: 'cacheDom',
         value: function cacheDom() {
             var that = this;
-            that.dom = {
-                wrap: $('#page'),
-                back: $('.back'),
-                search: $('.search'),
-                navCar: $('.nav-car'),
-                navPlane: $('.nav-plane'),
-                navSingle: $('.nav-single'),
-                menu: $('.menu'),
-                menuB: $('.menu-bg'),
-                list: $('.list'),
-                listCount: $('.line-count'),
-                items: $('.list .item'),
-                empty: $('.empty'),
-                menuItem: $('.menu-item'),
-                menuTypes: $('#menu-type li'),
-                menuDays: $('#menu-day li'),
-                menuThemes: $('#menu-theme li'),
-                menuTypeReset: $('#menu-type-reset'),
-                menuTypeConfirm: $('#menu-type-confirm'),
-                menuDayReset: $('#menu-day-reset'),
-                menuDayConfirm: $('#menu-day-confirm'),
-                menuThemeReset: $('#menu-theme-reset'),
-                menuThemeConfirm: $('#menu-theme-confirm'),
-                emptyLine: $('.empty-line')
+            that.dom = {};
+            that.dom.wrap = document.querySelector('body');
+            that.dom.layerWrap = document.querySelector('.J-layer-wrap');
+        }
+    }, {
+        key: 'cacheData',
+        value: function cacheData() {
+            var that = this;
+            that.data = {
+                msg: that.opt.msg ? that.opt.msg : '信息不正确'
             };
         }
     }, {
-        key: 'renderIsroll',
-        value: function renderIsroll() {
+        key: 'renderUI',
+        value: function renderUI() {
             var that = this;
-            that.__iscroll = new IScroll('.scroll', {
-                click: true,
-                mouseWheel: true
-            });
-        }
-    }, {
-        key: 'getList',
-        value: function getList(type) {
-            var that = this;
-            loading.init();
-            var url = '/api/goods/1.4/cityDetail';
-            var opt = {
-                url: url,
-                method: 'GET',
-                header: {},
-                data: that.param,
-                success: function success(ret) {
-                    if (ret.status === 200 && ret.data.goodses.length) {
-
-                        if (ret.data.goodses.length == that.param.limit) {
-
-                            that.param.offset = that.param.offset + that.param.limit;
-                            that.renderList(ret.data);
-                            that.bindNext();
-                        } else {
-                            that.renderList(ret.data);
-                        }
-                        this.lazyload = new LazyLoad({ elements_selector: '.lazy' });
-                    }
-                    if (type == 'reset' && ret.data.goodses.length > 0) {
-                        $('.empty-menu').hide();
-                    } else if (type == 'reset' && ret.data.goodses.length == 0) {
-                        $('.empty-menu').show();
-                    }
-                    loading.remove();
-                }
-            };
-            ajax.sendRequest(opt);
-        }
-    }, {
-        key: 'getCityId',
-        value: function getCityId() {
-            return util.getRequestParam('cityId') || location.href.match(/city\/([^?]*)/)[1];
-        }
-    }, {
-        key: 'resetList',
-        value: function resetList() {
-            var that = this;
-            // util.removeEventListener();
-            that._scroll && that._scroll();
-            that.dom.list.html('');
-            that.param.offset = 0;
-            that.param.limit = 10;
-
-            that.getList('reset');
-        }
-    }, {
-        key: 'renderList',
-        value: function renderList(data) {
-            var that = this;
-            that.cacheDom();
-            data.img = that.data.img;
-            that.dom.list.append(juicer(tplItem, data));
-        }
-    }, {
-        key: 'bindNext',
-        value: function bindNext() {
-            var that = this;
-            that._scroll = util._bindScrollTobottom(function () {
-                that.getList();
-            }, true);
-        }
-    }, {
-        key: 'addJuicerHelper',
-        value: function addJuicerHelper() {
-            juicer.register('priceInfo', function (price) {
-                if (!price) {
-                    return '';
-                }
-                var infoleft = price.replace(/起\/人/, '<span>起/人');
-                var infoRight = infoleft + '</span>';
-                return infoRight.replace(/¥/, '<small>¥</small>');
-            });
-            juicer.register('handleImg', function (str, w, h) {
-                var imgRule = 'x-oss-process=image/resize,m_fill,limit_0,w_' + (w ? w : 660) + ',h_' + (h ? h : 355) + '/format,jpg/interlace,1/quality,q_85';
-                return str ? new ComImg({
-                    url: str,
-                    param: imgRule
-                }).getUrl() : '';
-            });
+            if (!that.dom.wrap) {
+                return;
+            }
+            that.dom.wrap.insertAdjacentHTML('beforeend', template(tpl, this.data));
         }
     }, {
         key: 'bindEvent',
         value: function bindEvent() {
             var that = this;
-            that.cacheDom();
-
-            function finish() {
-                var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hide';
-
-                if (tag == 'hide') {
-                    that.dom.menuB.hide();
-                    $('body').off('touchmove');
-                } else {
-                    that.dom.menuB.show();
-                    // 添加滚动到360
-                    $('body').on('touchmove', function (e) {
-                        e.preventDefault();
-                    });
-                }
-            }
-
-            function selected() {
-                var items = $('.menu-select ul li');
-                var itemsType = $('#menu-type li');
-                var itemsDay = $('#menu-day li');
-                var itemsTheme = $('#menu-theme li');
-                items.removeClass('selected');
-                if (that.param.goodsClass) {
-                    for (var i = 0; i < itemsType.length; i++) {
-                        if (that.param.goodsClass == $(itemsType[i]).attr('data-id')) {
-                            $(itemsType[i]).addClass('selected');
-                            break;
-                        }
-                    }
-                }
-                if (that.param.goodsClass) {
-                    for (var _i = 0; _i < itemsType.length; _i++) {
-                        if (that.param.goodsClass == $(itemsType[_i]).attr('data-id')) {
-                            $(itemsType[_i]).addClass('selected');
-                            break;
-                        }
-                    }
-                }
-                if (that.param.daysCountMin || that.param.daysCountMax) {
-                    for (var _i2 = 0; _i2 < itemsDay.length; _i2++) {
-                        if (that.param.daysCountMin == $(itemsDay[_i2]).attr('data-min') && that.param.daysCountMax == $(itemsDay[_i2]).attr('data-max')) {
-                            $(itemsDay[_i2]).addClass('selected');
-                            break;
-                        }
-                    }
-                }
-                if (that.param.themeId) {
-                    var themes = that.param.themeId.split(',');
-                    for (var _i3 = 0; _i3 < themes.length; _i3++) {
-                        for (var j = 0; j < itemsTheme.length; j++) {
-                            if (themes[_i3] == $(itemsTheme[j]).attr('data-id')) {
-                                $(itemsTheme[j]).addClass('selected');
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            $(window).off('scroll').on('scroll', function () {
-                var t = $(window).scrollTop();
-                if (t > 350) {
-                    that.dom.menu.addClass('menuFix');
-                } else {
-                    that.dom.menu.removeClass('menuFix');
-                }
-            });
-            $(window).on('touchstart', function () {
-                var t = $(window).scrollTop();
-                if (t > 350) {
-                    that.dom.menu.addClass('menuFix');
-                } else {
-                    that.dom.menu.removeClass('menuFix');
-                }
-            });
-            $(window).on('touchmove', function () {
-                var t = $(window).scrollTop();
-                if (t > 350) {
-                    that.dom.menu.addClass('menuFix');
-                } else {
-                    that.dom.menu.removeClass('menuFix');
-                }
-            });
-            $(window).on('touchend', function () {
-                var t = $(window).scrollTop();
-                if (t > 350) {
-                    that.dom.menu.addClass('menuFix');
-                } else {
-                    that.dom.menu.removeClass('menuFix');
-                }
-            });
-
-            that.dom.menuB.on('click', function () {
-                that.dom.menuItem.removeClass('menu-item-check');
-                selected();
-                finish('hide');
-            });
-            $('.menu-select').on('click', function (e) {
-                e.stopPropagation();
-            });
-
-            that.dom.back.on('click', function () {
-                history.back();
-                return false;
-            });
-
-            that.dom.search.on('click', function () {
-                window.location.href = apiConfig.domainHost + 'app/searchCity.html';
-                return false;
-            });
-
-            that.dom.navCar.on('click', function () {
-                window.location.href = apiConfig.domainHost + 'app/daily.html?cityId=' + that.param.cityId;
-                return false;
-            });
-            that.dom.navPlane.on('click', function () {
-                window.location.href = apiConfig.domainHost + 'app/pickup.html';
-                // window.location.href = '/transfer';
-                return false;
-            });
-            that.dom.navSingle.on('click', function () {
-                var cityName = $('.hackmaxAuto h1').text();
-                window.location.href = apiConfig.domainHost + 'app/single.html?cityId=' + that.param.cityId + '&cityName=' + cityName;
-                return false;
-            });
-
-            $('body').on('click', '.item', function (e) {
-                var tag = $(e.currentTarget);
-                window.location.href = '/goods/detail/' + tag.attr('data-goodsNo');
-            });
-
-            that.dom.menuItem.on('click', function (e) {
-                var tag = $(e.currentTarget);
-                var t = $(window).scrollTop();
-
-                if (t < 350) {
-                    $(window).scrollTop(360);
-                }
-                if (tag.hasClass('menu-item-check')) {
-                    tag.removeClass('menu-item-check');
-                    finish('hide');
-                } else {
-                    that.dom.menuItem.removeClass('menu-item-check');
-                    tag.addClass('menu-item-check');
-                    finish('show');
-                    that.__iscroll.refresh();
-                }
-                selected();
-                return false;
-            });
-
-            that.dom.menuTypes.on('click', function (e) {
-                var tag = $(e.currentTarget);
-                if (tag.hasClass('selected')) {
-                    tag.removeClass('selected');
-                } else {
-                    that.dom.menuTypes.removeClass('selected');
-                    tag.addClass('selected');
-                }
-                return false;
-            });
-            that.dom.menuTypeReset.on('click', function () {
-                that.dom.menuTypes.removeClass('selected');
-                return false;
-            });
-            that.dom.menuTypeConfirm.on('click', function () {
-                var tag = $('#menu-type').find('.selected');
-                var id = tag.attr('data-id');
-                var text = tag.attr('data-text');
-                if (id) {
-                    that.param.goodsClass = id;
-                    $('#menu-type-text').text(text);
-                } else {
-                    that.param.goodsClass = '0';
-                    $('#menu-type-text').text('类型');
-                }
-                console.log(that.param.goodsClass);
-                finish('hide');
-                that.dom.menuItem.removeClass('menu-item-check');
-                that.resetList();
-                selected();
-                return false;
-            });
-
-            that.dom.menuDays.on('click', function (e) {
-                var tag = $(e.currentTarget);
-                if (tag.hasClass('selected')) {
-                    tag.removeClass('selected');
-                } else {
-                    that.dom.menuDays.removeClass('selected');
-                    tag.addClass('selected');
-                }
-                return false;
-            });
-            that.dom.menuDayReset.on('click', function () {
-                that.dom.menuDays.removeClass('selected');
-                return false;
-            });
-            that.dom.menuDayConfirm.on('click', function () {
-
-                var tag = $('#menu-day').find('.selected');
-                var min = tag.attr('data-min');
-                var max = tag.attr('data-max');
-                var text = tag.attr('data-text');
-                if (min || max) {
-                    that.param.daysCountMin = tag.attr('data-min');
-                    that.param.daysCountMax = tag.attr('data-max');
-                    $('#menu-day-text').text(text);
-                } else {
-                    that.param.daysCountMin = '0';
-                    that.param.daysCountMax = '0';
-                    $('#menu-day-text').text('天数');
-                }
-                finish('hide');
-                that.dom.menuItem.removeClass('menu-item-check');
-                that.resetList();
-                selected();
-                return false;
-            });
-
-            that.dom.menuThemes.on('click', function (e) {
-                var tag = $(e.currentTarget);
-                if (tag.hasClass('selected')) {
-                    tag.removeClass('selected');
-                } else {
-                    tag.addClass('selected');
-                }
-                return false;
-            });
-
-            that.dom.menuThemeReset.on('click', function () {
-                that.dom.menuThemes.removeClass('selected');
-                return false;
-            });
-            that.dom.menuThemeConfirm.on('click', function () {
-                var theme = '';
-                var text = '';
-                var tags = $('#menu-theme').find('li.selected');
-                for (var i = 0; i < tags.length; i++) {
-                    var id = $(tags[i]).attr('data-id');
-                    var str = $(tags[i]).attr('data-text');
-
-                    if (theme) {
-                        theme = theme + ',' + id;
-                    } else {
-                        theme = id;
-                    }
-                    if (text == '' && str) {
-                        text = str;
-                    } else {
-                        text = text + str;
-                    }
-                    if (text.length > 4) {
-                        text = text.substr(0, 4);
-                        text = text + '...';
-                    }
-                }
-                that.param.themeId = theme ? theme : 0;
-                if (text == '') {
-                    text = '主题';
-                }
-                $('#menu-theme-text').text(text);
-                finish('hide');
-                that.dom.menuItem.removeClass('menu-item-check');
-                that.resetList();
-                selected();
-                return false;
-            });
-
-            new PopCoupon();
+            setTimeout(function () {
+                that.dom.wrap.removeChild(document.querySelector('.J-layer-wrap'));
+            }, 2000);
         }
     }]);
 
-    return City;
+    return Layer;
 }();
 
-new City();
+module.exports = Layer;
 
 /***/ }),
-/* 13 */
+/* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4130,107 +3322,28 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
   );
 });
 //# sourceMappingURL=main.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = "  {@each goodses as good}    {@if good.headLable == \'超省心\'}    <div class=\"item item-economize\" data-goodsNo=${good.goodsNo}>      <div class=\"item-pic\">        <em>超省心</em>        <span class=\"item-guide\">${good.guideAmount} 位当地中文司导 <b></b></span>        {@if good.goodsPicture}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPicture)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}      </div>      <p class=\"item-title\">${good.goodsName}</p>      <div class=\"item-price\">        <strong><small>¥ </small>${good.perPrice}</strong>        <span>起/人·${good.daysCount}日{@if good.hotelStatus}·含酒店{@/if}</span>      </div>    </div>    {@else}    <div class=\"item item-free\" data-goodsNo=${good.goodsNo}>      <h2>${good.depCityName}${good.daysCount}日玩法推荐</h2>      <span class=\"item-guide\">${good.guideAmount} 位当地中文司导 <b></b></span>      <div class=\"item-pic\">        <em>超自由</em>        {@if good.goodsPics[0]}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPics[0],330,235)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}        {@if good.goodsPics[1]}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPics[1],330,235)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}      </div>      <p class=\"item-title\">${good.goodsName}</p>    </div>    {@/if}  {@/each}"
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Created By Raisun on 2016/9/15.
- * Layer msg
- * new Layer({
- *   msg:opt.msg
- * })
- */
-var tpl = __webpack_require__(17);
-__webpack_require__(18);
-var template = __webpack_require__(1);
-
-var Layer = function () {
-    function Layer(opt) {
-        _classCallCheck(this, Layer);
-
-        this.opt = opt;
-        this.cacheData();
-        this.cacheDom();
-        this.renderUI();
-        this.bindEvent();
-    }
-
-    _createClass(Layer, [{
-        key: 'cacheDom',
-        value: function cacheDom() {
-            var that = this;
-            that.dom = {};
-            that.dom.wrap = document.querySelector('body');
-            that.dom.layerWrap = document.querySelector('.J-layer-wrap');
-        }
-    }, {
-        key: 'cacheData',
-        value: function cacheData() {
-            var that = this;
-            that.data = {
-                msg: that.opt.msg ? that.opt.msg : '信息不正确'
-            };
-        }
-    }, {
-        key: 'renderUI',
-        value: function renderUI() {
-            var that = this;
-            if (!that.dom.wrap) {
-                return;
-            }
-            that.dom.wrap.insertAdjacentHTML('beforeend', template(tpl, this.data));
-        }
-    }, {
-        key: 'bindEvent',
-        value: function bindEvent() {
-            var that = this;
-            setTimeout(function () {
-                that.dom.wrap.removeChild(document.querySelector('.J-layer-wrap'));
-            }, 2000);
-        }
-    }]);
-
-    return Layer;
-}();
-
-module.exports = Layer;
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 19 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4328,7 +3441,1082 @@ module.exports = function extend() {
 };
 
 /***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Util = __webpack_require__(2);
+
+var Global = window || undefined;
+
+var Hash = function () {
+  function Hash() {
+    _classCallCheck(this, Hash);
+
+    this.catchHash = '';
+  }
+
+  _createClass(Hash, [{
+    key: 'init',
+    value: function init(fn) {
+      var that = this;
+      Global.setTimeout(function () {
+        Global.onhashchange = function (evn) {
+          if (evn.newURL === evn.oldURL && evn.newURL === '') return;
+          fn && fn.call(that, evn);
+        };
+      }, 1);
+    }
+  }, {
+    key: '_check',
+    value: function _check() {
+      return Global.location.hash.charAt(0) == '#';
+    }
+  }, {
+    key: '_Uuid',
+    value: function _Uuid() {
+      return new Date().getTime();
+    }
+  }, {
+    key: 'del',
+    value: function del() {
+      var that = this;
+      Global.history.replaceState(null, '', Global.location.href.replace(that.catchHash, ''));
+      Global.onhashchange = null;
+    }
+  }, {
+    key: '_get',
+    value: function _get() {
+      return Global.location.hash || location.hash;
+    }
+  }, {
+    key: 'get',
+    value: function get() {
+      var that = this;
+      if (that._check()) return Global.location.hash.replace(/^[^#]*#/, '').replace(/^#+|#+$/, '');
+      return that._get();
+    }
+  }, {
+    key: 'set',
+    value: function set(hash) {
+      var that = this;
+      var old = that.get();
+      if (hash == 'auto' || !hash) hash = '#' + that._Uuid();
+      if (hash.charAt(0) != '#') hash = '#' + hash;
+      if (old.indexOf(hash) > -1) return;
+      that.catchHash = hash;
+      Global.location.hash = old + hash;
+      return that;
+    }
+  }]);
+
+  return Hash;
+}();
+
+module.exports = new Hash();
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/*
+ * ChangeSkin
+ * 功能：网页换肤；
+ * 说明：
+ *
+ * cookieName --------- 传入需要换肤的cookie名称
+ * 传入新的cookieName，需要新建对应的css文件
+ *
+ */
+var util = __webpack_require__(2);
+var Cookie = __webpack_require__(6);
+var _glo = window || undefined;
+var CHANGE_NAME = ['iscbc', 'ismaster'];
+
+var ChangeSkin = function () {
+    function ChangeSkin(opt) {
+        _classCallCheck(this, ChangeSkin);
+
+        this.opt = {
+            cookieName: 'iscbc'
+        };
+        if (Object.prototype.toString.call(opt) === '[object Object]' && JSON.stringify(opt) !== '{}') {
+            util._extend(this.opt, opt);
+        }
+        this.init();
+    }
+
+    _createClass(ChangeSkin, [{
+        key: 'init',
+        value: function init() {
+            this.cacheData();
+            this.cacheDOM();
+            if (this.data.cookie) {
+                if (!this.dom.wrap.classList.contains(this.data.cookie)) {
+                    this.dom.wrap.classList.add('J-' + this.data.cookie, 'J-P-' + util.plateForm().os);
+                }
+                this.getConfig(this.data.cookie);
+            }
+        }
+    }, {
+        key: 'cacheData',
+        value: function cacheData() {
+            this.data = {};
+            // this.data.cookie = this.opt.cookieName && Cookie.get(this.opt.cookieName);
+            this.data.cookie = function (arr) {
+                var res = '';
+                for (var index = 0, length = arr.length; index < length; index++) {
+                    Cookie.get(arr[index]) == 1 && (res = arr[index]);
+                }
+                return res;
+            }(CHANGE_NAME);
+        }
+    }, {
+        key: 'cacheDOM',
+        value: function cacheDOM() {
+            this.dom = {
+                wrap: document.querySelector('body')
+            };
+        }
+    }, {
+        key: 'getConfig',
+        value: function getConfig(css) {
+            switch (css) {
+                case 'iscbc':
+                    __webpack_require__.e/* require */(1).then(function() {[__webpack_require__(22)];}).catch(__webpack_require__.oe);
+                    break;
+                case 'ismaster':
+                    __webpack_require__.e/* require */(0).then(function() {[__webpack_require__(23)];}).catch(__webpack_require__.oe);
+            }
+        }
+    }]);
+
+    return ChangeSkin;
+}();
+
+if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+    return ChangeSkin;
+}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = ChangeSkin;else _glo.ChangeSkin = ChangeSkin;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function webpackUniversalModuleDefinition(root, factory) {
+    if (( false ? 'undefined' : _typeof2(exports)) === 'object' && ( false ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory();else if (true) !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {
+        var a = factory();
+        for (var i in a) {
+            ((typeof exports === 'undefined' ? 'undefined' : _typeof2(exports)) === 'object' ? exports : root)[i] = a[i];
+        }
+    }
+})(undefined, function () {
+    return (/******/function (modules) {
+            // webpackBootstrap
+            /******/ // The module cache
+            /******/var installedModules = {};
+            /******/
+            /******/ // The require function
+            /******/function __webpack_require__(moduleId) {
+                /******/
+                /******/ // Check if module is in cache
+                /******/if (installedModules[moduleId])
+                    /******/return installedModules[moduleId].exports;
+                /******/
+                /******/ // Create a new module (and put it into the cache)
+                /******/var module = installedModules[moduleId] = {
+                    /******/i: moduleId,
+                    /******/l: false,
+                    /******/exports: {}
+                    /******/ };
+                /******/
+                /******/ // Execute the module function
+                /******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+                /******/
+                /******/ // Flag the module as loaded
+                /******/module.l = true;
+                /******/
+                /******/ // Return the exports of the module
+                /******/return module.exports;
+                /******/
+            }
+            /******/
+            /******/
+            /******/ // expose the modules object (__webpack_modules__)
+            /******/__webpack_require__.m = modules;
+            /******/
+            /******/ // expose the module cache
+            /******/__webpack_require__.c = installedModules;
+            /******/
+            /******/ // identity function for calling harmony imports with the correct context
+            /******/__webpack_require__.i = function (value) {
+                return value;
+            };
+            /******/
+            /******/ // define getter function for harmony exports
+            /******/__webpack_require__.d = function (exports, name, getter) {
+                /******/if (!__webpack_require__.o(exports, name)) {
+                    /******/Object.defineProperty(exports, name, {
+                        /******/configurable: false,
+                        /******/enumerable: true,
+                        /******/get: getter
+                        /******/ });
+                    /******/
+                }
+                /******/
+            };
+            /******/
+            /******/ // getDefaultExport function for compatibility with non-harmony modules
+            /******/__webpack_require__.n = function (module) {
+                /******/var getter = module && module.__esModule ?
+                /******/function getDefault() {
+                    return module['default'];
+                } :
+                /******/function getModuleExports() {
+                    return module;
+                };
+                /******/__webpack_require__.d(getter, 'a', getter);
+                /******/return getter;
+                /******/
+            };
+            /******/
+            /******/ // Object.prototype.hasOwnProperty.call
+            /******/__webpack_require__.o = function (object, property) {
+                return Object.prototype.hasOwnProperty.call(object, property);
+            };
+            /******/
+            /******/ // __webpack_public_path__
+            /******/__webpack_require__.p = "/";
+            /******/
+            /******/ // Load entry module and return exports
+            /******/return __webpack_require__(__webpack_require__.s = 0);
+            /******/
+        }(
+        /************************************************************************/
+        /******/[
+        /* 0 */
+        /***/function (module, exports, __webpack_require__) {
+
+            "use strict";
+
+            var __WEBPACK_AMD_DEFINE_RESULT__; /*
+                                               * Utils - 1.0.0
+                                               * 功能：公共方法
+                                               * 说明：***
+                                               * 参数： {
+                                               **
+                                               * }
+                                               */
+
+            var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+                return typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
+            } : function (obj) {
+                return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
+            };
+
+            var _gol = window || undefined;
+
+            var Utils = {
+                _getRequestParam: function _getRequestParam(param, uri) {
+                    var value = void 0;
+                    uri = uri || window.location.href;
+                    value = uri.match(new RegExp('[\?\&]' + param + '=([^\&\#]*)([\&\#]?)', 'i'));
+                    return value ? decodeURIComponent(value[1]) : value;
+                },
+                _getQueryJson: function _getQueryJson() {
+                    // let ret = {}; //定义数组
+                    // window.location.search.substr(1).replace(/(\w+)=(\w+)/ig, function (a, b, c) {
+                    //     ret[b] = unescape(c);
+                    // });
+                    // return ret;
+                    return Utils._getQueryObjJson();
+                },
+                _getQueryObjJson: function _getQueryObjJson(u) {
+                    var obj = {};
+                    var keyvalue = [];
+                    var key = '',
+                        value = '';
+                    var url = u || window.location.href;
+                    var paraString = url.substring(url.indexOf('?') + 1, url.length).replace(/#.+/, '').split('&');
+                    for (var i in paraString) {
+                        keyvalue = paraString[i].split('=');
+                        key = keyvalue[0];
+                        value = keyvalue[1];
+                        obj[key] = decodeURIComponent(value);
+                    }
+                    return obj;
+                },
+                _symbol: function _symbol(n) {
+                    return (n + '').replace(/(?=(?!\b)(\d{3})+$)/g, ',');
+                },
+                _isWX: function _isWX() {
+                    var plateForm = this._plateForm();
+                    return plateForm.app == 'micromessenger';
+                },
+                _isIOS: function _isIOS() {
+                    var plateForm = this._plateForm();
+                    return plateForm.os == 'iphone' || plateForm.os == 'cpu';
+                },
+                _isAndroid: function _isAndroid() {
+                    var plateForm = this._plateForm();
+                    return plateForm.os == 'android' || plateForm.os == 'linux';
+                },
+                _plateForm: function _plateForm() {
+                    var that = this;
+                    var UA = navigator.userAgent.toLowerCase();
+                    var res = {};
+                    var OS = [/(cpu|iphone)\sos\s([\d]+)/, /(linux|android)\s([\d]+)/],
+                        APP = [/(micromessenger)\/([\d.]+)?/, /(hbcc|hbcg)\/([\d.]+)/],
+                        PC = [/(chrome)\/([\d.]+)/, /(safari)\/([\d.]+)/, /(firefox)\/([\d.]+)/, /(msie)\/([\d.]+)/];
+
+                    OS.forEach(function (v, i) {
+                        var ma = UA.match(v);
+                        if (ma) {
+                            that._extend(res, {
+                                os: ma[1],
+                                version: ma[2]
+                            });
+                        }
+                    });
+                    if (res.os) {
+                        APP.forEach(function (a, j) {
+                            var tch = UA.match(a);
+                            if (tch) {
+                                that._extend(res, {
+                                    app: tch[1],
+                                    edition: tch[2]
+                                });
+                            }
+                        });
+                    } else {
+                        PC.forEach(function (v, i) {
+                            var ma = UA.match(v);
+                            if (ma) {
+                                that._extend(res, {
+                                    os: ma[1],
+                                    version: ma[2]
+                                });
+                            }
+                        });
+                    }
+                    return res;
+                },
+                _bindScrollToWrapBtm: function _bindScrollToWrapBtm(callback, wrap, tag) {
+                    var timeout = null;
+
+                    function interval(callback, tag) {
+                        // timeout = setTimeout(function() {
+                        check();
+                        // }, 0);
+                    }
+
+                    function detach() {
+                        if (!wrap[0]) {
+                            return;
+                        }
+                        wrap[0].removeEventListener('scroll', interval, false);
+                        wrap[0].removeEventListener('resize', interval, false);
+                    }
+
+                    function check() {
+                        interval && clearTimeout(timeout);
+                        if (!wrap[0]) {
+                            return;
+                        }
+                        var winHeight = window.innerHeight,
+                            scrollTop = wrap[0].scrollTop,
+                            i = 0,
+                            offset;
+
+                        offset = wrap ? wrap[0].scrollHeight : document.body.scrollHeight;
+
+                        if (scrollTop + winHeight + 350 >= offset) {
+                            detach();
+                            callback && tag && callback();
+                        }
+                    }
+
+                    if (!wrap[0]) {
+                        return;
+                    }
+                    // detach();
+                    wrap[0].addEventListener('scroll', interval, false);
+                    wrap[0].addEventListener('resize', interval, false);
+                },
+                _bindScrollTobottom: function _bindScrollTobottom(callback, tag) {
+                    function interval() {
+                        setTimeout(function () {
+                            check();
+                        }, 3);
+                    }
+
+                    function detach() {
+                        window.removeEventListener('scroll', interval, false);
+                        window.removeEventListener('resize', interval, false);
+                    }
+
+                    function check() {
+                        var winHeight = window.innerHeight,
+                            scrollTop = window.pageYOffset,
+                            i = 0,
+                            offset = void 0;
+
+                        offset = document.body.scrollHeight;
+
+                        if (scrollTop + winHeight + 50 >= offset) {
+                            detach();
+                            callback && tag && callback();
+                        }
+                    }
+
+                    window.addEventListener('scroll', interval, false);
+                    window.addEventListener('resize', interval, false);
+                },
+                _extend: function _extend() {
+                    var y = 1,
+                        len = arguments.length,
+                        deepCopy = function deepCopy(sub, base) {
+                        var i = void 0;
+                        for (i in base) {
+                            if (base === undefined || base === null) continue;
+                            if (base.hasOwnProperty(i)) sub[i] = base[i];
+                        }
+                    };
+                    if (Object.assign) return Object.assign.apply(Object, arguments);
+                    if (arguments[0].extend) return arguments[0].extend(arguments.slice(1));
+                    for (; y < len; y++) {
+                        deepCopy(arguments[0], arguments[y]);
+                    }return arguments[0];
+                },
+                _lazyLoad: function _lazyLoad($, cls, attr) {
+                    var _$ = _gol.$ || _gol.Zepto || $;
+                    var $el = _$(cls || '.lazy-image');
+                    var attr = attr || 'lazy-url';
+
+                    function interval() {
+                        setTimeout(function () {
+                            check();
+                        }, 30);
+                    }
+
+                    function detach() {
+                        window.removeEventListener('scroll', interval, false);
+                        window.removeEventListener('resize', interval, false);
+                    }
+
+                    function check() {
+                        var winHeight = window.innerHeight,
+                            scrollTop = window.pageYOffset,
+                            i = 0,
+                            con,
+                            img,
+                            offset;
+
+                        while (i < $el.length) {
+                            con = _$($el[i]);
+                            offset = con.offset();
+                            if (scrollTop + winHeight + 20 >= offset.top) {
+                                con.css({
+                                    'backgroundImage': 'url(' + con.attr(attr) + ')'
+                                });
+                                con.removeClass(cls || 'lazy-image');
+                                [].splice.call($el, i, 1);
+                                i--;
+                                if (!$el.length) {
+                                    detach();
+                                }
+                            }
+                            i++;
+                        }
+                    }
+                    window.addEventListener('scroll', interval, false);
+                    window.addEventListener('resize', interval, false);
+
+                    check();
+                },
+
+                _contains: function _contains(root, node) {
+                    root = root.length > 0 ? root[0] : root;
+                    node = node.length > 0 ? node[0] : node;
+                    if (root.contains) return root != node && root.contains(node);else if (root.compareDocumentPosition) return !!(root.compareDocumentPosition(node) & 16);else if (node) {
+                        while (node = node.parentNode) {
+                            if (node === root) return true;
+                        }
+                    }
+                    return false;
+                },
+                _setParam: function _setParam(obj) {
+                    var arr = [];
+                    for (var name in obj) {
+                        arr.push(name + '=' + JSON.stringify(obj[name]));
+                    }
+                    return arr.join('&');
+                },
+                _nl2br: function _nl2br(str) {
+                    var regRN = /\r\n/g;
+                    str = str || '';
+                    return str.replace(regRN, '<br />');
+                },
+                _ellipsis: function _ellipsis(text) {
+                    var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 22;
+
+                    var reg = /[^\x00-\xff]/g;
+                    var length = text.replace(reg, 'aa').length;
+                    var realLen = function realLen(str, len) {
+                        var _str = str.split(''),
+                            _len = 0,
+                            _res = 0;
+                        for (var i = 0, lens = _str.length; i < lens; i++) {
+                            if (_len >= len) break;
+                            if (reg.test(_str[i])) _len += 2;else _len += 1;
+                            _res = i;
+                        };
+                        return _res || 1;
+                    };
+                    if (length > len) return text.slice(0, realLen(text, len)) + '...';
+                    return text;
+                }
+            };
+
+            if (true) {
+                !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+                    return Utils;
+                }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+            } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = Utils;else _gol.Utils = Utils;
+
+            /***/
+        }]
+        /******/)
+    );
+});
+//# sourceMappingURL=main.js.map
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
+
+/***/ }),
+/* 22 */,
+/* 23 */,
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var $ = __webpack_require__(0);
+var apiConfig = __webpack_require__(4);
+var loading = __webpack_require__(7);
+var ajax = __webpack_require__(5);
+var tplItem = __webpack_require__(25);
+var juicer = __webpack_require__(1);
+var util = __webpack_require__(2);
+var IScroll = __webpack_require__(26);
+var PopCoupon = __webpack_require__(27);
+var ComImg = __webpack_require__(44);
+var LazyLoad = __webpack_require__(45);
+__webpack_require__(11);
+__webpack_require__(8);
+__webpack_require__(46);
+__webpack_require__(19);
+new (__webpack_require__(20))();
+
+var City = function () {
+    function City() {
+        _classCallCheck(this, City);
+
+        this.cacheData();
+        this.cacheDom();
+        this.lazyload = new LazyLoad({ elements_selector: '.lazy' });
+        this.bindEvent();
+        if ($('.scroll').length > 0) {
+            this.renderIsroll();
+        }
+        this.addJuicerHelper();
+        if (this.param.offset == this.param.limit) {
+            this.bindNext();
+        }
+    }
+
+    _createClass(City, [{
+        key: 'cacheData',
+        value: function cacheData() {
+            var that = this;
+            that.data = {};
+            that.data.img = {
+                guide: 'https://fr-static.huangbaoche.com/20180313/guide.0ca8d80948c9964b.png',
+                errorGood: 'https://fr-static.huangbaoche.com/20180313/item-pic.5892363124cb5877.png',
+                errorGuide: 'https://fr-static.huangbaoche.com/20180313/error-guide.9a12fc16b757cd33.png'
+            };
+            that.param = {
+                // cityId: util.getRequestParam('cityId'),
+                cityHeadPicSize: 750, // 城市头图图片大小（默认201）
+                themeId: 0, // 主题ID 多选逗号分隔，不限传0
+                daysCountMin: 0, // 包车天数最小值（1天时传1，多天时传2，不限传0）
+                daysCountMax: 0, // 包车天数最大值（1天时传1，多天时传0，不限传0）
+                goodsClass: 0, // 商品类型：1，超省心（固定线路）；2，超自由（推荐线路）；不限传0
+                channelId: util.getRightChannelId(),
+                offset: $('.item').length,
+                limit: 10
+            };
+            // 获取城市id
+            that.param.cityId = that.getCityId();
+
+            that._scroll = '';
+            that.__iscroll = null; // IScroll
+        }
+    }, {
+        key: 'cacheDom',
+        value: function cacheDom() {
+            var that = this;
+            that.dom = {
+                wrap: $('#page'),
+                back: $('.back'),
+                search: $('.search'),
+                navCar: $('.nav-car'),
+                navPlane: $('.nav-plane'),
+                navSingle: $('.nav-single'),
+                menu: $('.menu'),
+                menuB: $('.menu-bg'),
+                list: $('.list'),
+                listCount: $('.line-count'),
+                items: $('.list .item'),
+                empty: $('.empty'),
+                menuItem: $('.menu-item'),
+                menuTypes: $('#menu-type li'),
+                menuDays: $('#menu-day li'),
+                menuThemes: $('#menu-theme li'),
+                menuTypeReset: $('#menu-type-reset'),
+                menuTypeConfirm: $('#menu-type-confirm'),
+                menuDayReset: $('#menu-day-reset'),
+                menuDayConfirm: $('#menu-day-confirm'),
+                menuThemeReset: $('#menu-theme-reset'),
+                menuThemeConfirm: $('#menu-theme-confirm'),
+                emptyLine: $('.empty-line')
+            };
+        }
+    }, {
+        key: 'renderIsroll',
+        value: function renderIsroll() {
+            var that = this;
+            that.__iscroll = new IScroll('.scroll', {
+                click: true,
+                mouseWheel: true
+            });
+        }
+    }, {
+        key: 'getList',
+        value: function getList(type) {
+            var that = this;
+            loading.init();
+            var url = '/api/goods/1.4/cityDetail';
+            var opt = {
+                url: url,
+                method: 'GET',
+                header: {},
+                data: that.param,
+                success: function success(ret) {
+                    if (ret.status === 200 && ret.data.goodses.length) {
+
+                        if (ret.data.goodses.length == that.param.limit) {
+
+                            that.param.offset = that.param.offset + that.param.limit;
+                            that.renderList(ret.data);
+                            that.bindNext();
+                        } else {
+                            that.renderList(ret.data);
+                        }
+                        this.lazyload = new LazyLoad({ elements_selector: '.lazy' });
+                    }
+                    if (type == 'reset' && ret.data.goodses.length > 0) {
+                        $('.empty-menu').hide();
+                    } else if (type == 'reset' && ret.data.goodses.length == 0) {
+                        $('.empty-menu').show();
+                    }
+                    loading.remove();
+                }
+            };
+            ajax.sendRequest(opt);
+        }
+    }, {
+        key: 'getCityId',
+        value: function getCityId() {
+            return util.getRequestParam('cityId') || location.href.match(/city\/([^?]*)/)[1];
+        }
+    }, {
+        key: 'resetList',
+        value: function resetList() {
+            var that = this;
+            // util.removeEventListener();
+            that._scroll && that._scroll();
+            that.dom.list.html('');
+            that.param.offset = 0;
+            that.param.limit = 10;
+
+            that.getList('reset');
+        }
+    }, {
+        key: 'renderList',
+        value: function renderList(data) {
+            var that = this;
+            that.cacheDom();
+            data.img = that.data.img;
+            that.dom.list.append(juicer(tplItem, data));
+        }
+    }, {
+        key: 'bindNext',
+        value: function bindNext() {
+            var that = this;
+            that._scroll = util._bindScrollTobottom(function () {
+                that.getList();
+            }, true);
+        }
+    }, {
+        key: 'addJuicerHelper',
+        value: function addJuicerHelper() {
+            juicer.register('priceInfo', function (price) {
+                if (!price) {
+                    return '';
+                }
+                var infoleft = price.replace(/起\/人/, '<span>起/人');
+                var infoRight = infoleft + '</span>';
+                return infoRight.replace(/¥/, '<small>¥</small>');
+            });
+            juicer.register('handleImg', function (str, w, h) {
+                var imgRule = 'x-oss-process=image/resize,m_fill,limit_0,w_' + (w ? w : 660) + ',h_' + (h ? h : 355) + '/format,jpg/interlace,1/quality,q_85';
+                return str ? new ComImg({
+                    url: str,
+                    param: imgRule
+                }).getUrl() : '';
+            });
+        }
+    }, {
+        key: 'bindEvent',
+        value: function bindEvent() {
+            var that = this;
+            that.cacheDom();
+
+            function finish() {
+                var tag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'hide';
+
+                if (tag == 'hide') {
+                    that.dom.menuB.hide();
+                    $('body').off('touchmove');
+                } else {
+                    that.dom.menuB.show();
+                    // 添加滚动到360
+                    $('body').on('touchmove', function (e) {
+                        e.preventDefault();
+                    });
+                }
+            }
+
+            function selected() {
+                var items = $('.menu-select ul li');
+                var itemsType = $('#menu-type li');
+                var itemsDay = $('#menu-day li');
+                var itemsTheme = $('#menu-theme li');
+                items.removeClass('selected');
+                if (that.param.goodsClass) {
+                    for (var i = 0; i < itemsType.length; i++) {
+                        if (that.param.goodsClass == $(itemsType[i]).attr('data-id')) {
+                            $(itemsType[i]).addClass('selected');
+                            break;
+                        }
+                    }
+                }
+                if (that.param.goodsClass) {
+                    for (var _i = 0; _i < itemsType.length; _i++) {
+                        if (that.param.goodsClass == $(itemsType[_i]).attr('data-id')) {
+                            $(itemsType[_i]).addClass('selected');
+                            break;
+                        }
+                    }
+                }
+                if (that.param.daysCountMin || that.param.daysCountMax) {
+                    for (var _i2 = 0; _i2 < itemsDay.length; _i2++) {
+                        if (that.param.daysCountMin == $(itemsDay[_i2]).attr('data-min') && that.param.daysCountMax == $(itemsDay[_i2]).attr('data-max')) {
+                            $(itemsDay[_i2]).addClass('selected');
+                            break;
+                        }
+                    }
+                }
+                if (that.param.themeId) {
+                    var themes = that.param.themeId.split(',');
+                    for (var _i3 = 0; _i3 < themes.length; _i3++) {
+                        for (var j = 0; j < itemsTheme.length; j++) {
+                            if (themes[_i3] == $(itemsTheme[j]).attr('data-id')) {
+                                $(itemsTheme[j]).addClass('selected');
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            $(window).off('scroll').on('scroll', function () {
+                var t = $(window).scrollTop();
+                if (t > 350) {
+                    that.dom.menu.addClass('menuFix');
+                } else {
+                    that.dom.menu.removeClass('menuFix');
+                }
+            });
+            $(window).on('touchstart', function () {
+                var t = $(window).scrollTop();
+                if (t > 350) {
+                    that.dom.menu.addClass('menuFix');
+                } else {
+                    that.dom.menu.removeClass('menuFix');
+                }
+            });
+            $(window).on('touchmove', function () {
+                var t = $(window).scrollTop();
+                if (t > 350) {
+                    that.dom.menu.addClass('menuFix');
+                } else {
+                    that.dom.menu.removeClass('menuFix');
+                }
+            });
+            $(window).on('touchend', function () {
+                var t = $(window).scrollTop();
+                if (t > 350) {
+                    that.dom.menu.addClass('menuFix');
+                } else {
+                    that.dom.menu.removeClass('menuFix');
+                }
+            });
+
+            that.dom.menuB.on('click', function () {
+                that.dom.menuItem.removeClass('menu-item-check');
+                selected();
+                finish('hide');
+            });
+            $('.menu-select').on('click', function (e) {
+                e.stopPropagation();
+            });
+
+            that.dom.back.on('click', function () {
+                history.back();
+                return false;
+            });
+
+            that.dom.search.on('click', function () {
+                window.location.href = apiConfig.domainHost + 'app/searchCity.html';
+                return false;
+            });
+
+            that.dom.navCar.on('click', function () {
+                window.location.href = apiConfig.domainHost + 'app/daily.html?cityId=' + that.param.cityId;
+                return false;
+            });
+            that.dom.navPlane.on('click', function () {
+                window.location.href = apiConfig.domainHost + 'app/pickup.html';
+                // window.location.href = '/transfer';
+                return false;
+            });
+            that.dom.navSingle.on('click', function () {
+                var cityName = $('.hackmaxAuto h1').text();
+                window.location.href = apiConfig.domainHost + 'app/single.html?cityId=' + that.param.cityId + '&cityName=' + cityName;
+                return false;
+            });
+
+            $('body').on('click', '.item', function (e) {
+                var tag = $(e.currentTarget);
+                window.location.href = '/goods/detail/' + tag.attr('data-goodsNo');
+            });
+
+            that.dom.menuItem.on('click', function (e) {
+                var tag = $(e.currentTarget);
+                var t = $(window).scrollTop();
+
+                if (t < 350) {
+                    $(window).scrollTop(360);
+                }
+                if (tag.hasClass('menu-item-check')) {
+                    tag.removeClass('menu-item-check');
+                    finish('hide');
+                } else {
+                    that.dom.menuItem.removeClass('menu-item-check');
+                    tag.addClass('menu-item-check');
+                    finish('show');
+                    that.__iscroll.refresh();
+                }
+                selected();
+                return false;
+            });
+
+            that.dom.menuTypes.on('click', function (e) {
+                var tag = $(e.currentTarget);
+                if (tag.hasClass('selected')) {
+                    tag.removeClass('selected');
+                } else {
+                    that.dom.menuTypes.removeClass('selected');
+                    tag.addClass('selected');
+                }
+                return false;
+            });
+            that.dom.menuTypeReset.on('click', function () {
+                that.dom.menuTypes.removeClass('selected');
+                return false;
+            });
+            that.dom.menuTypeConfirm.on('click', function () {
+                var tag = $('#menu-type').find('.selected');
+                var id = tag.attr('data-id');
+                var text = tag.attr('data-text');
+                if (id) {
+                    that.param.goodsClass = id;
+                    $('#menu-type-text').text(text);
+                } else {
+                    that.param.goodsClass = '0';
+                    $('#menu-type-text').text('类型');
+                }
+                console.log(that.param.goodsClass);
+                finish('hide');
+                that.dom.menuItem.removeClass('menu-item-check');
+                that.resetList();
+                selected();
+                return false;
+            });
+
+            that.dom.menuDays.on('click', function (e) {
+                var tag = $(e.currentTarget);
+                if (tag.hasClass('selected')) {
+                    tag.removeClass('selected');
+                } else {
+                    that.dom.menuDays.removeClass('selected');
+                    tag.addClass('selected');
+                }
+                return false;
+            });
+            that.dom.menuDayReset.on('click', function () {
+                that.dom.menuDays.removeClass('selected');
+                return false;
+            });
+            that.dom.menuDayConfirm.on('click', function () {
+
+                var tag = $('#menu-day').find('.selected');
+                var min = tag.attr('data-min');
+                var max = tag.attr('data-max');
+                var text = tag.attr('data-text');
+                if (min || max) {
+                    that.param.daysCountMin = tag.attr('data-min');
+                    that.param.daysCountMax = tag.attr('data-max');
+                    $('#menu-day-text').text(text);
+                } else {
+                    that.param.daysCountMin = '0';
+                    that.param.daysCountMax = '0';
+                    $('#menu-day-text').text('天数');
+                }
+                finish('hide');
+                that.dom.menuItem.removeClass('menu-item-check');
+                that.resetList();
+                selected();
+                return false;
+            });
+
+            that.dom.menuThemes.on('click', function (e) {
+                var tag = $(e.currentTarget);
+                if (tag.hasClass('selected')) {
+                    tag.removeClass('selected');
+                } else {
+                    tag.addClass('selected');
+                }
+                return false;
+            });
+
+            that.dom.menuThemeReset.on('click', function () {
+                that.dom.menuThemes.removeClass('selected');
+                return false;
+            });
+            that.dom.menuThemeConfirm.on('click', function () {
+                var theme = '';
+                var text = '';
+                var tags = $('#menu-theme').find('li.selected');
+                for (var i = 0; i < tags.length; i++) {
+                    var id = $(tags[i]).attr('data-id');
+                    var str = $(tags[i]).attr('data-text');
+
+                    if (theme) {
+                        theme = theme + ',' + id;
+                    } else {
+                        theme = id;
+                    }
+                    if (text == '' && str) {
+                        text = str;
+                    } else {
+                        text = text + str;
+                    }
+                    if (text.length > 4) {
+                        text = text.substr(0, 4);
+                        text = text + '...';
+                    }
+                }
+                that.param.themeId = theme ? theme : 0;
+                if (text == '') {
+                    text = '主题';
+                }
+                $('#menu-theme-text').text(text);
+                finish('hide');
+                that.dom.menuItem.removeClass('menu-item-check');
+                that.resetList();
+                selected();
+                return false;
+            });
+
+            new PopCoupon();
+        }
+    }]);
+
+    return City;
+}();
+
+new City();
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+module.exports = "  {@each goodses as good}    {@if good.headLable == \'超省心\'}    <div class=\"item item-economize\" data-goodsNo=${good.goodsNo}>      <div class=\"item-pic\">        <em>超省心</em>        <span class=\"item-guide\">${good.guideAmount} 位当地中文司导 <b></b></span>        {@if good.goodsPicture}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPicture)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}      </div>      <p class=\"item-title\">${good.goodsName}</p>      <div class=\"item-price\">        <strong><small>¥ </small>${good.perPrice}</strong>        <span>起/人·${good.daysCount}日{@if good.hotelStatus}·含酒店{@/if}</span>      </div>    </div>    {@else}    <div class=\"item item-free\" data-goodsNo=${good.goodsNo}>      <h2>${good.depCityName}${good.daysCount}日玩法推荐</h2>      <span class=\"item-guide\">${good.guideAmount} 位当地中文司导 <b></b></span>      <div class=\"item-pic\">        <em>超自由</em>        {@if good.goodsPics[0]}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPics[0],330,235)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}        {@if good.goodsPics[1]}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPics[1],330,235)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}      </div>      <p class=\"item-title\">${good.goodsName}</p>    </div>    {@/if}  {@/each}"
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5305,7 +5493,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 })(window, document, Math);
 
 /***/ }),
-/* 21 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5316,19 +5504,19 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var $ = __webpack_require__(0);
-var util = __webpack_require__(3);
-var Storage = __webpack_require__(22);
+var util = __webpack_require__(2);
+var Storage = __webpack_require__(28);
 var apiConfig = __webpack_require__(4);
-var ajax = __webpack_require__(6);
+var ajax = __webpack_require__(5);
 var juicer = __webpack_require__(1);
-var Ak = __webpack_require__(26);
-var loading = __webpack_require__(5);
-var SearchAreaCode = __webpack_require__(27);
-var Scheme = __webpack_require__(37);
-var tpl = __webpack_require__(38);
-var Cookie = __webpack_require__(7);
+var Ak = __webpack_require__(32);
+var loading = __webpack_require__(7);
+var SearchAreaCode = __webpack_require__(33);
+var Scheme = __webpack_require__(41);
+var tpl = __webpack_require__(42);
+var Cookie = __webpack_require__(6);
 // const sensors = require("widgets/sensors/index");
-__webpack_require__(39);
+__webpack_require__(43);
 
 var myStorage = new Storage();
 
@@ -5696,7 +5884,7 @@ var PopCoupon = function () {
 module.exports = PopCoupon;
 
 /***/ }),
-/* 22 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5720,10 +5908,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 ***   sign : Storage_,标示可自定义
 * }
 */
-__webpack_require__(23).polyfill();
+__webpack_require__(29).polyfill();
 
 var _gol = window || undefined,
-    _define = __webpack_require__(25),
+    _define = __webpack_require__(31),
     _exports = exports;
 
 var _ref = [_gol.localStorage, _gol.document],
@@ -6167,7 +6355,7 @@ if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if ((typeof _exports === 'undefined' ? 'undefined' : _typeof(_exports)) === 'object') module.exports = Storage;else _gol.Storage = Storage;
 
 /***/ }),
-/* 23 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {/*!
@@ -7350,10 +7538,10 @@ return Promise$1;
 
 //# sourceMappingURL=es6-promise.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30), __webpack_require__(9)))
 
 /***/ }),
-/* 24 */
+/* 30 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -7543,7 +7731,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 25 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -7552,7 +7740,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 26 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7589,7 +7777,7 @@ var getAK = function () {
 module.exports = new getAK();
 
 /***/ }),
-/* 27 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7601,7 +7789,7 @@ var _zepto = __webpack_require__(0);
 
 var _zepto2 = _interopRequireDefault(_zepto);
 
-var _data = __webpack_require__(28);
+var _data = __webpack_require__(34);
 
 var _data2 = _interopRequireDefault(_data);
 
@@ -7609,19 +7797,19 @@ var _juicer = __webpack_require__(1);
 
 var _juicer2 = _interopRequireDefault(_juicer);
 
-var _index = __webpack_require__(29);
+var _index = __webpack_require__(35);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _li = __webpack_require__(30);
+var _li = __webpack_require__(36);
 
 var _li2 = _interopRequireDefault(_li);
 
-__webpack_require__(9);
+__webpack_require__(11);
 
-__webpack_require__(31);
+__webpack_require__(37);
 
-var _iscroll = __webpack_require__(32);
+var _iscroll = __webpack_require__(38);
 
 var _iscroll2 = _interopRequireDefault(_iscroll);
 
@@ -7632,7 +7820,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /**
  * Created by Gorden on 16/9/28.
  */
-var Header = __webpack_require__(33);
+var Header = __webpack_require__(39);
 
 var res = _data2.default.sort(function (item1, item2) {
     // 不要使用 localCompare
@@ -7802,7 +7990,7 @@ module.exports = SearchAreaCode;
 // },10000)
 
 /***/ }),
-/* 28 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10081,25 +10269,25 @@ var STATIC_AREACODE = [{
 module.exports = STATIC_AREACODE;
 
 /***/ }),
-/* 29 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = "<div id=\'J-SearchAreaCode\' class=\'sp-wrap hackmax\'>  <div class=\'J-sp-fix\'>    <div class=\'sp-input-wrap\'>          <span class=\'sp-search-icon\'></span><input placeholder=\'请选择区号\' id=\'J-Sp-input\'><span class=\'sp-clear-icon\'></span>     </div>  </div>  <div class=\'sp-res-wrap\'>    <ul  id=\'J-sp-ul\'>      {@each area as item,index}      <li data-index=${index}><a onclick=\"javascript:void(0)\">${item.countryName}(${item.areaCode})</a></li>      {@/each}    </ul>  </div>  <div class=\'sp-loading\'> </div></div>"
 
 /***/ }),
-/* 30 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = "{@each area as item,index}<li data-index=${index}><a onclick=\"javascript:void(0)\">${item.countryName}(${item.areaCode})</a></li>{@/each}"
 
 /***/ }),
-/* 31 */
+/* 37 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 32 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*! iScroll v5.2.0 ~ (c) 2008-2016 Matteo Spinelli ~ http://cubiq.org/license */
@@ -12197,7 +12385,7 @@ if ( typeof module != 'undefined' && module.exports ) {
 
 
 /***/ }),
-/* 33 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12213,19 +12401,19 @@ var _juicer = __webpack_require__(1);
 
 var _juicer2 = _interopRequireDefault(_juicer);
 
-var _index = __webpack_require__(34);
+var _index = __webpack_require__(40);
 
 var _index2 = _interopRequireDefault(_index);
 
-__webpack_require__(35);
+__webpack_require__(17);
 
-__webpack_require__(10);
+__webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Hash = __webpack_require__(36);
+var Hash = __webpack_require__(18);
 
 var Header = function () {
     function Header(opt) {
@@ -12365,100 +12553,13 @@ var Header = function () {
 module.exports = Header;
 
 /***/ }),
-/* 34 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = "  <header class=\"header J-header hackmaxAuto\" id=\"J-header\">    <b class=\"icon-ioc47 back\">  </b>    {@if sub}    <h2 class=\"mult\">${title}<span>${sub}</span></h2>    {@else}    <h2>${title}</h2>    {@/if}    <span class=\"contact-show\"></span>    <div class=\"contact-wapper\" style=\"display:none\">      <div class=\"contact\">        <h3>联系客服</h3>        <b class=\"close\">&times;</b>        <ul>          <li>            <span>境内客服</span><a href=\"tel://4006100009\">400-610-0009</a>          </li>          <li>           <span>境外客服</span><a href=\"tel://861059715436\">+86 10-59715436</a>          </li>        </ul>      </div>    </div>  </header>"
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Util = __webpack_require__(3);
-
-var Global = window || undefined;
-
-var Hash = function () {
-  function Hash() {
-    _classCallCheck(this, Hash);
-
-    this.catchHash = '';
-  }
-
-  _createClass(Hash, [{
-    key: 'init',
-    value: function init(fn) {
-      var that = this;
-      Global.setTimeout(function () {
-        Global.onhashchange = function (evn) {
-          if (evn.newURL === evn.oldURL && evn.newURL === '') return;
-          fn && fn.call(that, evn);
-        };
-      }, 1);
-    }
-  }, {
-    key: '_check',
-    value: function _check() {
-      return Global.location.hash.charAt(0) == '#';
-    }
-  }, {
-    key: '_Uuid',
-    value: function _Uuid() {
-      return new Date().getTime();
-    }
-  }, {
-    key: 'del',
-    value: function del() {
-      var that = this;
-      Global.history.replaceState(null, '', Global.location.href.replace(that.catchHash, ''));
-      Global.onhashchange = null;
-    }
-  }, {
-    key: '_get',
-    value: function _get() {
-      return Global.location.hash || location.hash;
-    }
-  }, {
-    key: 'get',
-    value: function get() {
-      var that = this;
-      if (that._check()) return Global.location.hash.replace(/^[^#]*#/, '').replace(/^#+|#+$/, '');
-      return that._get();
-    }
-  }, {
-    key: 'set',
-    value: function set(hash) {
-      var that = this;
-      var old = that.get();
-      if (hash == 'auto' || !hash) hash = '#' + that._Uuid();
-      if (hash.charAt(0) != '#') hash = '#' + hash;
-      if (old.indexOf(hash) > -1) return;
-      that.catchHash = hash;
-      Global.location.hash = old + hash;
-      return that;
-    }
-  }]);
-
-  return Hash;
-}();
-
-module.exports = new Hash();
-
-/***/ }),
-/* 37 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12467,7 +12568,7 @@ module.exports = new Hash();
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function webpackUniversalModuleDefinition(root, factory) {
-	if (( false ? 'undefined' : _typeof2(exports)) === 'object' && ( false ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory(__webpack_require__(11));else if (true) !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(11)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+	if (( false ? 'undefined' : _typeof2(exports)) === 'object' && ( false ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory(__webpack_require__(21));else if (true) !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {
@@ -12841,22 +12942,22 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 	);
 });
 //# sourceMappingURL=main.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
-/* 38 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports = "	<div class=\"coupon-box\">      <div class=\"coupon-box-top\"></div>      <div class=\"coupon-data\">        <h3>送你<em>300元</em>大礼包</h3>        <p>现在领取，即可在下单时使用</p>        <div class=\"coupon-form\">          <div class=\"coupon-input coupon-tel\">            <div class=\"coupon-area\">							<span id=\"coupon-area\">+86</span>							<b></b>						</div>						<input type=\"tel\" class=\"coupon-phone\" id=\"coupon-phone\" placeholder=\"输入手机号\" value=\"\">          </div>          <div class=\"coupon-input coupon-code\">            <input type=\"tel\" id=\"coupon-code\" placeholder=\"输入验证码\" maxlength=\"4\" value=\"\">          </div>          <div class=\"coupon-send\">            <em>发送验证码</em>            <span>再次发送<var class=\"coupon-time\">60</var></span>          </div>          <div class=\"coupon-error\">请填写正确的手机号/验证码无效</div>          <button id=\"J-Sa-pop-btn\" class=\"coupon-form-button disabled J-sa\" data-sa-title=\"pop,领取\">领取</button>        </div>      </div>      <div class=\"coupon-finish\">        <h3>已领取</h3>        <p>可在“我的优惠券”中查看礼包</p>        <button class=\"coupon-finish-button J-sa\" data-sa-title=\"pop,下载\">下载APP</button>				<p>APP内下单更优惠，还能挑选司导哦</p>      </div>      <div class=\"coupon-box-bottom\"></div>      <div class=\"coupon-box-close J-sa\" data-sa-title=\"pop,关闭\"><b class=\"icon-ioc56\"></b></div>    </div>"
 
 /***/ }),
-/* 39 */
+/* 43 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 40 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13146,10 +13247,10 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
   );
 });
 //# sourceMappingURL=main.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
-/* 41 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(e,t){"object"===( false?"undefined":_typeof(exports))&&"undefined"!=typeof module?module.exports=t(): true?!(__WEBPACK_AMD_DEFINE_FACTORY__ = (t),
@@ -13159,109 +13260,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _extends=O
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):e.LazyLoad=t()}(this,function(){"use strict";var e=function(){return{elements_selector:"img",container:window,threshold:300,throttle:150,data_src:"src",data_srcset:"srcset",class_loading:"loading",class_loaded:"loaded",class_error:"error",class_initial:"initial",skip_invisible:!0,callback_load:null,callback_error:null,callback_set:null,callback_processed:null,callback_enter:null}},t=!("onscroll"in window)||/glebot/.test(navigator.userAgent),n=function(e,t){e&&e(t)},o=function(e){return e.getBoundingClientRect().top+window.pageYOffset-e.ownerDocument.documentElement.clientTop},i=function(e,t,n){return(t===window?window.innerHeight+window.pageYOffset:o(t)+t.offsetHeight)<=o(e)-n},s=function(e){return e.getBoundingClientRect().left+window.pageXOffset-e.ownerDocument.documentElement.clientLeft},r=function(e,t,n){var o=window.innerWidth;return(t===window?o+window.pageXOffset:s(t)+o)<=s(e)-n},l=function(e,t,n){return(t===window?window.pageYOffset:o(t))>=o(e)+n+e.offsetHeight},a=function(e,t,n){return(t===window?window.pageXOffset:s(t))>=s(e)+n+e.offsetWidth},c=function(e,t,n){return!(i(e,t,n)||l(e,t,n)||r(e,t,n)||a(e,t,n))},u=function(e,t){var n,o=new e(t);try{n=new CustomEvent("LazyLoad::Initialized",{detail:{instance:o}})}catch(e){(n=document.createEvent("CustomEvent")).initCustomEvent("LazyLoad::Initialized",!1,!1,{instance:o})}window.dispatchEvent(n)},d=function(e,t){return e.getAttribute("data-"+t)},h=function(e,t,n){return e.setAttribute("data-"+t,n)},f=function(e,t){var n=e.parentNode;if("PICTURE"===n.tagName)for(var o=0;o<n.children.length;o++){var i=n.children[o];if("SOURCE"===i.tagName){var s=d(i,t);s&&i.setAttribute("srcset",s)}}},_=function(e,t,n){var o=e.tagName,i=d(e,n);if("IMG"===o){f(e,t);var s=d(e,t);return s&&e.setAttribute("srcset",s),void(i&&e.setAttribute("src",i))}"IFRAME"!==o?i&&(e.style.backgroundImage='url("'+i+'")'):i&&e.setAttribute("src",i)},p="undefined"!=typeof window,m=p&&"classList"in document.createElement("p"),g=function(e,t){m?e.classList.add(t):e.className+=(e.className?" ":"")+t},v=function(e,t){m?e.classList.remove(t):e.className=e.className.replace(new RegExp("(^|\\s+)"+t+"(\\s+|$)")," ").replace(/^\s+/,"").replace(/\s+$/,"")},w=function(t){this._settings=_extends({},e(),t),this._queryOriginNode=this._settings.container===window?document:this._settings.container,this._previousLoopTime=0,this._loopTimeout=null,this._boundHandleScroll=this.handleScroll.bind(this),this._isFirstLoop=!0,window.addEventListener("resize",this._boundHandleScroll),this.update()};w.prototype={_reveal:function(e){var t=this._settings,o=function o(){t&&(e.removeEventListener("load",i),e.removeEventListener("error",o),v(e,t.class_loading),g(e,t.class_error),n(t.callback_error,e))},i=function i(){t&&(v(e,t.class_loading),g(e,t.class_loaded),e.removeEventListener("load",i),e.removeEventListener("error",o),n(t.callback_load,e))};n(t.callback_enter,e),"IMG"!==e.tagName&&"IFRAME"!==e.tagName||(e.addEventListener("load",i),e.addEventListener("error",o),g(e,t.class_loading)),_(e,t.data_srcset,t.data_src),n(t.callback_set,e)},_loopThroughElements:function(){var e=this._settings,o=this._elements,i=o?o.length:0,s=void 0,r=[],l=this._isFirstLoop;for(s=0;s<i;s++){var a=o[s];e.skip_invisible&&null===a.offsetParent||(t||c(a,e.container,e.threshold))&&(l&&g(a,e.class_initial),this._reveal(a),r.push(s),h(a,"was-processed",!0))}for(;r.length;)o.splice(r.pop(),1),n(e.callback_processed,o.length);0===i&&this._stopScrollHandler(),l&&(this._isFirstLoop=!1)},_purgeElements:function(){var e=this._elements,t=e.length,n=void 0,o=[];for(n=0;n<t;n++){var i=e[n];d(i,"was-processed")&&o.push(n)}for(;o.length>0;)e.splice(o.pop(),1)},_startScrollHandler:function(){this._isHandlingScroll||(this._isHandlingScroll=!0,this._settings.container.addEventListener("scroll",this._boundHandleScroll))},_stopScrollHandler:function(){this._isHandlingScroll&&(this._isHandlingScroll=!1,this._settings.container.removeEventListener("scroll",this._boundHandleScroll))},handleScroll:function(){var e=this._settings.throttle;if(0!==e){var t=Date.now(),n=e-(t-this._previousLoopTime);n<=0||n>e?(this._loopTimeout&&(clearTimeout(this._loopTimeout),this._loopTimeout=null),this._previousLoopTime=t,this._loopThroughElements()):this._loopTimeout||(this._loopTimeout=setTimeout(function(){this._previousLoopTime=Date.now(),this._loopTimeout=null,this._loopThroughElements()}.bind(this),n))}else this._loopThroughElements()},update:function(){this._elements=Array.prototype.slice.call(this._queryOriginNode.querySelectorAll(this._settings.elements_selector)),this._purgeElements(),this._loopThroughElements(),this._startScrollHandler()},destroy:function(){window.removeEventListener("resize",this._boundHandleScroll),this._loopTimeout&&(clearTimeout(this._loopTimeout),this._loopTimeout=null),this._stopScrollHandler(),this._elements=null,this._queryOriginNode=null,this._settings=null}};var b=window.lazyLoadOptions;return p&&b&&function(e,t){var n=t.length;if(n)for(var o=0;o<n;o++)u(e,t[o]);else u(e,t)}(w,b),w});
 
 /***/ }),
-/* 42 */
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var __WEBPACK_AMD_DEFINE_RESULT__;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/*
- * ChangeSkin
- * 功能：网页换肤；
- * 说明：
- *
- * cookieName --------- 传入需要换肤的cookie名称
- * 传入新的cookieName，需要新建对应的css文件
- *
- */
-var util = __webpack_require__(3);
-var Cookie = __webpack_require__(7);
-var _glo = window || undefined;
-var CHANGE_NAME = ['iscbc', 'ismaster'];
-
-var ChangeSkin = function () {
-    function ChangeSkin(opt) {
-        _classCallCheck(this, ChangeSkin);
-
-        this.opt = {
-            cookieName: 'iscbc'
-        };
-        if (Object.prototype.toString.call(opt) === '[object Object]' && JSON.stringify(opt) !== '{}') {
-            util._extend(this.opt, opt);
-        }
-        this.init();
-    }
-
-    _createClass(ChangeSkin, [{
-        key: 'init',
-        value: function init() {
-            this.cacheData();
-            this.cacheDOM();
-            if (this.data.cookie) {
-                if (!this.dom.wrap.classList.contains(this.data.cookie)) {
-                    this.dom.wrap.classList.add('J-' + this.data.cookie, 'J-P-' + util.plateForm().os);
-                }
-                this.getConfig(this.data.cookie);
-            }
-        }
-    }, {
-        key: 'cacheData',
-        value: function cacheData() {
-            this.data = {};
-            // this.data.cookie = this.opt.cookieName && Cookie.get(this.opt.cookieName);
-            this.data.cookie = function (arr) {
-                var res = '';
-                for (var index = 0, length = arr.length; index < length; index++) {
-                    Cookie.get(arr[index]) == 1 && (res = arr[index]);
-                }
-                return res;
-            }(CHANGE_NAME);
-        }
-    }, {
-        key: 'cacheDOM',
-        value: function cacheDOM() {
-            this.dom = {
-                wrap: document.querySelector('body')
-            };
-        }
-    }, {
-        key: 'getConfig',
-        value: function getConfig(css) {
-            switch (css) {
-                case 'iscbc':
-                    __webpack_require__.e/* require */(1).then(function() {[__webpack_require__(45)];}).catch(__webpack_require__.oe);
-                    break;
-                case 'ismaster':
-                    __webpack_require__.e/* require */(0).then(function() {[__webpack_require__(46)];}).catch(__webpack_require__.oe);
-            }
-        }
-    }]);
-
-    return ChangeSkin;
-}();
-
-if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-    return ChangeSkin;
-}).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = ChangeSkin;else _glo.ChangeSkin = ChangeSkin;
 
 /***/ })
 /******/ ]);

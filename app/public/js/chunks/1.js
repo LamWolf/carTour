@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 45:
+/***/ 22:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -25,7 +25,7 @@ module.exports = {
   'sendCode': '<%- apiHost %>ucenter/v1.0/c/user/captcha', //发送验证码
   'codeLogin': '<%- apiHost %>ucenter/v1.0/c/user/h5login/bycaptcha', //验证码登录
   "getPackW" : "<%- apiHost %>/marketing/v1.0/e/openapi/coupon/packet/webkit",// 券批次
-  
+
   'cdnHost' : '<%- cdnHost %>',
   'packNo': '<%- packNo %>',
   'channelId': '1108019942',
@@ -36,7 +36,7 @@ module.exports = {
   'cbcPackNo' : '<%- cbcPackNo %>',
   'masterPackNo' : '<%- masterPackNo%>',
   'ENV' : '<%- ENV %>',
-
+  'queryGoodsStock' : '<%- apiHost %>goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
 
 
   'guideInfo' : '<%- apiHost%>supplier/v2.0/e/open/personalinfo',//司导个人页，司导信息

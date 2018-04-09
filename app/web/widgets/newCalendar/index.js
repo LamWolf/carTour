@@ -3,14 +3,16 @@ const INDEXTPL = require('./index.tpl');
 const INNERTPL = require('./inner.tpl');
 const juicer = require('widgets/juicer/juicer.js');
 const ajax = require('widgets/ajax/index');
-const Swiper = require('widgets/swiper/swiper.min.js');
+// const Swiper = require('widgets/swiper/swiper.min.js');
+const Swiper = window.Swiper;
 const $ = require('widgets/zepto/zepto.js');
 const apiConfig = require('widgets/apiConfig/index.js');
 require('./index.scss');
-require('widgets/swiper/swiper.css');
+// require('widgets/swiper/swiper.css');
 class newCalendar {
     constructor(opt) {
         this.opt = opt;
+        debugger
         this.addJuicerHelper();
         this.cacheData();
         this.cacheDOM();
@@ -53,6 +55,7 @@ class newCalendar {
         };
     }
     getRemoteCan(date) {
+        debugger
 
         const that = this;
         if (that.data.date) {
@@ -71,18 +74,16 @@ class newCalendar {
             return `${end.getFullYear()}-${end.getMonth() + 1 < 10 ? '0' + (end.getMonth() + 1) : end.getMonth() + 1}-${new Date(year, month, 0).getDate()}`;
         })(date);
 
-
         const param = {
-            url: apiConfig.queryGoodsStock,
+            url: '/api/goods/goodsStock',
             method: 'GET',
-            // headers : { 'X-Requested-With': 'XMLHttpRequest' },
+            header: {},
             data: {
                 goodsNo: this.opt.goodsNo,
-                startServiceDate,
-                endServiceDate
+                startServiceDate: startServiceDate,
+                endServiceDate: endServiceDate
             },
             success: res => {
-
                 if (that.data.select == '') {
                     that.getSelectDay(res.data.goodsStockList);
                 }
@@ -101,7 +102,8 @@ class newCalendar {
 
             }
         };
-        this._ajax = ajax.sendRequest(param);
+        debugger
+        ajax.sendRequest(param);
     }
 
     getSelectDay(list) {
@@ -219,6 +221,7 @@ class newCalendar {
 
     }
     renderUI() {
+        debugger
         this.dom.wrap.html(juicer(INDEXTPL, this.data));
         this.swiper = new Swiper('.W-Can-main-date .swiper-container', { autoHeight: true });
         // this.dom.innerDom = this.dom.wrap.find('.W-Can-main-date')

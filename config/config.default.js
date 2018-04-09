@@ -38,6 +38,10 @@ module.exports = appInfo => {
             city: {
                 url: 'mongodb://localhost:27017/carTour',
                 options: {}
+            },
+            goods: {
+                url: 'mongodb://localhost:27017/goods',
+                options: {}
             }
         }
     };
