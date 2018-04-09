@@ -1,0 +1,408 @@
+
+$colorY: #fdd631;
+$colorO: #ec6443;
+$colorG: #898989;
+
+body {
+  background-color: #f4f4f4;
+}
+
+ul,li,dl {
+  margin: 0;
+  padding: 0;
+}
+var {
+  font-style: normal;
+}
+b {
+  color: #000000;
+}
+
+/* .wrap {
+  margin : auto;
+  font-size: 14px;
+} */
+
+.wrap-fix {
+  width: 7.5rem;
+  height: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10
+}
+
+
+.info {
+  background-color: #ffffff;
+}
+
+.info-free {
+  display: none;
+}
+.info-simple {
+  color: $colorG;
+  font-size: 0.26rem;
+  dl {
+    width: 100%;
+    padding: 0.3rem 0;
+    position: relative;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid #e5e5e5;
+    dt {
+      width: 1rem;
+      height: 0.5rem;
+      line-height: 0.5rem;
+      position: absolute;
+      left: 0.35rem;
+      top: 0.35rem;
+      text-align: center;
+      color: #fff;
+      border-radius: 5px;
+      background-color: #21abf3;
+    }
+    dt.issx{
+      background-color: #44d435;
+    }
+    dd {
+      width: 4.6rem;
+      margin-left: 1.7rem;
+    }
+    dd.info-simple-name {
+      padding-bottom: 0.1rem;
+      margin-bottom: 0.1rem;
+      border-bottom: 1px solid $colorY;
+    }
+  }
+}
+
+
+
+
+.list {
+  margin-top: 0.25rem;
+}
+.list-count {
+  margin: 0.1rem 0.3rem;
+  padding-top: 0.2rem;
+}
+.list-item {
+  width: 6.96rem;
+  margin: 0.25rem auto;
+  border: 1px solid $colorG;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: .6rem .3rem 0 .3rem;
+  div.list-ibox{
+    margin-bottom: .6rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: .6rem;
+    position: relative;
+    code.last{
+      display: inline-block;
+      width:.6rem;
+      text-align: center;
+    }
+    &:last-child{
+      margin-bottom: 0;
+      border: none;
+      span{
+        display: inline-block;
+        width: .4rem;
+        height:.4rem;
+        padding: 0 .6rem;
+        text-align: center;
+        color: #ababab;
+        vertical-align: middle;
+      }
+      span.info-add{
+        background: url('https://fr-static.huangbaoche.com/20180330/plus.7f7c10f94dfc8061.png') no-repeat 50% 50%;
+        background-size: auto 100%
+      }
+      span.info-reduce{
+        margin-left: -.3rem;
+        background: url('https://fr-static.huangbaoche.com/20180330/reduce.5c53150278a0f634.png') no-repeat 50% 50%;
+        background-size: auto 100%
+      }
+      span.unactive{
+        border-color: #c5c5c5;
+        color: #c5c5c5;
+      }
+    }
+    small{
+      position: absolute;
+      padding-top:.1rem;
+      font-size: .26rem;
+      color: #ff6633;
+      width: 100%;
+      display: none;
+      &:before{
+        vertical-align: middle;
+        margin-right: .1rem;
+      }
+    }
+    small.info{
+      color:#898989;
+      font-family: Arial!important;
+      &:before{
+        display: none;
+      }
+    }
+    dl{
+      display: table;
+      width: 100%;
+    }
+    dt,dd{
+      display: table-cell;
+      font-size: .36rem;
+    }
+    dt{
+      text-align: left;
+      width: 29%;
+      input{
+        font-size: .36rem;
+      }
+    }
+    dd{
+      padding-left:.6rem;
+      code{
+        color:#999;
+        white-space:nowrap;
+        font-family: Arial;
+      }
+      .select{
+        color:#000;
+      }
+    }
+  }
+}
+
+.info-select{
+  text-align: center;
+  padding: .3rem;
+  .info-select-box{
+    height: 1.12rem;
+    margin-bottom: 0.66667rem;
+    border-bottom: 0.02667rem solid #cecece;
+    font-size: 16px;
+    a{
+      background: #fdd631;
+      display: inline-block;
+      line-height: 1.12rem;
+      width: 100%;
+      text-align: center;
+      font-size: .36rem;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+.sku-info-wrap{
+  border-top: solid .14rem #F6F6F6;
+  .sku-info{
+    padding-left: .3rem;
+    padding-top: .3rem;
+    background-color: #ffffff;
+    .sku-info-img{
+      width: 1.6rem;
+      height: 1.08rem;
+      vertical-align: top;
+      display: inline-block;
+      background-size: cover;
+    }
+    span{
+      width: 5.1rem;
+      font-size: .28rem;
+      color: #161616;
+      vertical-align: top;
+      display: inline-block;
+      line-height: .36rem;
+    }
+  }
+}
+.sku-date{
+  margin-top: .14rem;
+}
+.sku-num-modi{
+  display: inline-block;
+  width: .55rem;
+  text-align: center;
+}
+.people-num{
+  border-top: solid .14rem #F6F6F6;
+  background-color: #ffffff;
+  padding-left: .3rem;
+  .people-num-title{
+    font-size: 0;
+    padding-top: .2rem;
+    span{
+      font-size: .26rem;
+      color: #7F7F7F;
+    }
+  }
+  .people-num-content{
+    .sku-people{
+      font-size: 0;
+      border-bottom: solid 1px #DBDBDB;
+      padding-bottom: .2rem;
+      margin-top: .3rem;
+      span{
+          font-size: .28rem;
+          color: #161616;
+          vertical-align: middle;
+          line-height: .48rem;
+      }
+      .sku-people-nums{
+          float: right;
+          margin-right: .15rem;
+          .sku-num-false{
+            color: #CCCCCC;
+          }
+
+          .sku-num{
+            width: .81rem;
+            height: .48rem;
+            display: inline-block;
+            border-left: 1px solid #DBDBDB;
+            border-right: 1px solid #DBDBDB;
+            text-align: center;
+            line-height: .48rem;
+          }
+      }
+      .sku-child-seat{
+        margin-top: .2rem;
+        border-top: solid 1px #DBDBDB;
+        padding-top: .3rem;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+    .sku-people-::after{
+      content: "";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      height: 0;
+    }
+    .people-baggages{
+      font-size: 0;
+      padding-bottom: .2rem;
+      margin-top: .3rem;
+      span{
+        font-size: .28rem;
+        color: #161616;
+        vertical-align: middle;
+        line-height: .48rem;
+      }
+      .people-baggages-nums{
+        float: right;
+        margin-right: .24rem;
+        .people-baggages-num{
+          margin-right: .26rem;
+        }
+        .people-baggages-unit{
+
+        }
+      }
+      .baggages-info{
+        margin-left: .2rem;
+        color: #24BCFF;
+        font-size: .24rem;
+        text-decoration-line: underline;
+      }
+    }
+  }
+  .J-baggages-wrap{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 10;
+    display: none;
+    .baggages-img{
+        width: 6.7rem;
+        height: 10.38rem;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        background-image: url(https://fr-static.huangbaoche.com/20180330/m-luggage-instruction.5fd5d63071e8a74d.png?x-oss-process=image/resize,m_fill,limit_0,w_750,h_500/format,jpg/interlace,1/quality,q_85);
+        background-size: contain;
+        transform: translate(-50%,-50%);
+        z-index: 10;
+    }
+  }
+}
+.sku-room-info{
+  background-color: #ffffff;
+  padding-left: .3rem;
+  margin-top: .14rem;
+  .room-info-title{
+    font-size: 0;
+    padding-top: .2rem;
+    span{
+      font-size: .26rem;
+      color: #7F7F7F;
+    }
+  }
+  .room-info-content{
+    font-size: 0;
+    margin-top: .3rem;
+    padding-bottom: .2rem;
+    span{
+      color: #161616;
+      font-size: .28rem;
+      vertical-align: middle;
+    }
+    .room-prices{
+      color: #FF2525;
+    }
+    .room-nums{
+      float: right;
+      margin-right: .15rem;
+      .sku-num-false{
+        color: #CCCCCC;
+      }
+      .room-num{
+        width: .81rem;
+        height: .48rem;
+        display: inline-block;
+        border-left: 1px solid #DBDBDB;
+        border-right: 1px solid #DBDBDB;
+        text-align: center;
+        line-height: .48rem;
+      }
+    }
+  }
+  .room-info-content::after{
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+  }
+}
+.next-btn{
+  font-size: 0;
+  margin: .4rem .5rem;
+  .next-btn-content{
+    display: inline-block;
+    font-size: .32rem;
+    color: #ffffff;
+    background-color: #FFCE00;
+    width: 100%;
+    text-align: center;
+    padding: .18rem 0;
+    border-radius: .06rem;
+  }
+}

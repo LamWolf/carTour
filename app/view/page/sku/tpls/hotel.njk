@@ -1,0 +1,9 @@
+{% set hotelCostPriceCount = goodsDetail.hotelCostPrice * goodsDetail.roomNo %}
+<span class="room-date">共{{ goodsDetail.daysCount }}晚&nbsp;|&nbsp;</span>
+<span class="room-nums-title">房间数</span>
+<span class="room-prices">（￥{{ hotelCostPriceCount }}）</span>
+<div class="room-nums">
+	<span class="room-less sku-num-modi {% if goodsDetail.roomNo == 1 %}sku-num-false{% endif %}">-</span>
+	<span class="room-num">{{ goodsDetail.roomNo }}</span>
+	<span class="room-more sku-num-modi {% if goodsDetail.roomNo == 100 %}sku-num-flase{% endif %}">+</span>
+</div>

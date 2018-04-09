@@ -871,7 +871,7 @@ module.exports = {
     sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
     codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
     getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
-
+    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
     cdnHost: '',
     packNo: '20161222114936',
     channelId: '1108019942',

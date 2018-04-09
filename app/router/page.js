@@ -16,4 +16,5 @@ module.exports = app => {
     router.get('/error/500.html', controller.error.error);
 
     router.get('/city/:cityId', controller.page.city.index.index);
+    router.get('/sku/:goodsNo', controller.page.sku.index.index);
 };

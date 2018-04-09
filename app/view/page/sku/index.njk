@@ -1,0 +1,36 @@
+<script>
+    window.__goodsNo = `{{ goodsDetail.goodsNo }}`;
+</script>
+<div class="sku-info-wrap">
+    {% include "./tpls/info.njk" %}
+</div>
+<div class="sku-date"></div>
+<div class="people-num">
+    <div class="people-num-title">
+        <span>包车人数</span>
+    </div>
+    <div class="people-num-content">
+        <div class="sku-people people-adults">
+            {% include "./tpls/passengerAdult.njk" %}
+        </div>
+        <div class="sku-people people-children">
+            {% include "./tpls/passengerChild.njk" %}
+        </div>
+    </div>
+    <div class="J-baggages-wrap">
+        <img alt="" class="baggages-img">
+    </div>
+</div>
+{% if hotel.hotelStatus %}
+    <div class="sku-room-info">
+        <div class="room-info-title">
+            <span>酒店信息</span>
+        </div>
+        <div class="room-info-content">
+            {% include "./tpls/hotel.njk" %}
+        </div>
+    </div>
+{% endif %}
+<div class="next-btn">
+    <span class="next-btn-content">下一步</span>
+</div>
