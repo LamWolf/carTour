@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017/carTour';
-const cityDetailObj = require('../mock/mockData/cityDetail');
+// const cityDetailObj = require('../mock/mockData/cityDetail');
 
 MongoClient.connect(url, function(err, db) {
     if (err) { throw err; }
@@ -363,8 +363,8 @@ MongoClient.connect(url, function(err, db) {
             transactionVolumes: 32
         }
     ];
-    const whereStr = {cityId: 131};
-    const updateStr = {$set:{ goodses: cityObj }};
+    const whereStr = { cityId: 131 };
+    const updateStr = { $set: { goodses: cityObj } };
     dbase.collection('goodses').updateOne(whereStr, updateStr, (err, res) => {
         if (err) throw err;
         console.log('res', res);
