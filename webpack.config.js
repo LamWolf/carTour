@@ -11,7 +11,8 @@ const exitNodeModules = function(files) {
 module.exports = {
     entry: {
         city: './app/web/static/city/index.js',
-        sku: './app/web/static/sku/index.js'
+        sku: './app/web/static/sku/index.js',
+        car: './app/web/static/car/index.js'
     },
     output: {
         filename: 'js/[name].js',

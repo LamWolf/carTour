@@ -1,36 +1,6 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	var parentJsonpFunction = window["webpackJsonp"];
-/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules, executeModules) {
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [], result;
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules, executeModules);
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 	};
-/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
-/******/ 	// objects to store loaded and loading chunks
-/******/ 	var installedChunks = {
-/******/ 		3: 0
-/******/ 	};
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -56,55 +26,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		var installedChunkData = installedChunks[chunkId];
-/******/ 		if(installedChunkData === 0) {
-/******/ 			return new Promise(function(resolve) { resolve(); });
-/******/ 		}
-/******/
-/******/ 		// a Promise means "currently loading".
-/******/ 		if(installedChunkData) {
-/******/ 			return installedChunkData[2];
-/******/ 		}
-/******/
-/******/ 		// setup Promise in chunk cache
-/******/ 		var promise = new Promise(function(resolve, reject) {
-/******/ 			installedChunkData = installedChunks[chunkId] = [resolve, reject];
-/******/ 		});
-/******/ 		installedChunkData[2] = promise;
-/******/
-/******/ 		// start chunk loading
-/******/ 		var head = document.getElementsByTagName('head')[0];
-/******/ 		var script = document.createElement('script');
-/******/ 		script.type = "text/javascript";
-/******/ 		script.charset = 'utf-8';
-/******/ 		script.async = true;
-/******/ 		script.timeout = 120000;
-/******/
-/******/ 		if (__webpack_require__.nc) {
-/******/ 			script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 		}
-/******/ 		script.src = __webpack_require__.p + "js/chunks/" + ({}[chunkId]||chunkId) + ".js";
-/******/ 		var timeout = setTimeout(onScriptComplete, 120000);
-/******/ 		script.onerror = script.onload = onScriptComplete;
-/******/ 		function onScriptComplete() {
-/******/ 			// avoid mem leaks in IE.
-/******/ 			script.onerror = script.onload = null;
-/******/ 			clearTimeout(timeout);
-/******/ 			var chunk = installedChunks[chunkId];
-/******/ 			if(chunk !== 0) {
-/******/ 				if(chunk) {
-/******/ 					chunk[1](new Error('Loading chunk ' + chunkId + ' failed.'));
-/******/ 				}
-/******/ 				installedChunks[chunkId] = undefined;
-/******/ 			}
-/******/ 		};
-/******/ 		head.appendChild(script);
-/******/
-/******/ 		return promise;
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -138,11 +59,8 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "http://127.0.0.1:7001/";
 /******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 59);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -3535,99 +3453,7 @@ module.exports = new Hash();
 
 /***/ }),
 /* 20 */,
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var __WEBPACK_AMD_DEFINE_RESULT__;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/*
- * ChangeSkin
- * 功能：网页换肤；
- * 说明：
- *
- * cookieName --------- 传入需要换肤的cookie名称
- * 传入新的cookieName，需要新建对应的css文件
- *
- */
-var util = __webpack_require__(2);
-var Cookie = __webpack_require__(7);
-var _glo = window || undefined;
-var CHANGE_NAME = ['iscbc', 'ismaster'];
-
-var ChangeSkin = function () {
-    function ChangeSkin(opt) {
-        _classCallCheck(this, ChangeSkin);
-
-        this.opt = {
-            cookieName: 'iscbc'
-        };
-        if (Object.prototype.toString.call(opt) === '[object Object]' && JSON.stringify(opt) !== '{}') {
-            util._extend(this.opt, opt);
-        }
-        this.init();
-    }
-
-    _createClass(ChangeSkin, [{
-        key: 'init',
-        value: function init() {
-            this.cacheData();
-            this.cacheDOM();
-            if (this.data.cookie) {
-                if (!this.dom.wrap.classList.contains(this.data.cookie)) {
-                    this.dom.wrap.classList.add('J-' + this.data.cookie, 'J-P-' + util.plateForm().os);
-                }
-                this.getConfig(this.data.cookie);
-            }
-        }
-    }, {
-        key: 'cacheData',
-        value: function cacheData() {
-            this.data = {};
-            // this.data.cookie = this.opt.cookieName && Cookie.get(this.opt.cookieName);
-            this.data.cookie = function (arr) {
-                var res = '';
-                for (var index = 0, length = arr.length; index < length; index++) {
-                    Cookie.get(arr[index]) == 1 && (res = arr[index]);
-                }
-                return res;
-            }(CHANGE_NAME);
-        }
-    }, {
-        key: 'cacheDOM',
-        value: function cacheDOM() {
-            this.dom = {
-                wrap: document.querySelector('body')
-            };
-        }
-    }, {
-        key: 'getConfig',
-        value: function getConfig(css) {
-            switch (css) {
-                case 'iscbc':
-                    __webpack_require__.e/* require */(1).then(function() {[__webpack_require__(25)];}).catch(__webpack_require__.oe);
-                    break;
-                case 'ismaster':
-                    __webpack_require__.e/* require */(0).then(function() {[__webpack_require__(26)];}).catch(__webpack_require__.oe);
-            }
-        }
-    }]);
-
-    return ChangeSkin;
-}();
-
-if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-    return ChangeSkin;
-}).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = ChangeSkin;else _glo.ChangeSkin = ChangeSkin;
-
-/***/ }),
+/* 21 */,
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3785,7 +3611,17 @@ module.exports = "  <header class=\"header hackmax\" id=\"header\">    <b class=
 /* 46 */,
 /* 47 */,
 /* 48 */,
-/* 49 */
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3795,54 +3631,52 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Created by Gorden on 16/10/2.
+ */
 var $ = __webpack_require__(0);
-
-var adultTpl = __webpack_require__(50);
-var childTpl = __webpack_require__(51);
-var baggagesTpl = __webpack_require__(52);
-var hotelTpl = __webpack_require__(53);
+var carTpl = __webpack_require__(60);
+var priceTpl = __webpack_require__(61);
 
 var juicer = __webpack_require__(1);
-var Layer = __webpack_require__(10);
+var util = __webpack_require__(2);
 var Header = __webpack_require__(22);
-
-var newCalendar = __webpack_require__(54);
-
-__webpack_require__(58);
 __webpack_require__(19);
 __webpack_require__(8);
+__webpack_require__(62);
+__webpack_require__(14);
 
-new (__webpack_require__(21))();
+var Car = function () {
+    function Car(opt) {
+        _classCallCheck(this, Car);
 
-var Sku = function () {
-    function Sku() {
-        _classCallCheck(this, Sku);
-
-        this._juicerHelper();
+        this.data = opt;
         this.cacheData();
         this.cacheDom();
+        this.addJuicerHelper();
+        this._checkCar();
+        this._renderCarList();
+        this._renderPrice();
         this.bindEvent();
     }
 
-    _createClass(Sku, [{
+    _createClass(Car, [{
         key: 'cacheData',
         value: function cacheData() {
             this.data = {
-                info: {}, // 这是信息
-                date: '',
-                passenger: {
-                    adultNo: 2,
-                    childNo: 0,
-                    childSeat: 0,
-                    maxPerson: 12, // 最大人数（指定城市）
-                    maxBagNo: 14, // 最大行李数（指定城市）
-                    currentBagNo: '' // 可用的最大行李数
-                },
-                hotel: {
-                    roomNo: 1
-                },
-                param: window.__goodsNo,
+                carList: window.__goodsPrice, // 可选车列表
+                realCarList: window.__realCarList, // 符合条件车列表
+                currentIndex: 1, // 当前选择车默认为第一个
+                param: JSON.parse(util.getRequestParam('param')),
+                personLuggage: 14, // 当前行李最大值
+                csPrice: window.__csPrice,
                 nextParam: {}
+            };
+            this.data.param5 = {
+                goodsNo: this.data.param.goodsNo,
+                serviceDate: this.data.param.serviceDate + ' 00:00:00',
+                channelId: util.getRightChannelId(),
+                specialCarsIncluded: 1
             };
         }
     }, {
@@ -3851,177 +3685,154 @@ var Sku = function () {
             var that = this;
             that.dom = {
                 wrap: $('#page'),
-                infoWrap: $('.sku-info-wrap'),
-                adultWrap: $('.people-adults'),
-                childWrap: $('.people-children'),
-                baggagesWrap: $('.people-baggages'),
-                hotelWrap: $('.room-info-content'),
-                adultsNum: $('.people-adults-num'),
-                childrenNum: $('.people-children-num'),
-                roomNum: $('.room-num')
+                tpl: $('#tpl'),
+                info: $('#info'),
+                list: $('#list'),
+                empty: $('#list-empty'),
+                orderButton: $('.list-item-order button'),
+                price: $('.sku-price-confirm')
             };
         }
     }, {
-        key: '_renderAdult',
-        value: function _renderAdult() {
+        key: '_renderCarList',
+        value: function _renderCarList() {
             var that = this;
-            that.dom.adultWrap.html(juicer(adultTpl, that.data.passenger));
+            that.dom.list.html(juicer(carTpl, that.data));
             that.cacheDom();
         }
     }, {
-        key: '_renderChild',
-        value: function _renderChild() {
+        key: '_renderPrice',
+        value: function _renderPrice() {
             var that = this;
-            that.dom.childWrap.html(juicer(childTpl, that.data.passenger));
+            that.dom.price.html(juicer(priceTpl, that.data));
             that.cacheDom();
         }
     }, {
-        key: '_renderHotel',
-        value: function _renderHotel() {
+        key: 'addJuicerHelper',
+        value: function addJuicerHelper() {
             var that = this;
-            that.dom.hotelWrap.html(juicer(hotelTpl, that.data.hotel));
-            that.cacheDom();
-        }
-    }, {
-        key: '_renderBaggages',
-        value: function _renderBaggages() {
-            var that = this;
-
-            that.dom.baggagesWrap.html(juicer(baggagesTpl, that.data.passenger));
-            that.cacheDom();
-        }
-    }, {
-        key: '_juicerHelper',
-        value: function _juicerHelper() {
-            juicer.register('floor', function (data) {
-                return Math.floor(data);
+            juicer.register('add', function () {
+                var sum = 0;
+                for (var i = 0; i < arguments.length; i++) {
+                    sum = sum + parseInt(arguments[i]);
+                }
+                return sum;
+            });
+            juicer.register('maxLuggage', function (cap, adultNo, childNo, childSeat) {
+                var p_no = function (an, cn, csn) {
+                    if (cn == csn) {
+                        return an + cn * 1.5;
+                    }
+                    return an + csn * 1.5 + cn - csn;
+                }(adultNo - 0, childNo - 0, childSeat);
+                var rs = Math.floor(cap - 0 - p_no);
+                return rs;
+            });
+            juicer.register('carImg', function (carType, seatType) {
+                var name = '';
+                if (carType == 1) {
+                    name = 'jincou';
+                } else if (carType == 2) {
+                    name = 'shushi';
+                } else if (carType == 3) {
+                    name = 'haohua';
+                } else if (carType == 4) {
+                    name = 'shehua';
+                }
+                return that.data.imgs[name + '' + seatType];
+            });
+            juicer.register('getCsPrice', function () {
+                var csn = that.data.param.childSeat - 0;
+                var priceObj = that.data.carList.additionalServicePrice;
+                return function (no, obj) {
+                    var p1 = obj.childSeatPrice1 || 0;
+                    var p2 = obj.childSeatPrice2 || 0;
+                    if (no <= 1) {
+                        return p1 * no;
+                    }
+                    if (no > 1) {
+                        return p1 + (no - 1) * p2;
+                    }
+                }(csn, priceObj);
+            });
+            juicer.register('formatMoney', function (str) {
+                str += '';
+                return str.split('').reverse().join('').replace(/(\d{3}(?=\d)(?!\d+\.|$))/g, '$1,').split('').reverse().join('');
+            });
+            juicer.register('getWeek', function (str) {
+                return '周' + ['日', '一', '二', '三', '四', '五', '六'][new Date(str.substr(0, 10)).getDay()];
+            });
+            juicer.register('getResPrice', function (price) {
+                return price - 0 + (that.data.csPrice - 0);
+            });
+            juicer.register('getModel', function (str) {
+                var model = '';
+                var arr = str.split(',');
+                if (arr[0]) {
+                    model = model + arr[0];
+                }
+                if (arr[1]) {
+                    model = model + ',' + arr[1];
+                }
+                if (arr[2]) {
+                    model = model + ',' + arr[2];
+                }
+                return model;
             });
         }
-    }, {
-        key: 'maxBaggages',
-        value: function maxBaggages(adult, child, childSeat) {
-            // 最大行李数&符合规定判定
-            var that = this;
-            var adultNum = (adult || 0) - 0;
-            var childNum = (child || 0) - 0;
-            var childSeatNum = ((childSeat || 0) - 0) * 0.5;
-            var max = Math.floor(that.data.passenger.maxPerson - adultNum - childNum - childSeatNum);
-            if (max >= 0 && max <= that.data.passenger.maxPerson) {
-                that.data.passenger.currentBagNo = that.data.passenger.maxBagNo - 0 - adultNum - childNum - childSeatNum;
-                return true;
-            }
 
-            return false;
-        }
+        // 获取选定车信息
+
     }, {
-        key: 'maxNumber',
-        value: function maxNumber(type) {
+        key: '_checkCar',
+        value: function _checkCar(index) {
+
             var that = this;
-            var adultNum = (that.data.passenger.adultNo || 0) - 0; // 保存成人人数
-            var childNum = (that.data.passenger.childNo || 0) - 0; // 保存孩子人数
-            var childSeatNum = (that.data.passenger.childSeat || 0) - 0; // 保存儿童座椅数
-            // const baggagesNum = (that.data.passenger.baggagesNo || 0) - 0;// 保存行李数
-            switch (type) {
-                case 'adult-more':
-                    adultNum++;
-                    if (that.maxBaggages(adultNum, childNum, childSeatNum)) {
-                        that.data.passenger.adultNo = adultNum;
-                        that._renderAdult();
-                        that._renderBaggages();
-                    }
-                    break;
-                case 'adult-less':
-                    adultNum--;
-                    if (adultNum >= 1 && that.maxBaggages(adultNum, childNum, childSeatNum)) {
-                        that.data.passenger.adultNo = adultNum;
-                        that._renderAdult();
-                        that._renderBaggages();
-                    }
-                    break;
-                case 'child-more':
-                    childNum++;
-                    if (that.maxBaggages(adultNum, childNum, childSeatNum)) {
-                        that.data.passenger.childNo = childNum;
-                        that._renderChild();
-                        that._renderBaggages();
-                    }
-                    break;
-                case 'child-less':
-                    if (childNum == childSeatNum) {
-                        childNum--;
-                        childSeatNum--;
-                    } else {
-                        childNum--;
-                    }
-                    if (childNum >= 0 && that.maxBaggages(adultNum, childNum, childSeatNum)) {
-                        that.data.passenger.childNo = childNum;
-                        that.data.passenger.childSeat = childSeatNum;
-                        that._renderChild();
-                        that._renderBaggages();
-                    }
-                    break;
-                case 'childSeat-more':
-                    childSeatNum++;
-                    if (childSeatNum <= childNum && that.maxBaggages(adultNum, childNum, childSeatNum)) {
-                        that.data.passenger.childSeat = childSeatNum;
-                        that._renderChild();
-                        that._renderBaggages();
-                    }
-                    break;
-                case 'childSeat-less':
-                    childSeatNum--;
-                    if (childSeatNum >= 0 && that.maxBaggages(adultNum, childNum, childSeatNum)) {
-                        that.data.passenger.childSeat = childSeatNum;
-                        that._renderChild();
-                        that._renderBaggages();
-                    }
-                    break;
-                default:
-                    return false;
+            var tempCar = {}; // 选定的车
+            var hotelPrice = that.data.param.hotelCostPrice * that.data.param.hotelRoom; // 酒店房间价格（房间价格会因接口传入新数据而更新）
+            var childSeatPrice = that.data.csPrice - 0; // 儿童座椅价格
+            if (index) {
+                that.data.currentIndex = index;
             }
-        }
-    }, {
-        key: 'msg',
-        value: function msg(_msg) {
-            new Layer({
-                msg: _msg
-            });
+            if (that.data.realCarList.length == 0) {
+                return;
+            }
+            tempCar = that.data.realCarList[that.data.currentIndex - 1];
+            var countPrice = hotelPrice + (tempCar.price - 0) + childSeatPrice; // 总价格
+            that.data.personLuggage = tempCar.capOfLuggage - 0 + (tempCar.capOfPerson - 0);
+            that.data.nextParam = {
+                capOfPerson: tempCar.capOfPerson,
+                carSeatNum: tempCar.capOfPerson,
+                carDesc: tempCar.carDesc,
+                carModelId: tempCar.carId,
+                carTypeId: tempCar.carType,
+                serviceTag: encodeURIComponent(tempCar.serviceTags[0]),
+                luggageNumber: tempCar.capOfLuggage,
+                priceMark: tempCar.pricemark,
+                totalPrice: countPrice,
+                adultNum: that.data.param.adultNo,
+                childNum: that.data.param.childNo,
+                childSeat: that.data.param.childSeat,
+                serviceTimeL: that.data.param.serviceDate,
+                goodsNo: that.data.param.goodsNo,
+                orderType: util.getRequestParam('type'),
+                isSpecialCar: 1,
+                hotelRoom: that.data.param.hotelRoom,
+                hotelDays: that.data.param.hotelDays,
+                hotelPrice: that.data.param.hotelCostPrice
+            };
         }
     }, {
         key: 'bindEvent',
         value: function bindEvent() {
             var that = this;
+            that.cacheDom();
+
             new Header({
-                title: '行程安排',
+                title: '选择车型',
                 backUrl: '',
-                subShow: true,
+                subShow: 'true',
                 subTitle: '联系客服'
-            });
-
-            new newCalendar({
-                goodsNo: 'IC1180440001',
-                wrap: $('.sku-date'),
-                cbname: 'newCalendarSelected'
-            });
-
-            // 座椅行李数
-            that.dom.wrap.on('click', '.sku-num-modi', function () {
-                var type = $(this).attr('data-type');
-                that.maxNumber(type);
-            });
-
-            // 房间数量
-            that.dom.wrap.on('click', '.room-more', function () {
-                if (that.data.hotel.roomNo < 100) {
-                    that.data.hotel.roomNo++;
-                    that._renderHotel();
-                }
-            });
-            that.dom.wrap.on('click', '.room-less', function () {
-                if (that.data.hotel.roomNo > 1) {
-                    that.data.hotel.roomNo--;
-                    that._renderHotel();
-                }
             });
 
             // 行李标准说明
@@ -4032,355 +3843,44 @@ var Sku = function () {
                 $(this).hide();
             });
 
-            // 下一步点击按钮
-            that.dom.wrap.on('click', '.next-btn-content', function () {
-                that.data.nextParam = {
-                    goodsNo: that.data.param,
-                    serviceDate: that.data.date,
-                    // hotelStatus: that.data.hotel.hotelStatus,
-                    hotelRoom: that.data.hotel.roomNo,
-                    hotelDays: that.data.hotel.dateCount,
-                    hotelCostPrice: that.data.hotel.hotelCostPrice,
-                    adultNo: that.data.passenger.adultNo,
-                    childNo: that.data.passenger.childNo,
-                    childSeat: that.data.passenger.childSeat
-                };
-                if (that.data.date) {
-                    window.location.href = '/app/car.html?type=5&param=' + JSON.stringify(that.data.nextParam);
-                } else {
-                    that.msg('请先选择日期');
+            // 选车
+            that.dom.wrap.on('click', '.list-item', function () {
+                var index = $(this).attr('data-index');
+                console.log('this is index' + index);
+                if (that.data.currentIndex != index) {
+                    that._checkCar(index);
+                    that._renderCarList();
+                    that._renderPrice();
                 }
-                // console.log(that.data.nextParam);
-                // console.log(`总房间价格为${that.data.hotel.hotelCostPrice*that.data.hotel.hotelStatus}`);
             });
 
-            // 监听选择时间
-            $(document).off('newCalendarSelected').on('newCalendarSelected', function (e, data) {
-
-                that.data.date = data;
-                console.log(data);
+            that.dom.wrap.on('click', '.skucar-next-btn', function () {
+                if (that.data.nextParam.carModelId && that.data.nextParam.priceMark) {
+                    window.location.href = '/app/orderForm.html?param=' + JSON.stringify(that.data.nextParam);
+                }
             });
         }
     }]);
 
-    return Sku;
+    return Car;
 }();
 
-new Sku();
+new Car();
 
 /***/ }),
-/* 50 */
+/* 60 */
 /***/ (function(module, exports) {
 
-module.exports = "<span>成人</span><div class=\"sku-people-nums people-adults-nums\">	<span class=\"sku-num-modi {@if adultNo == 1}sku-num-false{@/if}\" data-type=\"adult-less\">-</span>	<span class=\"sku-num\">${adultNo}</span>	<span class=\"sku-num-modi\" data-type=\"adult-more\">+</span></div>"
+module.exports = "<h2>选择车型<span class=\"baggages-info icon-ioc79\">行李标准说明</span></h2>{@each realCarList as item,index}  <div class=\"list-item\" data-index=\"${index - 0 + 1}\">    <div class=\"list-item-title\">${item.carDesc}+${item.serviceTags[0]}</div>    <div class=\"list-item-luggage\">[<b class=\"icon-ioc2\">${item.capOfPerson}人</b> <b class=\"icon-ioc23\">${item.capOfLuggage}行李</b>]</div>    <div class=\"list-item-model\">${item.models}</div>    <div class=\"list-item-price\">￥${formatMoney(item.price)}</div>    {@if index == currentIndex - 1}    <div class=\"list-item-pic\">      <img class=\"list-item-pic-left\" src=\"${item.carPictures[0]}\" />      <img class=\"list-item-pic-right\" src=\"${item.carPictures[1]}\" />    </div>    {@else}      <div class=\"list-item-pic-empty\"></div>    {@/if}    <div class=\"list-item-status{@if index == currentIndex - 1} list-item-checked{@/if}\"><i></i></div>  </div>  {@/each}"
 
 /***/ }),
-/* 51 */
+/* 61 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"sku-child-num\">	<span>儿童</span>	<span class=\"children-limit\">（12岁以下）</span>	<div class=\"sku-people-nums people-children-nums\">		<span class=\"sku-num-modi {@if childNo == 0}sku-num-false{@/if}\" data-type=\"child-less\">-</span>		<span class=\"sku-num\">${childNo}</span>		<span class=\"sku-num-modi\" data-type=\"child-more\">+</span>	</div></div>{@if childNo > 0}<div class=\"sku-child-seat\">	<span>儿童座椅</span>	<div class=\"sku-people-nums people-child-seats\">		<span class=\"sku-num-modi {@if childSeat == 0}sku-num-false{@/if}\" data-type=\"childSeat-less\">-</span>		<span class=\"sku-num\">${childSeat}</span>		<span class=\"sku-num-modi\" data-type=\"childSeat-more\">+</span>	</div></div>{@/if}"
+module.exports = "<div class=\"sku-price-luggage\">当前车型最多可携带行李（24寸）${maxLuggage(personLuggage,param.adultNo,param.childNo,param.childSeat)}件</div><div class=\"sku-confirm-price\">  <span class=\"sku-price-title\">总价: </span>  <span class=\"sku-count-price\">￥${formatMoney(nextParam.totalPrice)}</span></div><a class=\"skucar-next-btn\">立即预订</a>"
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-module.exports = "<span>可携带行李</span><span class=\"baggages-info\">行李标准说明</span><div class=\"people-baggages-nums\">	<span class=\"people-baggages-num\">${floor(currentBagNo)}</span>	<span class=\"people-baggages-unit\">件</span></div>"
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-module.exports = "<span class=\"room-date\">共${dateCount}晚&nbsp;|&nbsp;</span><span class=\"room-nums-title\">房间数</span><span class=\"room-prices\">（￥${hotelCostPrice * roomNo}）</span><div class=\"room-nums\">	<span class=\"room-less sku-num-modi {@if roomNo == 1}sku-num-false{@/if}\">-</span>	<span class=\"room-num\">${roomNo}</span>	<span class=\"room-more sku-num-modi {@if roomNo == 100}sku-num-flase{@/if}\">+</span></div>"
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var INDEXTPL = __webpack_require__(55);
-var INNERTPL = __webpack_require__(56);
-var juicer = __webpack_require__(1);
-var ajax = __webpack_require__(4);
-// const Swiper = require('widgets/swiper/swiper.min.js');
-var Swiper = window.Swiper;
-var $ = __webpack_require__(0);
-var apiConfig = __webpack_require__(3);
-__webpack_require__(57);
-// require('widgets/swiper/swiper.css');
-
-var newCalendar = function () {
-    function newCalendar(opt) {
-        _classCallCheck(this, newCalendar);
-
-        this.opt = opt;
-        debugger;
-        this.addJuicerHelper();
-        this.cacheData();
-        this.cacheDOM();
-        this.renderUI();
-        this.bindEvent();
-        this.getRemoteCan(this.data.month);
-    }
-
-    _createClass(newCalendar, [{
-        key: 'cacheData',
-        value: function cacheData() {
-            var now = this.opt.now || new Date();
-            var month = now.getFullYear() + '-' + (now.getMonth() + 1 < 10 ? '0' + (now.getMonth() + 1) : now.getMonth() + 1);
-            var month6 = function (n) {
-                var year = n.getFullYear();
-                var month = n.getMonth() + 1;
-                var yearres = year;
-                var monthres = '';
-                var res = [];
-                for (var i = 0; i < 6; i++) {
-                    if (month + i < 10) {
-                        monthres = '0' + (month + i);
-                    } else if (month + i > 12) {
-                        yearres = year + 1;
-                        monthres = month + i - 12 < 10 ? '0' + (month + i - 12) : month + i - 12;
-                    } else {
-                        monthres = month + i;
-                    }
-                    res.push(yearres + '-' + monthres);
-                }
-                return res;
-            }(now);
-            this.data = {
-                now: now,
-                month: month,
-                month6: month6,
-                select: this.opt.select || ''
-            };
-        }
-    }, {
-        key: 'cacheDOM',
-        value: function cacheDOM() {
-            this.dom = {
-                wrap: this.opt.wrap
-            };
-        }
-    }, {
-        key: 'getRemoteCan',
-        value: function getRemoteCan(date) {
-            debugger;
-
-            var that = this;
-            if (that.data.date) {
-                that.renderInner(that.data.date);
-                return;
-            }
-            var startServiceDate = function (s) {
-
-                var start = new Date(s);
-                return start.getFullYear() + '-' + (start.getMonth() + 1 < 10 ? '0' + (start.getMonth() + 1) : start.getMonth() + 1) + '-01';
-            }(date);
-            var endServiceDate = function (e) {
-                var end = new Date(e);
-                var year = end.getFullYear();
-                var month = end.getMonth() + 1;
-                return end.getFullYear() + '-' + (end.getMonth() + 1 < 10 ? '0' + (end.getMonth() + 1) : end.getMonth() + 1) + '-' + new Date(year, month, 0).getDate();
-            }(date);
-
-            var param = {
-                url: '/api/goods/goodsStock',
-                method: 'GET',
-                header: {},
-                data: {
-                    goodsNo: this.opt.goodsNo,
-                    startServiceDate: startServiceDate,
-                    endServiceDate: endServiceDate
-                },
-                success: function success(res) {
-                    if (that.data.select == '') {
-                        that.getSelectDay(res.data.goodsStockList);
-                    }
-
-                    var data = that.data[date] = that.getArrByobj(res.data.goodsStockList);
-                    // 获取当前月的第一天的Index;
-                    that.data[date].firstIndex = that.getIndexOfWeek(date);
-                    that.data[date].endIndex = that.data[date].firstIndex + data.data.length;
-                    var _day = that.data.now.getDate() < 10 ? '0' + that.data.now.getDate() : that.data.now.getDate();
-                    that.data[date].today = that.data.month + '-' + _day;
-                    console.log(that.data);
-                    data.select = that.data.select;
-                    that.renderInner(data);
-                },
-                error: function error(res) {}
-            };
-            debugger;
-            ajax.sendRequest(param);
-        }
-    }, {
-        key: 'getSelectDay',
-        value: function getSelectDay(list) {
-            var that = this;
-            var select = '';
-            for (var i = 0; i < list.length; i++) {
-                if (list[i].stockStatus == '101') {
-                    select = list[i].serviceDate;
-                    break;
-                } else {
-                    continue;
-                }
-            }
-            if (select) {
-                that.data.select = select;
-                $(document).trigger(that.opt.cbname || 'newCalendarSelect', [that.data.select]);
-            }
-        }
-    }, {
-        key: 'getArrByobj',
-        value: function getArrByobj(res) {
-            var arr = [];
-            var key = void 0;
-            for (key in res) {
-                arr.push(res[key]);
-            }
-            return { data: arr };
-        }
-    }, {
-        key: 'getIndexOfWeek',
-        value: function getIndexOfWeek(res) {
-            return new Date(res + '-01').getDay();
-        }
-    }, {
-        key: 'addJuicerHelper',
-        value: function addJuicerHelper() {
-            var that = this;
-            juicer.register('getDayOfString', function (str) {
-                return new Date(str).getDate();
-            });
-            juicer.register('getClassOf', function (object) {
-                var res = '';
-                if (object.stockStatus == 201) {
-                    res += ' can-invalid';
-                    return res;
-                } else if (object.stockStatus == 301) {
-                    res += ' can-invalid';
-                    return res;
-                }
-                res += ' can-ok';
-                return res;
-            });
-
-            juicer.register('getClassOf2', function (object) {
-                var res = '';
-                if (object.past) {
-                    res += ' can-invalid';
-                    return res;
-                }
-                if (!object.past) {
-                    res += ' can-notpast';
-                }
-                if (!object.serviceAble) {
-                    res += ' can-hole';
-                    return res;
-                }
-                if (object.daily) {
-                    res += ' can-hole';
-                    return res;
-                }
-                if (object.pickup) {
-                    res += ' can-half';
-                }
-                return res;
-            });
-            juicer.register('getFuckFormat', function (str) {
-                return that.fuckFormat(str);
-            });
-        }
-    }, {
-        key: 'fuckFormat',
-        value: function fuckFormat(str) {
-            var date = new Date(str);
-            return date.getFullYear() + '年' + (date.getMonth() + 1) + '月';
-        }
-    }, {
-        key: 'bindEvent',
-        value: function bindEvent() {
-            // Add one more handler for this event
-            var that = this;
-            this.swiper.on('slideChangeEnd', function () {
-                var date = $(that.swiper.container[0]).find('.swiper-slide-active').attr('data-date');
-                console.log('slideEnd');
-                console.log(date);
-                that.getRemoteCan(date);
-                that.dom.opTitle.html(that.fuckFormat(date));
-            });
-            this.swiper.on('slideChangeStart', function () {
-                // this._ajax && this._ajax.abort();
-            });
-            this.dom.leftBtn.on('click', function () {
-                that.swiper.slidePrev();
-            });
-            this.dom.rightBtn.on('click', function () {
-                that.swiper.slideNext();
-            });
-
-            this.dom.wrap.on('click', '.can-ok', function () {
-                var t = $(this);
-                var val = t.attr('data-date');
-                if (val) {
-                    $('.W-Can-main-date-wrap li').removeClass('ui-select');
-                    t.addClass('ui-select');
-                    that.data.select = val;
-                    // console.log(that.data.select);
-                    $(document).trigger(that.opt.cbname || 'newCalendarSelect', [that.data.select]);
-                }
-            });
-        }
-    }, {
-        key: 'renderUI',
-        value: function renderUI() {
-            debugger;
-            this.dom.wrap.html(juicer(INDEXTPL, this.data));
-            this.swiper = new Swiper('.W-Can-main-date .swiper-container', { autoHeight: true });
-            // this.dom.innerDom = this.dom.wrap.find('.W-Can-main-date')
-            this.dom.leftBtn = this.dom.wrap.find('.W-Can-op-left-btn');
-            this.dom.rightBtn = this.dom.wrap.find('.W-Can-op-right-btn');
-            this.dom.opTitle = this.dom.wrap.find('.W-Can-op-title');
-        }
-    }, {
-        key: 'renderInner',
-        value: function renderInner(res) {
-            var activeSlide = $(this.swiper.container[0]).find('.swiper-slide-active');
-            activeSlide.html(juicer(INNERTPL, res));
-            this.swiper && this.swiper.update();
-        }
-    }]);
-
-    return newCalendar;
-}();
-
-module.exports = newCalendar;
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"WG-Canlendar-wrap\">    <div class=\"W-Can-title\">        <h3>出行日期(当地时间)</h3>        <div class=\"W-Can-op\">            <div class=\"W-Can-op-left-btn\"><small class=\"icon-ioc91 op-left-btn\"></small></div>            <span class=\"W-Can-op-title\">${getFuckFormat(month6[0])}</span>            <div class=\"W-Can-op-right-btn\"><small class=\"icon-ioc93 op-right-btn\"></small></div>        </div>    </div>    <div class=\"W-Can-main\">        <div class=\"W-Can-main-week\">            <ul>                <li>日</li>                <li>一</li>                <li>二</li>                <li>三</li>                <li>四</li>                <li>五</li>                <li>六</li>            </ul>        </div>        <div class=\"W-Can-main-date\">            <div class=\"swiper-container\">              <div class=\"swiper-wrapper\">                {@each month6 as item}                    <div class=\"swiper-slide W-Can-main-dates\" data-date=${item}> <div class=\"swiper-lazy-preloader\"></div></div>                {@/each}              </div>            </div>        </div>    </div></div>"
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports) {
-
-module.exports = "<ul class=\"W-Can-main-date-wrap\">    {@each i in range(0,42)}        {@if i >= firstIndex && i < endIndex}            <li             class=\"${getClassOf(data[i-firstIndex])} {@if today == data[i-firstIndex].serviceDate}ui-today{@/if} {@if select == data[i-firstIndex].serviceDate}ui-select{@/if}\"             data-date=\"${data[i-firstIndex].serviceDate}\"            >                <em>{@if today == data[i-firstIndex].serviceDate}今天{@else}${getDayOfString(data[i-firstIndex].serviceDate)}{@/if}</em>                <i></i>            </li>        {@else if endIndex < 35 && i < 35}            <li class=\"can-item can-invalid\"></li>        {@else if i < firstIndex}            <li class=\"can-item can-invalid\"></li>        {@/if}    {@/each}</ul>"
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

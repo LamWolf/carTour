@@ -17,4 +17,5 @@ module.exports = app => {
 
     router.get('/city/:cityId', controller.page.city.index.index);
     router.get('/sku/:goodsNo', controller.page.sku.index.index);
+    router.get('/car', controller.page.car.index.index);
 };

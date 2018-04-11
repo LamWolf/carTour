@@ -1,0 +1,49 @@
+<script>
+    window.__goodsPrice = {{ goodsPrice | dump | safe }};
+    window.__realCarList = {{ realCarList | dump | safe }};
+    window.__csPrice = {{ csPrice | dump | safe }};
+</script>
+<div class="sku-car">
+
+  <div class="sku-info-wrap">
+    <div class="sku-info">
+      <div class="sku-info-img" style="background-image: url({{ goodsDetail.goodsPictures[0] }});"></div>
+      <span>{{ goodsDetail.goodsName }}</span>
+    </div>
+    <ul class="sku-goods-info">
+      <li>出行日期：{{ param.serviceDate }}（当地时间）</li>
+      <li>{{ param.adultNo }}成人&nbsp;&nbsp;{{ param.childNo }}儿童&nbsp;&nbsp;{% if param.childSeat %}{{ param.childSeat }}儿童座椅{% endif %} {% if csPrice %}<span>(￥{{ formatMoney(csPrice) }})</span>{% endif %}</li>
+      {% if param.hotelCostPrice %}<li>酒店{{param.hotelDays}}晚&nbsp;房间数&nbsp;{{ param.hotelRoom }} <span>(￥{{ formatMoney((param.hotelCostPrice-0)*(param.hotelRoom-0)) }})</span></li>{% endif %}
+    </ul>
+  </div>
+
+  {% if goodsPrice.cars and goodsPrice.cars.length == 0 %}
+  <div class="list-empty" id="list-empty">
+    {% if goodsPrice.noneCarsReason %}
+     <strong>{{ goodsPrice.noneCarsReason }}</strong>
+     {% else %}
+     <strong>很抱歉，根据您的出行地点和时间<br />暂时没有找到合适的车型</strong>
+     {% endif %}
+    <small>请尝试分车下单或联系客服帮您下单<br />境内客服：<a href="tel://4006100009">400-610-0009</a><br />境外客服：<a href="tel://861059715436">+86 10-59715436</a></small>
+  </div>
+  {% elif realCarList.length == 0 %}
+   <div class="list-empty" id="list-empty">
+     {% if goodsPrice.noneCarsReason %}
+     <strong>{{ goodsPrice.noneCarsReason }}</strong>
+     {% else %}
+     <strong>很抱歉，您的出行人数过多<br />暂时没有找到合适的车型</strong>
+     {% endif %}
+     <small>请尝试分车下单或联系客服帮您下单<br />境内客服：<a href="tel://4006100009">400-610-0009</a><br />境外客服：<a href="tel://861059715436">+86 10-59715436</a></small>
+   </div>
+   {% else %}
+   <div class="list" id="list">
+       {% include "./tpls/carList.njk" %}
+   </div>
+   <div class="J-baggages-wrap">
+    <img alt="" class="baggages-img">
+   </div>
+    <div class="sku-price-confirm">
+        {% include "./tpls/countPrice.njk" %}
+    </div>
+  {% endif %}
+</div>

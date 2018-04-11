@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="zh-cn">
+    {% include "../../layout/meta.njk" %}
+    {% include "../../layout/scripts.njk" %}
+    <script>
+        (function(doc, win) {
+            /** */
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 50 * (clientWidth / 375) > 100 ? (100 + 'px') : (50 * (clientWidth / 375) + 'px');
+                };
+            // Abort if browser does not support addEventListener
+            if (!doc.addEventListener) return;
+            recalc();
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+    <script>
+
+            (function(para) {
+                    var n = para.name;
+                    window['sensorsDataAnalytic201505'] = n;
+                    window[n] = {
+                            _q: [],
+                            para: para
+                    };
+            })({
+                    sdk_url: 'fr-static.huangbaoche.com/hbc-cdn/static/js/sensor/1.7.20/sensorsdata.min2.js',
+                    name: 'sa',
+                    server_url: 'https://scdata.huangbaoche.com/sa?project=customer_m',
+                    show_log : false,
+                    use_app_track: true
+            });
+
+    </script>
+    <script src="//fr-static.huangbaoche.com/hbc-cdn/static/js/sensor/1.7.20/sensorsdata.min2.js"></script>
+    <link rel="stylesheet" href="http://127.0.0.1:7001/css/car.css">
+
+</head>
+
+<body style="-webkit-overflow-scrolling:touch">
+    <div class="wrap hackmaxNomal" id="page">
+
+        <section id="downloadWrap"></section>
+        {% include "./index.njk" %}
+    </div>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4072a0dc811483236852b132a51cb83c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script type="text/javascript" src="http://127.0.0.1:7001/js/car.js"></script>
+</body>
+
+</html>
