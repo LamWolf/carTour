@@ -8,4 +8,4 @@ module.exports = app => {
         nid: { type: Number, default: 0 }
     });
     return conn.model('Idg', IdSchema, 'id_generator');
-}
+};
