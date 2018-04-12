@@ -310,7 +310,7 @@ module.exports = __webpack_require__(13);
         }return this.compile(f, e).render(g, e._method);
     };typeof module !== 'undefined' && module.exports ? module.exports = c : this.juicer = c;
 })();
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 2 */
@@ -331,7 +331,7 @@ var apiConfig = __webpack_require__(6);
 var ajax = __webpack_require__(3);
 var loading = __webpack_require__(8);
 var cookie = __webpack_require__(4);
-var Layer = __webpack_require__(9);
+var Layer = __webpack_require__(10);
 var _extend = __webpack_require__(16);
 module.exports = _defineProperty({
     replaceUrl: function replaceUrl(url) {
@@ -1238,6 +1238,33 @@ module.exports = {
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1308,33 +1335,6 @@ var Layer = function () {
 }();
 
 module.exports = Layer;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 /* 11 */
@@ -7540,7 +7540,7 @@ return Promise$1;
 
 //# sourceMappingURL=es6-promise.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32), __webpack_require__(9)))
 
 /***/ }),
 /* 32 */

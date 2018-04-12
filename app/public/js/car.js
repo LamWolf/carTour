@@ -228,7 +228,7 @@ module.exports = __webpack_require__(13);
         }return this.compile(f, e).render(g, e._method);
     };typeof module !== 'undefined' && module.exports ? module.exports = c : this.juicer = c;
 })();
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 2 */
@@ -249,7 +249,7 @@ var apiConfig = __webpack_require__(6);
 var ajax = __webpack_require__(3);
 var loading = __webpack_require__(8);
 var cookie = __webpack_require__(4);
-var Layer = __webpack_require__(9);
+var Layer = __webpack_require__(10);
 var _extend = __webpack_require__(16);
 module.exports = _defineProperty({
     replaceUrl: function replaceUrl(url) {
@@ -1156,6 +1156,33 @@ module.exports = {
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1226,33 +1253,6 @@ var Layer = function () {
 }();
 
 module.exports = Layer;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 /* 11 */
@@ -3641,12 +3641,12 @@ var priceTpl = __webpack_require__(61);
 var juicer = __webpack_require__(1);
 var util = __webpack_require__(2);
 var Header = __webpack_require__(21);
-var Alert = __webpack_require__(63);
+var Alert = __webpack_require__(62);
 var ajax = __webpack_require__(3);
 var Cookie = __webpack_require__(4);
 __webpack_require__(12);
 __webpack_require__(7);
-__webpack_require__(62);
+__webpack_require__(66);
 __webpack_require__(11);
 
 var Car = function () {
@@ -3906,12 +3906,6 @@ module.exports = "<div class=\"sku-price-luggage\">当前车型最多可携带�
 
 /***/ }),
 /* 62 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3921,9 +3915,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var tpl = __webpack_require__(64);
-__webpack_require__(65);
-var template = __webpack_require__(66).extended;
+var tpl = __webpack_require__(63);
+__webpack_require__(64);
+var template = __webpack_require__(65).extended;
 var $ = __webpack_require__(0);
 /* *  传入参数：
 *  cancel: [Boolean], true为有取消按钮，false为无取消按钮
@@ -4049,19 +4043,19 @@ var Alert = function () {
 module.exports = Alert;
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"pop_mask\" data-for=\".J-alert-wrap\"></div><div class=\"J-alert-wrap new_pop_main\">	<% if(closeAble){ %>		<span class=\"close\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.close %>\"<% } %>></span>	<% } %>	<% if(title) {%>		<div class=\"pop_msg\">			<h3><%=title%></h3>			<div class=\"cont_withtitle\"<%if(align){%> style=\"text-align:<%=align %>\"<%}%>><%= msg %></div>	      <div class=\"btn_content\">	      <% if(cancel){ %>	        <span class=\"cancel_btn\"><%= cancelText %></span>					<% } %>	        <span class=\"msg_btn\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.btn %>\"<% } %> ><%= btn %></span>	      </div>		</div>	<%}else{%>		<% if(isShowBtn){ %>		<div class=\"pop_msg\">			<div class=\"cont\"<%if(align){%> style=\"text-align:<%=align %>\"<%}%>><%= msg %></div>	      <div class=\"btn_content\">	      <% if(cancel){ %>	        <span class=\"cancel_btn\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.cancel %>\"<% } %>><%= cancelText %></span>					<% } %>	        <span class=\"msg_btn\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.btn %>\"<% } %>><%= btn %></span>	      </div>		</div>		<% } else {%>			<div class=\"pop_msg_btnunshow\">				<div class=\"cont\"<%if(align){%> style=\"text-align:<%=align %>\"<%}%>><%= msg %></div>			</div>		<% } %>	<% } %></div>"
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports) {
 
 /**
@@ -4144,6 +4138,12 @@ template.get = function (id) {
 this.template = template;
 this.extended = extended;
 
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
