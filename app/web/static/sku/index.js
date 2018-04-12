@@ -8,6 +8,7 @@ const hotelTpl = require('./tpl/hotel.tpl');
 const juicer = require('widgets/juicer/juicer.js');
 const Layer = require('widgets/layer/index');
 const Header = require('widgets/header/index.js');
+const util = require('widgets/util/index');
 
 const newCalendar = require('widgets/newCalendar/index.js');
 
@@ -33,14 +34,17 @@ class Sku {
                 adultNo: 2,
                 childNo: 0,
                 childSeat: 0,
-                maxPerson: 12, // 最大人数（指定城市）
-                maxBagNo: 14, // 最大行李数（指定城市）
+                maxPerson: window.__capacity.numOfPerson || 12, // 最大人数（指定城市）
+                maxBagNo: window.__capacity.totalCap || 14, // 最大行李数（指定城市）
                 currentBagNo: '' // 可用的最大行李数
             },
             hotel: {
+                hotelCostPrice: window.__goodsDetail.hotelCostPrice,
+                hotelStatus: window.__goodsDetail.hotelStatus,
+                dateCount: window.__goodsDetail.daysCount,
                 roomNo: 1
             },
-            param: window.__goodsNo,
+            param: this.getGoodsNo(),
             nextParam: {}
         };
 
@@ -102,6 +106,10 @@ class Sku {
 
         return false;
 
+    }
+
+    getGoodsNo() {
+        return util.getRequestParam('goodsNo') || location.href.match(/sku\/([^?]*)/)[1];
     }
 
     maxNumber(type) {
@@ -234,7 +242,7 @@ class Sku {
                 childSeat: that.data.passenger.childSeat
             };
             if (that.data.date) {
-                window.location.href = '/app/car.html?type=5&param=' + JSON.stringify(that.data.nextParam);
+                window.location.href = '/car?param=' + JSON.stringify(that.data.nextParam);
             } else {
                 that.msg('请先选择日期');
             }

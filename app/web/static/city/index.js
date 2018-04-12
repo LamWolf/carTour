@@ -1,5 +1,4 @@
 const $ = require('widgets/zepto/zepto');
-const apiConfig = require('widgets/apiConfig/index.js');
 const loading = require('widgets/loading/index');
 const ajax = require('widgets/ajax/index');
 const tplItem = require('./tpl/item.tpl');
@@ -61,10 +60,6 @@ class City {
         that.dom = {
             wrap: $('#page'),
             back: $('.back'),
-            search: $('.search'),
-            navCar: $('.nav-car'),
-            navPlane: $('.nav-plane'),
-            navSingle: $('.nav-single'),
             menu: $('.menu'),
             menuB: $('.menu-bg'),
             list: $('.list'),
@@ -281,29 +276,9 @@ class City {
             return false;
         });
 
-        that.dom.search.on('click', () => {
-            window.location.href = apiConfig.domainHost + 'app/searchCity.html';
-            return false;
-        });
-
-        that.dom.navCar.on('click', () => {
-            window.location.href = apiConfig.domainHost + 'app/daily.html?cityId=' + that.param.cityId;
-            return false;
-        });
-        that.dom.navPlane.on('click', () => {
-            window.location.href = apiConfig.domainHost + 'app/pickup.html';
-            // window.location.href = '/transfer';
-            return false;
-        });
-        that.dom.navSingle.on('click', () => {
-            const cityName = $('.hackmaxAuto h1').text();
-            window.location.href = apiConfig.domainHost + 'app/single.html?cityId=' + that.param.cityId + '&cityName=' + cityName;
-            return false;
-        });
-
         $('body').on('click', '.item', e => {
             const tag = $(e.currentTarget);
-            window.location.href = '/goods/detail/' + tag.attr('data-goodsNo');
+            window.location.href = '/sku/' + tag.attr('data-goodsNo');
         });
 
         that.dom.menuItem.on('click', e => {

@@ -3805,6 +3805,7 @@ var hotelTpl = __webpack_require__(53);
 var juicer = __webpack_require__(1);
 var Layer = __webpack_require__(10);
 var Header = __webpack_require__(21);
+var util = __webpack_require__(2);
 
 var newCalendar = __webpack_require__(54);
 
@@ -3834,14 +3835,17 @@ var Sku = function () {
                     adultNo: 2,
                     childNo: 0,
                     childSeat: 0,
-                    maxPerson: 12, // 最大人数（指定城市）
-                    maxBagNo: 14, // 最大行李数（指定城市）
+                    maxPerson: window.__capacity.numOfPerson || 12, // 最大人数（指定城市）
+                    maxBagNo: window.__capacity.totalCap || 14, // 最大行李数（指定城市）
                     currentBagNo: '' // 可用的最大行李数
                 },
                 hotel: {
+                    hotelCostPrice: window.__goodsDetail.hotelCostPrice,
+                    hotelStatus: window.__goodsDetail.hotelStatus,
+                    dateCount: window.__goodsDetail.daysCount,
                     roomNo: 1
                 },
-                param: window.__goodsNo,
+                param: this.getGoodsNo(),
                 nextParam: {}
             };
         }
@@ -3912,6 +3916,11 @@ var Sku = function () {
             }
 
             return false;
+        }
+    }, {
+        key: 'getGoodsNo',
+        value: function getGoodsNo() {
+            return util.getRequestParam('goodsNo') || location.href.match(/sku\/([^?]*)/)[1];
         }
     }, {
         key: 'maxNumber',
@@ -4046,7 +4055,7 @@ var Sku = function () {
                     childSeat: that.data.passenger.childSeat
                 };
                 if (that.data.date) {
-                    window.location.href = '/app/car.html?type=5&param=' + JSON.stringify(that.data.nextParam);
+                    window.location.href = '/car?param=' + JSON.stringify(that.data.nextParam);
                 } else {
                     that.msg('请先选择日期');
                 }

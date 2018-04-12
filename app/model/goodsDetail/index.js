@@ -24,7 +24,7 @@ module.exports = app => {
         goodsClass: { type: Number },
         goodsDesc: { type: String },
         goodsName: { type: String },
-        goodgoodsNosName: { type: String },
+        goodsNo: { type: String },
         goodsPictures: { type: Array },
         goodsType: { type: Number },
         guideAmount: { type: Number },

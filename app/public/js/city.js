@@ -4110,10 +4110,6 @@ var City = function () {
             that.dom = {
                 wrap: $('#page'),
                 back: $('.back'),
-                search: $('.search'),
-                navCar: $('.nav-car'),
-                navPlane: $('.nav-plane'),
-                navSingle: $('.nav-single'),
                 menu: $('.menu'),
                 menuB: $('.menu-bg'),
                 list: $('.list'),
@@ -4339,29 +4335,9 @@ var City = function () {
                 return false;
             });
 
-            that.dom.search.on('click', function () {
-                window.location.href = apiConfig.domainHost + 'app/searchCity.html';
-                return false;
-            });
-
-            that.dom.navCar.on('click', function () {
-                window.location.href = apiConfig.domainHost + 'app/daily.html?cityId=' + that.param.cityId;
-                return false;
-            });
-            that.dom.navPlane.on('click', function () {
-                window.location.href = apiConfig.domainHost + 'app/pickup.html';
-                // window.location.href = '/transfer';
-                return false;
-            });
-            that.dom.navSingle.on('click', function () {
-                var cityName = $('.hackmaxAuto h1').text();
-                window.location.href = apiConfig.domainHost + 'app/single.html?cityId=' + that.param.cityId + '&cityName=' + cityName;
-                return false;
-            });
-
             $('body').on('click', '.item', function (e) {
                 var tag = $(e.currentTarget);
-                window.location.href = '/goods/detail/' + tag.attr('data-goodsNo');
+                window.location.href = '/sku/' + tag.attr('data-goodsNo');
             });
 
             that.dom.menuItem.on('click', function (e) {
@@ -5686,152 +5662,6 @@ var PopCoupon = function () {
                 } else {
                     that.dom.formButton.addClass('disabled');
                 }
-            });
-
-            that.dom.send.on('click', function (e) {
-                var self = $(this);
-                var phone = that.dom.phone.val();
-                var areaCode = that.dom.area.text();
-                if (self.hasClass('ready')) {
-                    return false;
-                }
-                if (!phone || !/^\d+$/.test(phone)) {
-                    $('.coupon-tel').css('borderColor', '#ff4311');
-                    that.dom.error.text('请填写正确的手机号');
-                    that.dom.error.show();
-                    return false;
-                } else if (areaCode == '+86' && phone.length != 11) {
-                    $('.coupon-tel').css('borderColor', '#ff4311');
-                    that.dom.error.text('国内手机号，请输入11位数字');
-                    that.dom.error.show();
-                    return false;
-                }
-                var url = apiConfig.sendCode;
-                var param = {
-                    areaCode: areaCode.substr(1),
-                    mobile: phone,
-                    captchaType: 4 // 通用注册
-                };
-                loading.init();
-                var opt = {
-                    url: url,
-                    method: 'POST',
-                    header: {
-                        ak: that.data.ak,
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    data: param,
-                    success: function success(res) {
-                        loading.hide();
-                        if (res.status == 200) {
-                            that.sendCode(phone);
-                            $('.coupon-tel').css('borderColor', '#bdbdbd');
-                            self.addClass('ready');
-                            that.dom.error.hide();
-                        } else {
-                            $('.coupon-tel').css('borderColor', '#ff4311');
-                            that.dom.error.show();
-                        }
-                    },
-                    error: function error() {
-                        loading.hide();
-                    }
-                };
-                ajax.sendRequest(opt);
-            });
-
-            that.dom.formButton.on('click', function (e) {
-                var self = $(this);
-                var code = that.dom.code.val();
-                var phone = that.dom.phone.val();
-                var areaCode = $('#coupon-area').text();
-                if (self.hasClass('disabled')) {
-                    return false;
-                }
-                if (!phone || !/^\d+$/.test(phone)) {
-                    $('.coupon-tel').css('borderColor', '#ff4311');
-                    that.dom.error.text('请填写正确的手机号');
-                    that.dom.error.show();
-                    return false;
-                } else if (areaCode == '+86' && phone.length != 11) {
-                    $('.coupon-tel').css('borderColor', '#ff4311');
-                    that.dom.error.text('国内手机号，请输入11位数字');
-                    that.dom.error.show();
-                } else {
-                    $('.coupon-tel').css('borderColor', '#bdbdbd');
-                }
-                if (code == '') {
-                    $('.coupon-code').css('borderColor', '#ff4311');
-                    that.dom.error.text('验证码错误，请重新输入');
-                    that.dom.error.show();
-                    return false;
-                }
-                $('.coupon-code').css('borderColor', '#bdbdbd');
-
-                var url = apiConfig.codeLogin;
-                var param = {
-                    areaCode: areaCode.substr(1),
-                    mobile: phone,
-                    captcha: code,
-                    sourceType: 2, // 活动来源
-                    source: 80005, // 活动id
-                    fromChannel: 20127, // 推广id
-                    distinctId: sa && sa.store && sa.store.getDistinctId() || '', // 神策ID
-                    loginChannel: 2 // 登录渠道 1:capp, 2:m, 3:pc
-                };
-                var opt = {
-                    url: url,
-                    method: 'POST',
-                    header: {
-                        ak: that.data.ak,
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    data: param,
-                    success: function success(res) {
-                        if (res.status == 200) {
-                            var userInfo = {
-                                userToken: res.data.userToken,
-                                userId: res.data.userId,
-                                mobile: res.data.mobile,
-                                areaCode: res.data.areaCode,
-                                nname: res.data.nickName || res.data.mobile,
-                                uname: res.data.nickName || res.data.mobile,
-                                nickName: res.data.nickName || res.data.mobile,
-                                avatar: res.data.avatar,
-                                accessKey: that.data.ak
-                            };
-                            var param2 = {
-                                mobile: param.mobile,
-                                areaCode: param.areaCode,
-                                source: param.source,
-                                packNo: apiConfig.packNo,
-                                uca: '',
-                                fromChannel: param.fromChannel
-                            };
-                            myStorage.set('userInfo', userInfo);
-                            Cookie.set('ut', userInfo.userToken, {
-                                domain: 'huangbaoche.com',
-                                path: '/'
-                            });
-                            Cookie.set('uid', userInfo.userId, {
-                                domain: 'huangbaoche.com',
-                                path: '/'
-                            });
-                            Cookie.set('userInfo', JSON.stringify(userInfo), {
-                                domain: 'huangbaoche.com',
-                                path: '/'
-                            });
-                            that.obtainCoupon(param2, userInfo);
-                        } else if (res.status == 40070002) {
-                            $('.coupon-code').css('borderColor', '#ff4311');
-                            that.dom.error.text('验证码错误，请重新输入');
-                            that.dom.error.show();
-                        } else {
-                            that.dom.error.show();
-                        }
-                    }
-                };
-                ajax.sendRequest(opt);
             });
 
             that.dom.finishButton.on('click', function (e) {

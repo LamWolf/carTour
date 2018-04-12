@@ -1,5 +1,6 @@
 <script>
-    window.__goodsNo = `{{ goodsDetail.goodsNo }}`;
+    window.__goodsDetail = {{ goodsDetail | dump |safe }};
+    window.__capacity = {{ capacity | dump |safe }};
 </script>
 <div class="sku-info-wrap">
     {% include "./tpls/info.njk" %}
