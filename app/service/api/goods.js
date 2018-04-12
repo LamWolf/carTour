@@ -26,6 +26,23 @@ class GoodsService extends Service {
         }
     }
 
+    async book(bookObj) {
+        const { ctx } = this;
+        try {
+            let status = 500;
+            const bookResult = await ctx.service.source.goodsBook.index(bookObj);
+            status = 200;
+            return {
+                bookResult,
+                status
+            };
+        } catch (error) {
+            this.logger.error(error);
+            // throw new Error('未知异常');
+            return { status: 500, message: '服务器忙fan了' };
+        }
+    }
+
 }
 
 module.exports = GoodsService;

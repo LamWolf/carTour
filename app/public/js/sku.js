@@ -152,7 +152,7 @@
 "use strict";
 
 
-module.exports = __webpack_require__(11);
+module.exports = __webpack_require__(13);
 
 /***/ }),
 /* 1 */
@@ -310,7 +310,7 @@ module.exports = __webpack_require__(11);
         }return this.compile(f, e).render(g, e._method);
     };typeof module !== 'undefined' && module.exports ? module.exports = c : this.juicer = c;
 })();
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
 /* 2 */
@@ -327,12 +327,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * Created by Gorden on 16/6/2.
  */
 var $ = __webpack_require__(0);
-var apiConfig = __webpack_require__(3);
-var ajax = __webpack_require__(4);
-var loading = __webpack_require__(6);
-var cookie = __webpack_require__(7);
-var Layer = __webpack_require__(10);
-var _extend = __webpack_require__(15);
+var apiConfig = __webpack_require__(6);
+var ajax = __webpack_require__(3);
+var loading = __webpack_require__(8);
+var cookie = __webpack_require__(4);
+var Layer = __webpack_require__(9);
+var _extend = __webpack_require__(16);
 module.exports = _defineProperty({
     replaceUrl: function replaceUrl(url) {
         if (history.replaceState) {
@@ -816,57 +816,6 @@ module.exports = _defineProperty({
 "use strict";
 
 
-/**
- * Created by Gorden on 16/6/2.
- */
-module.exports = {
-    domainHost: 'https://m.huangbaoche.com/',
-    goodsHost: 'https://goods.huangbaoche.com',
-    gappHost: 'https://g.huangbaoche.com/',
-    apiHost: 'https://api7.huangbaoche.com/',
-    wxApiHost: 'https://api7.huangbaoche.com/',
-    sApiHost: 'https://api7.huangbaoche.com/',
-    resHost: '',
-    frHost: 'https://hbcdn.huangbaoche.com/',
-    actHost: 'https://act.huangbaoche.com/',
-    api3: '',
-    infoHost: 'https://info.huangbaoche.com/',
-    getAK: 'https://api7.huangbaoche.com/passport/v1.0/c/getWebAccessKey',
-    openApiHost: 'https://api7.huangbaoche.com/',
-    openApiHost2: 'https://api7.huangbaoche.com/',
-    payHost: '',
-
-    logout: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5logout', // 用户注销接口地址
-
-    toPay: 'https://op.huangbaoche.com/app/index.html', // 支付
-
-    sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
-    codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
-    getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
-    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
-    cdnHost: '',
-    packNo: '20161222114936',
-    channelId: '1108019942',
-    gChannelId: '1901198716', // G端channelId
-    cChannelId: '18',
-    cbcChannelId: '1145431513', // 建行channelId
-    masterChannelId: '1106049142',
-    cbcPackNo: '20170705141911',
-    masterPackNo: '20170711153750',
-    ENV: 'pub',
-
-    guideInfo: 'https://api7.huangbaoche.com/supplier/v2.0/e/open/personalinfo' // 司导个人页，司导信息
-
-
-};
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -966,70 +915,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by Gorden on 16/6/2.
- */
-
-var css = __webpack_require__(12);
-// var $ = require("zepto");
-var $ = __webpack_require__(0);
-module.exports = {
-    init: function init() {
-        this.cacheDom();
-        this.renderUI();
-    },
-    cacheDom: function cacheDom() {
-        this.dom = $('body');
-    },
-    renderUI: function renderUI() {
-        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
-        this.dom.append(this.loading);
-    },
-    hide: function hide() {
-        this.loading.hide();
-    },
-    remove: function remove() {
-        $('.J-loading').remove();
-        // this.loading.remove();
-    }
-};
-
-/***/ }),
-/* 7 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1231,40 +1117,127 @@ function same(s) {
 }
 
 /***/ }),
-/* 8 */
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by Gorden on 16/6/2.
+ */
+module.exports = {
+    domainHost: 'https://m.huangbaoche.com/',
+    goodsHost: 'https://goods.huangbaoche.com',
+    gappHost: 'https://g.huangbaoche.com/',
+    apiHost: 'https://api7.huangbaoche.com/',
+    wxApiHost: 'https://api7.huangbaoche.com/',
+    sApiHost: 'https://api7.huangbaoche.com/',
+    resHost: '',
+    frHost: 'https://hbcdn.huangbaoche.com/',
+    actHost: 'https://act.huangbaoche.com/',
+    api3: '',
+    infoHost: 'https://info.huangbaoche.com/',
+    getAK: 'https://api7.huangbaoche.com/passport/v1.0/c/getWebAccessKey',
+    openApiHost: 'https://api7.huangbaoche.com/',
+    openApiHost2: 'https://api7.huangbaoche.com/',
+    payHost: '',
+
+    logout: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5logout', // 用户注销接口地址
+
+    toPay: 'https://op.huangbaoche.com/app/index.html', // 支付
+
+    sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
+    codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
+    getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
+    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
+    cdnHost: '',
+    packNo: '20161222114936',
+    channelId: '1108019942',
+    gChannelId: '1901198716', // G端channelId
+    cChannelId: '18',
+    cbcChannelId: '1145431513', // 建行channelId
+    masterChannelId: '1106049142',
+    cbcPackNo: '20170705141911',
+    masterPackNo: '20170711153750',
+    ENV: 'pub',
+
+    guideInfo: 'https://api7.huangbaoche.com/supplier/v2.0/e/open/personalinfo' // 司导个人页，司导信息
+
+
+};
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports) {
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var g;
+"use strict";
 
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
 
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
+/**
+ * Created by Gorden on 16/6/2.
+ */
 
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
+var css = __webpack_require__(14);
+// var $ = require("zepto");
+var $ = __webpack_require__(0);
+module.exports = {
+    init: function init() {
+        this.cacheDom();
+        this.renderUI();
+    },
+    cacheDom: function cacheDom() {
+        this.dom = $('body');
+    },
+    renderUI: function renderUI() {
+        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
+        this.dom.append(this.loading);
+    },
+    hide: function hide() {
+        this.loading.hide();
+    },
+    remove: function remove() {
+        $('.J-loading').remove();
+        // this.loading.remove();
+    }
+};
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1281,8 +1254,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *   msg:opt.msg
  * })
  */
-var tpl = __webpack_require__(13);
-__webpack_require__(14);
+var tpl = __webpack_require__(15);
+__webpack_require__(11);
 var template = __webpack_require__(1);
 
 var Layer = function () {
@@ -1337,7 +1310,46 @@ var Layer = function () {
 module.exports = Layer;
 
 /***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3319,18 +3331,6 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
-
-/***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
@@ -3338,6 +3338,12 @@ module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div>
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3435,13 +3441,13 @@ module.exports = function extend() {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3522,20 +3528,13 @@ var Hash = function () {
 module.exports = new Hash();
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 19 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 20 */,
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3557,7 +3556,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *
  */
 var util = __webpack_require__(2);
-var Cookie = __webpack_require__(7);
+var Cookie = __webpack_require__(4);
 var _glo = window || undefined;
 var CHANGE_NAME = ['iscbc', 'ismaster'];
 
@@ -3611,10 +3610,10 @@ var ChangeSkin = function () {
         value: function getConfig(css) {
             switch (css) {
                 case 'iscbc':
-                    __webpack_require__.e/* require */(1).then(function() {[__webpack_require__(25)];}).catch(__webpack_require__.oe);
+                    __webpack_require__.e/* require */(1).then(function() {[__webpack_require__(24)];}).catch(__webpack_require__.oe);
                     break;
                 case 'ismaster':
-                    __webpack_require__.e/* require */(0).then(function() {[__webpack_require__(26)];}).catch(__webpack_require__.oe);
+                    __webpack_require__.e/* require */(0).then(function() {[__webpack_require__(25)];}).catch(__webpack_require__.oe);
             }
         }
     }]);
@@ -3628,7 +3627,7 @@ if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = ChangeSkin;else _glo.ChangeSkin = ChangeSkin;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3644,21 +3643,21 @@ var _juicer = __webpack_require__(1);
 
 var _juicer2 = _interopRequireDefault(_juicer);
 
-var _index = __webpack_require__(23);
+var _index = __webpack_require__(22);
 
 var _index2 = _interopRequireDefault(_index);
 
-__webpack_require__(16);
+__webpack_require__(17);
 
-__webpack_require__(8);
+__webpack_require__(7);
 
-__webpack_require__(18);
+__webpack_require__(19);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Hash = __webpack_require__(17);
+var Hash = __webpack_require__(18);
 
 var Header = function () {
     function Header(opt) {
@@ -3754,12 +3753,13 @@ var Header = function () {
 module.exports = Header;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = "  <header class=\"header hackmax\" id=\"header\">    <b class=\"icon-ioc47 back\">  </b>    <h2>${title}</h2>    <span class=\"contact-show icon-ioc111\"></span>    <div class=\"contact-wapper\" style=\"display:none\">      <div class=\"contact\">        <h3>联系客服</h3>        <b class=\"close\">&times;</b>        <ul>          <li>            <span>境内客服</span><a href=\"tel://4006100009\">400-610-0009</a>          </li>          <li>           <span>境外客服</span><a href=\"tel://861059715436\">+86 10-59715436</a>          </li>        </ul>      </div>    </div>  </header>"
 
 /***/ }),
+/* 23 */,
 /* 24 */,
 /* 25 */,
 /* 26 */,
@@ -3803,16 +3803,16 @@ var baggagesTpl = __webpack_require__(52);
 var hotelTpl = __webpack_require__(53);
 
 var juicer = __webpack_require__(1);
-var Layer = __webpack_require__(10);
-var Header = __webpack_require__(22);
+var Layer = __webpack_require__(9);
+var Header = __webpack_require__(21);
 
 var newCalendar = __webpack_require__(54);
 
 __webpack_require__(58);
-__webpack_require__(19);
-__webpack_require__(8);
+__webpack_require__(12);
+__webpack_require__(7);
 
-new (__webpack_require__(21))();
+new (__webpack_require__(20))();
 
 var Sku = function () {
     function Sku() {
@@ -4106,11 +4106,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var INDEXTPL = __webpack_require__(55);
 var INNERTPL = __webpack_require__(56);
 var juicer = __webpack_require__(1);
-var ajax = __webpack_require__(4);
+var ajax = __webpack_require__(3);
 // const Swiper = require('widgets/swiper/swiper.min.js');
 var Swiper = window.Swiper;
 var $ = __webpack_require__(0);
-var apiConfig = __webpack_require__(3);
+var apiConfig = __webpack_require__(6);
 __webpack_require__(57);
 // require('widgets/swiper/swiper.css');
 

@@ -12,7 +12,7 @@ body.forbiden-scroll {
   z-index: 999;
 }
 
-.pop_main {
+.new_pop_main {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -21,41 +21,78 @@ body.forbiden-scroll {
   transform: translate(-50%, -50%);
   width: 5.1rem;
   z-index: 2000;
+
+  .close {
+    background-image: url("./images/close.png");
+    background-size: contain;
+    display: block;
+    width: 0.32rem;
+    height: 0.32rem;
+    position: absolute;
+    right: 0.32rem;
+    top: 0.32rem;
+  }
+
   .pop_msg {
     background-color: #ffffff;
     z-index: 2000;
     border-radius: 0.14rem;
     font-size: 0;
+    width: 5.1rem;
+
     .cont {
-      line-height: 0.36rem;
-      font-size: 0.26rem;
+      line-height: 0.42rem;
+      font-size: 0.28rem;
       color: #6C6B6B;
-      padding: 0.45rem 0.3rem;
+      padding: 1.28rem 0.41rem 0.82rem;
       text-align: center;
       white-space: pre-line;
+      word-wrap: break-word;
     }
+
     .btn_content {
       height: 0.9rem;
       margin: 0 0.2rem;
-      padding: .15rem 0;
       border-top: 1px solid #E5E5E5;
       display: flex;
+
       span {
-        line-height: 0.6rem;
+        line-height: 0.9rem;
         display: block;
         background-color: #ffffff;
         font-size: 0.32rem;
         text-align: center;
         flex: 1;
       }
+
       .cancel_btn {
         border-right: 1px solid #E5E5E5;
         text-align: center;
+        color: #7F7F7F;
       }
+
       .msg_btn {
         color: #FFAF00;
       }
-    } // button {
+    }
+
+    h3 {
+      padding-top: 0.5rem;
+      font-size: 0.32rem;
+      line-height: 0.32rem;
+      text-align: center;
+    }
+
+    .cont_withtitle {
+      line-height: 0.35rem;
+      font-size: 0.26rem;
+      color: #6C6B6B;
+      padding: 0.5rem 0.3rem;
+      text-align: center;
+      white-space: pre-line;
+      word-wrap: break-word;
+    }
+    // button {
     //   display: block;
     //   height: 0.9rem;
     //   font-size: 0.32rem;
@@ -67,5 +104,40 @@ body.forbiden-scroll {
     //   margin: 0 0.2rem;
     //   border-top: 1px solid #E5E5E5;
     // }
+  }
+
+  .pop_msg_btnunshow {
+    background-color: #ffffff;
+    z-index: 2000;
+    border-radius: 0.14rem;
+    font-size: 0;
+    width: 5.1rem;
+
+    .cont {
+      line-height: 0.42rem;
+      font-size: 0.28rem;
+      color: #6C6B6B;
+      padding: 1.27rem 0.3rem;
+      text-align: center;
+      white-space: pre-line;
+      word-wrap: break-word;
+    }
+
+    h3 {
+      padding-top: 0.5rem;
+      font-size: 0.32rem;
+      line-height: 0.32rem;
+      text-align: center;
+    }
+
+    .cont_withtitle {
+      line-height: 0.35rem;
+      font-size: 0.26rem;
+      color: #6C6B6B;
+      padding: 0.5rem 0.3rem 1.3rem;
+      text-align: center;
+      white-space: pre-line;
+      word-wrap: break-word;
+    }
   }
 }

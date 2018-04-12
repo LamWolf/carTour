@@ -8,6 +8,6 @@ module.exports = app => {
         controller
     } = app;
     router.get('/api/goods/goodsStock', controller.api.goods.goodsStock);
-
+    router.post('/api/goods/book', controller.api.goods.book);
 
 };

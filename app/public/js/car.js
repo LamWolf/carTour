@@ -70,7 +70,7 @@
 "use strict";
 
 
-module.exports = __webpack_require__(11);
+module.exports = __webpack_require__(13);
 
 /***/ }),
 /* 1 */
@@ -228,7 +228,7 @@ module.exports = __webpack_require__(11);
         }return this.compile(f, e).render(g, e._method);
     };typeof module !== 'undefined' && module.exports ? module.exports = c : this.juicer = c;
 })();
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
 /* 2 */
@@ -245,12 +245,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * Created by Gorden on 16/6/2.
  */
 var $ = __webpack_require__(0);
-var apiConfig = __webpack_require__(3);
-var ajax = __webpack_require__(4);
-var loading = __webpack_require__(6);
-var cookie = __webpack_require__(7);
-var Layer = __webpack_require__(10);
-var _extend = __webpack_require__(15);
+var apiConfig = __webpack_require__(6);
+var ajax = __webpack_require__(3);
+var loading = __webpack_require__(8);
+var cookie = __webpack_require__(4);
+var Layer = __webpack_require__(9);
+var _extend = __webpack_require__(16);
 module.exports = _defineProperty({
     replaceUrl: function replaceUrl(url) {
         if (history.replaceState) {
@@ -734,57 +734,6 @@ module.exports = _defineProperty({
 "use strict";
 
 
-/**
- * Created by Gorden on 16/6/2.
- */
-module.exports = {
-    domainHost: 'https://m.huangbaoche.com/',
-    goodsHost: 'https://goods.huangbaoche.com',
-    gappHost: 'https://g.huangbaoche.com/',
-    apiHost: 'https://api7.huangbaoche.com/',
-    wxApiHost: 'https://api7.huangbaoche.com/',
-    sApiHost: 'https://api7.huangbaoche.com/',
-    resHost: '',
-    frHost: 'https://hbcdn.huangbaoche.com/',
-    actHost: 'https://act.huangbaoche.com/',
-    api3: '',
-    infoHost: 'https://info.huangbaoche.com/',
-    getAK: 'https://api7.huangbaoche.com/passport/v1.0/c/getWebAccessKey',
-    openApiHost: 'https://api7.huangbaoche.com/',
-    openApiHost2: 'https://api7.huangbaoche.com/',
-    payHost: '',
-
-    logout: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5logout', // 用户注销接口地址
-
-    toPay: 'https://op.huangbaoche.com/app/index.html', // 支付
-
-    sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
-    codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
-    getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
-    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
-    cdnHost: '',
-    packNo: '20161222114936',
-    channelId: '1108019942',
-    gChannelId: '1901198716', // G端channelId
-    cChannelId: '18',
-    cbcChannelId: '1145431513', // 建行channelId
-    masterChannelId: '1106049142',
-    cbcPackNo: '20170705141911',
-    masterPackNo: '20170711153750',
-    ENV: 'pub',
-
-    guideInfo: 'https://api7.huangbaoche.com/supplier/v2.0/e/open/personalinfo' // 司导个人页，司导信息
-
-
-};
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -884,70 +833,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by Gorden on 16/6/2.
- */
-
-var css = __webpack_require__(12);
-// var $ = require("zepto");
-var $ = __webpack_require__(0);
-module.exports = {
-    init: function init() {
-        this.cacheDom();
-        this.renderUI();
-    },
-    cacheDom: function cacheDom() {
-        this.dom = $('body');
-    },
-    renderUI: function renderUI() {
-        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
-        this.dom.append(this.loading);
-    },
-    hide: function hide() {
-        this.loading.hide();
-    },
-    remove: function remove() {
-        $('.J-loading').remove();
-        // this.loading.remove();
-    }
-};
-
-/***/ }),
-/* 7 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1149,40 +1035,127 @@ function same(s) {
 }
 
 /***/ }),
-/* 8 */
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by Gorden on 16/6/2.
+ */
+module.exports = {
+    domainHost: 'https://m.huangbaoche.com/',
+    goodsHost: 'https://goods.huangbaoche.com',
+    gappHost: 'https://g.huangbaoche.com/',
+    apiHost: 'https://api7.huangbaoche.com/',
+    wxApiHost: 'https://api7.huangbaoche.com/',
+    sApiHost: 'https://api7.huangbaoche.com/',
+    resHost: '',
+    frHost: 'https://hbcdn.huangbaoche.com/',
+    actHost: 'https://act.huangbaoche.com/',
+    api3: '',
+    infoHost: 'https://info.huangbaoche.com/',
+    getAK: 'https://api7.huangbaoche.com/passport/v1.0/c/getWebAccessKey',
+    openApiHost: 'https://api7.huangbaoche.com/',
+    openApiHost2: 'https://api7.huangbaoche.com/',
+    payHost: '',
+
+    logout: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5logout', // 用户注销接口地址
+
+    toPay: 'https://op.huangbaoche.com/app/index.html', // 支付
+
+    sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
+    codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
+    getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
+    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
+    cdnHost: '',
+    packNo: '20161222114936',
+    channelId: '1108019942',
+    gChannelId: '1901198716', // G端channelId
+    cChannelId: '18',
+    cbcChannelId: '1145431513', // 建行channelId
+    masterChannelId: '1106049142',
+    cbcPackNo: '20170705141911',
+    masterPackNo: '20170711153750',
+    ENV: 'pub',
+
+    guideInfo: 'https://api7.huangbaoche.com/supplier/v2.0/e/open/personalinfo' // 司导个人页，司导信息
+
+
+};
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports) {
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var g;
+"use strict";
 
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
 
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
+/**
+ * Created by Gorden on 16/6/2.
+ */
 
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
+var css = __webpack_require__(14);
+// var $ = require("zepto");
+var $ = __webpack_require__(0);
+module.exports = {
+    init: function init() {
+        this.cacheDom();
+        this.renderUI();
+    },
+    cacheDom: function cacheDom() {
+        this.dom = $('body');
+    },
+    renderUI: function renderUI() {
+        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
+        this.dom.append(this.loading);
+    },
+    hide: function hide() {
+        this.loading.hide();
+    },
+    remove: function remove() {
+        $('.J-loading').remove();
+        // this.loading.remove();
+    }
+};
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1199,8 +1172,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *   msg:opt.msg
  * })
  */
-var tpl = __webpack_require__(13);
-__webpack_require__(14);
+var tpl = __webpack_require__(15);
+__webpack_require__(11);
 var template = __webpack_require__(1);
 
 var Layer = function () {
@@ -1255,7 +1228,46 @@ var Layer = function () {
 module.exports = Layer;
 
 /***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3237,18 +3249,6 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
-
-/***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
@@ -3256,6 +3256,12 @@ module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div>
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3353,13 +3359,13 @@ module.exports = function extend() {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3440,12 +3446,6 @@ var Hash = function () {
 module.exports = new Hash();
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 19 */
 /***/ (function(module, exports) {
 
@@ -3453,8 +3453,7 @@ module.exports = new Hash();
 
 /***/ }),
 /* 20 */,
-/* 21 */,
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3470,21 +3469,21 @@ var _juicer = __webpack_require__(1);
 
 var _juicer2 = _interopRequireDefault(_juicer);
 
-var _index = __webpack_require__(23);
+var _index = __webpack_require__(22);
 
 var _index2 = _interopRequireDefault(_index);
 
-__webpack_require__(16);
+__webpack_require__(17);
 
-__webpack_require__(8);
+__webpack_require__(7);
 
-__webpack_require__(18);
+__webpack_require__(19);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Hash = __webpack_require__(17);
+var Hash = __webpack_require__(18);
 
 var Header = function () {
     function Header(opt) {
@@ -3580,12 +3579,13 @@ var Header = function () {
 module.exports = Header;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = "  <header class=\"header hackmax\" id=\"header\">    <b class=\"icon-ioc47 back\">  </b>    <h2>${title}</h2>    <span class=\"contact-show icon-ioc111\"></span>    <div class=\"contact-wapper\" style=\"display:none\">      <div class=\"contact\">        <h3>联系客服</h3>        <b class=\"close\">&times;</b>        <ul>          <li>            <span>境内客服</span><a href=\"tel://4006100009\">400-610-0009</a>          </li>          <li>           <span>境外客服</span><a href=\"tel://861059715436\">+86 10-59715436</a>          </li>        </ul>      </div>    </div>  </header>"
 
 /***/ }),
+/* 23 */,
 /* 24 */,
 /* 25 */,
 /* 26 */,
@@ -3640,11 +3640,14 @@ var priceTpl = __webpack_require__(61);
 
 var juicer = __webpack_require__(1);
 var util = __webpack_require__(2);
-var Header = __webpack_require__(22);
-__webpack_require__(19);
-__webpack_require__(8);
+var Header = __webpack_require__(21);
+var Alert = __webpack_require__(63);
+var ajax = __webpack_require__(3);
+var Cookie = __webpack_require__(4);
+__webpack_require__(12);
+__webpack_require__(7);
 __webpack_require__(62);
-__webpack_require__(14);
+__webpack_require__(11);
 
 var Car = function () {
     function Car(opt) {
@@ -3856,7 +3859,29 @@ var Car = function () {
 
             that.dom.wrap.on('click', '.skucar-next-btn', function () {
                 if (that.data.nextParam.carModelId && that.data.nextParam.priceMark) {
-                    window.location.href = '/app/orderForm.html?param=' + JSON.stringify(that.data.nextParam);
+                    var promise = new Promise(function (resolve) {
+                        var opt = {
+                            url: '/api/goods/book',
+                            method: 'POST',
+                            header: {
+                                'x-csrf-token': Cookie.get('csrfToken')
+                            },
+                            data: that.data.nextParam,
+                            success: function success() {
+                                resolve();
+                            }
+                        };
+                        ajax.sendRequest(opt);
+                    });
+                    promise.then(function () {
+                        new Alert({
+                            msg: '预订成功!',
+                            btn: '确定',
+                            fn: function fn() {
+                                window.location.href = '/city/131';
+                            }
+                        });
+                    });
                 }
             });
         }
@@ -3884,6 +3909,241 @@ module.exports = "<div class=\"sku-price-luggage\">当前车型最多可携带�
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var tpl = __webpack_require__(64);
+__webpack_require__(65);
+var template = __webpack_require__(66).extended;
+var $ = __webpack_require__(0);
+/* *  传入参数：
+*  cancel: [Boolean], true为有取消按钮，false为无取消按钮
+*  cancelText: [String], 取消按钮的文本信息，默认为“取消”，该字段只有在有取消按钮时才生效
+*  msg: [String], 对话框内主要文本信息，默认为“未知错误”
+*  btn: [String], 无取消按钮情况下，按钮文本，默认为 “知道啦”
+*  isShowBtn: [Boolean], 设置是否显示按钮
+*  fn: [Function], 确认按钮的回调函数
+*  cancelCb: [Function], 取消按钮的回调函数（仅在cancel为true的情况下才能执行）
+*  align: [String], 对话框内文本信息的对齐方式
+*  closeAble: [Boolean], 是否显示右上角关闭按钮, 默认为 true
+*  title: [String], 对话框内标题内容，暂定有该字段则必定有按钮（取消按钮可选），即isShowBtn字段失效
+*  ifSa: [Boolean], 是否启用埋点，默认为 true 启用
+*  saTitle: [Object], 埋点title配置对象，只有当ifSa为true时才生效
+**   close: [String], 关闭按钮，默认为“关闭”
+**   btn: [String], 确认按钮，默认为确认按钮的文本
+**   cancel: [String], 取消按钮，默认为取消按钮的文本，当cancel为true时才生效 */
+
+var Alert = function () {
+    function Alert() {
+        var opt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+        _classCallCheck(this, Alert);
+
+        // debugger
+        this.opt = {
+            align: 'center'
+        };
+        $.extend(this.opt, opt);
+        this.cacheData();
+        this.renderUI();
+        this.cacheDom();
+        this.bindEvent();
+    }
+
+    _createClass(Alert, [{
+        key: 'cacheDom',
+        value: function cacheDom() {
+            var that = this;
+            that.dom = {};
+            that.dom.wrap = document.querySelector('.J-alert-wrap');
+            that.dom.mask = document.querySelector(".pop_mask[data-for='.J-alert-wrap']");
+        }
+    }, {
+        key: 'cacheData',
+        value: function cacheData() {
+            var that = this;
+            that.data = {
+                msg: that.opt.msg || '未知错误',
+                btn: that.opt.btn || '确定',
+                cancel: that.opt.cancel || false,
+                cancelText: that.opt.cancelText || '取消',
+                isShowBtn: that.opt.isShowBtn == false ? false : true,
+                align: that.opt.align,
+                closeAble: that.opt.closeAble == false ? false : true,
+                title: that.opt.title,
+                ifSa: that.opt.ifSa == false ? false : true,
+                saTitle: {
+                    close: this.opt.saTitle && this.opt.saTitle.close ? this.opt.saTitle.close : '关闭',
+                    btn: this.opt.saTitle && this.opt.saTitle.btn ? this.opt.saTitle.btn : this.opt.btn,
+                    cancel: this.opt.saTitle && this.opt.saTitle.cancel ? this.opt.saTitle.cancel : this.opt.cancelText
+
+                }
+            };
+        }
+    }, {
+        key: 'renderUI',
+        value: function renderUI() {
+            var that = this;
+            var wrap = document.querySelector("body");
+            if (!wrap) {
+                return;
+            }
+
+            if (document.querySelector('.J-alert-wrap')) {
+                document.querySelector("body").removeChild(document.querySelector('.J-alert-wrap'));
+                document.querySelector("body").removeChild(document.querySelector(".pop_mask[data-for='.J-alert-wrap']"));
+            }
+
+            wrap.insertAdjacentHTML('beforeend', template(tpl, this.data));
+            document.querySelector('body').classList.add('forbiden-scroll');
+            $('body').on('touchmove', function (e) {
+                e.preventDefault();
+            });
+        }
+    }, {
+        key: 'bindEvent',
+        value: function bindEvent() {
+            var that = this;
+            try {
+                that.dom.wrap.querySelector('.close').addEventListener('click', function (event) {
+                    document.querySelector("body").removeChild(that.dom.wrap);
+                    document.querySelector("body").removeChild(that.dom.mask);
+                    document.querySelector('body').classList.remove('forbiden-scroll');
+                    that.opt.cancelCb && that.opt.cancelCb();
+                    $('body').off('touchmove');
+                });
+            } catch (e) {}
+            try {
+                that.dom.wrap.querySelector('.msg_btn').addEventListener('click', function (event) {
+                    document.querySelector("body").removeChild(that.dom.wrap);
+                    document.querySelector("body").removeChild(that.dom.mask);
+                    document.querySelector('body').classList.remove('forbiden-scroll');
+                    that.opt.fn && that.opt.fn();
+                    $('body').off('touchmove');
+                });
+            } catch (e) {}
+            try {
+                that.dom.wrap.querySelector('.cancel_btn').addEventListener('click', function (event) {
+                    document.querySelector("body").removeChild(that.dom.wrap);
+                    document.querySelector("body").removeChild(that.dom.mask);
+                    document.querySelector('body').classList.remove('forbiden-scroll');
+                    that.opt.cancelCb && that.opt.cancelCb();
+                    $('body').off('touchmove');
+                });
+            } catch (e) {}
+        }
+    }]);
+
+    return Alert;
+}();
+
+module.exports = Alert;
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"pop_mask\" data-for=\".J-alert-wrap\"></div><div class=\"J-alert-wrap new_pop_main\">	<% if(closeAble){ %>		<span class=\"close\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.close %>\"<% } %>></span>	<% } %>	<% if(title) {%>		<div class=\"pop_msg\">			<h3><%=title%></h3>			<div class=\"cont_withtitle\"<%if(align){%> style=\"text-align:<%=align %>\"<%}%>><%= msg %></div>	      <div class=\"btn_content\">	      <% if(cancel){ %>	        <span class=\"cancel_btn\"><%= cancelText %></span>					<% } %>	        <span class=\"msg_btn\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.btn %>\"<% } %> ><%= btn %></span>	      </div>		</div>	<%}else{%>		<% if(isShowBtn){ %>		<div class=\"pop_msg\">			<div class=\"cont\"<%if(align){%> style=\"text-align:<%=align %>\"<%}%>><%= msg %></div>	      <div class=\"btn_content\">	      <% if(cancel){ %>	        <span class=\"cancel_btn\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.cancel %>\"<% } %>><%= cancelText %></span>					<% } %>	        <span class=\"msg_btn\" <% if(ifSa) {%>data-sa-title=\"<%= saTitle.btn %>\"<% } %>><%= btn %></span>	      </div>		</div>		<% } else {%>			<div class=\"pop_msg_btnunshow\">				<div class=\"cont\"<%if(align){%> style=\"text-align:<%=align %>\"<%}%>><%= msg %></div>			</div>		<% } %>	<% } %></div>"
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+/**
+ * https://github.com/cho45/micro-template.js
+ * (c) cho45 http://cho45.github.com/mit-license
+ */
+function template (id, data) {
+	var me = arguments.callee;
+	if (!me.cache[id]) me.cache[id] = (function () {
+		var name = id, string = /^[\w\-]+$/.test(id) ? me.get(id): (name = 'template(string)', id); // no warnings
+		var line = 1, body = (
+			"try { " +
+				(me.variable ?  "var " + me.variable + " = this.stash;" : "with (this.stash) { ") +
+					"this.ret += '"  +
+					string.
+						replace(/<%/g, '\x11').replace(/%>/g, '\x13'). // if you want other tag, just edit this line
+						replace(/'(?![^\x11\x13]+?\x13)/g, '\\x27').
+						replace(/^\s*|\s*$/g, '').
+						replace(/\n/g, function () { return "';\nthis.line = " + (++line) + "; this.ret += '\\n" }).
+						replace(/\x11=raw(.+?)\x13/g, "' + ($1) + '").
+						replace(/\x11=(.+?)\x13/g, "' + this.escapeHTML($1) + '").
+						replace(/\x11(.+?)\x13/g, "'; $1; this.ret += '") +
+				"'; " + (me.variable ? "" : "}") + "return this.ret;" +
+			"} catch (e) { throw 'TemplateError: ' + e + ' (on " + name + "' + ' line ' + this.line + ')'; } " +
+			"//@ sourceURL=" + name + "\n" // source map
+		).replace(/this\.ret \+= '';/g, '');
+		var func = new Function(body);
+		var map  = { '&' : '&amp;', '<' : '&lt;', '>' : '&gt;', '\x22' : '&#x22;', '\x27' : '&#x27;' };
+		var escapeHTML = function (string) { return (''+string).replace(/[&<>\'\"]/g, function (_) { return map[_] }) };
+		return function (stash) { return func.call(me.context = { escapeHTML: escapeHTML, line: 1, ret : '', stash: stash }) };
+	})();
+	return data ? me.cache[id](data) : me.cache[id];
+}
+template.cache = {};
+template.get = function (id) { return document.getElementById(id).innerHTML };
+
+/**
+ * Extended template function:
+ *   requires: basic template() function
+ *   provides:
+ *     include(id)
+ *     wrapper(id, function () {})
+ */
+function extended (id, data) {
+	var fun = function (data) {
+		data.include = function (name, args) {
+			var stash = {};
+			for (var key in template.context.stash) if (template.context.stash.hasOwnProperty(key)) {
+				stash[key] = template.context.stash[key];
+			}
+			if (args) for (var key in args) if (args.hasOwnProperty(key)) {
+				stash[key] = args[key];
+			}
+			var context = template.context;
+			context.ret += template(name, stash);
+			template.context = context;
+		};
+
+		data.wrapper = function (name, fun) {
+			var current = template.context.ret;
+			template.context.ret = '';
+			fun.apply(template.context);
+			var content = template.context.ret;
+			var orig_content = template.context.stash.content;
+			template.context.stash.content = content;
+			template.context.ret = current + template(name, template.context.stash);
+			template.context.stash.content = orig_content;
+		};
+
+		return template(id, data);
+	};
+
+	return data ? fun(data) : fun;
+}
+
+template.get = function (id) {
+	var fun = extended.get;
+	return fun ? fun(id) : document.getElementById(id).innerHTML;
+};
+this.template = template;
+this.extended = extended;
+
 
 /***/ })
 /******/ ]);

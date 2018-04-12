@@ -142,7 +142,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 27);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -152,7 +152,7 @@
 "use strict";
 
 
-module.exports = __webpack_require__(11);
+module.exports = __webpack_require__(13);
 
 /***/ }),
 /* 1 */
@@ -310,7 +310,7 @@ module.exports = __webpack_require__(11);
         }return this.compile(f, e).render(g, e._method);
     };typeof module !== 'undefined' && module.exports ? module.exports = c : this.juicer = c;
 })();
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
 /* 2 */
@@ -327,12 +327,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * Created by Gorden on 16/6/2.
  */
 var $ = __webpack_require__(0);
-var apiConfig = __webpack_require__(3);
-var ajax = __webpack_require__(4);
-var loading = __webpack_require__(6);
-var cookie = __webpack_require__(7);
-var Layer = __webpack_require__(10);
-var _extend = __webpack_require__(15);
+var apiConfig = __webpack_require__(6);
+var ajax = __webpack_require__(3);
+var loading = __webpack_require__(8);
+var cookie = __webpack_require__(4);
+var Layer = __webpack_require__(9);
+var _extend = __webpack_require__(16);
 module.exports = _defineProperty({
     replaceUrl: function replaceUrl(url) {
         if (history.replaceState) {
@@ -816,57 +816,6 @@ module.exports = _defineProperty({
 "use strict";
 
 
-/**
- * Created by Gorden on 16/6/2.
- */
-module.exports = {
-    domainHost: 'https://m.huangbaoche.com/',
-    goodsHost: 'https://goods.huangbaoche.com',
-    gappHost: 'https://g.huangbaoche.com/',
-    apiHost: 'https://api7.huangbaoche.com/',
-    wxApiHost: 'https://api7.huangbaoche.com/',
-    sApiHost: 'https://api7.huangbaoche.com/',
-    resHost: '',
-    frHost: 'https://hbcdn.huangbaoche.com/',
-    actHost: 'https://act.huangbaoche.com/',
-    api3: '',
-    infoHost: 'https://info.huangbaoche.com/',
-    getAK: 'https://api7.huangbaoche.com/passport/v1.0/c/getWebAccessKey',
-    openApiHost: 'https://api7.huangbaoche.com/',
-    openApiHost2: 'https://api7.huangbaoche.com/',
-    payHost: '',
-
-    logout: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5logout', // 用户注销接口地址
-
-    toPay: 'https://op.huangbaoche.com/app/index.html', // 支付
-
-    sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
-    codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
-    getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
-    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
-    cdnHost: '',
-    packNo: '20161222114936',
-    channelId: '1108019942',
-    gChannelId: '1901198716', // G端channelId
-    cChannelId: '18',
-    cbcChannelId: '1145431513', // 建行channelId
-    masterChannelId: '1106049142',
-    cbcPackNo: '20170705141911',
-    masterPackNo: '20170711153750',
-    ENV: 'pub',
-
-    guideInfo: 'https://api7.huangbaoche.com/supplier/v2.0/e/open/personalinfo' // 司导个人页，司导信息
-
-
-};
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -966,70 +915,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by Gorden on 16/6/2.
- */
-
-var css = __webpack_require__(12);
-// var $ = require("zepto");
-var $ = __webpack_require__(0);
-module.exports = {
-    init: function init() {
-        this.cacheDom();
-        this.renderUI();
-    },
-    cacheDom: function cacheDom() {
-        this.dom = $('body');
-    },
-    renderUI: function renderUI() {
-        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
-        this.dom.append(this.loading);
-    },
-    hide: function hide() {
-        this.loading.hide();
-    },
-    remove: function remove() {
-        $('.J-loading').remove();
-        // this.loading.remove();
-    }
-};
-
-/***/ }),
-/* 7 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1231,40 +1117,127 @@ function same(s) {
 }
 
 /***/ }),
-/* 8 */
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by Gorden on 16/6/2.
+ */
+module.exports = {
+    domainHost: 'https://m.huangbaoche.com/',
+    goodsHost: 'https://goods.huangbaoche.com',
+    gappHost: 'https://g.huangbaoche.com/',
+    apiHost: 'https://api7.huangbaoche.com/',
+    wxApiHost: 'https://api7.huangbaoche.com/',
+    sApiHost: 'https://api7.huangbaoche.com/',
+    resHost: '',
+    frHost: 'https://hbcdn.huangbaoche.com/',
+    actHost: 'https://act.huangbaoche.com/',
+    api3: '',
+    infoHost: 'https://info.huangbaoche.com/',
+    getAK: 'https://api7.huangbaoche.com/passport/v1.0/c/getWebAccessKey',
+    openApiHost: 'https://api7.huangbaoche.com/',
+    openApiHost2: 'https://api7.huangbaoche.com/',
+    payHost: '',
+
+    logout: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5logout', // 用户注销接口地址
+
+    toPay: 'https://op.huangbaoche.com/app/index.html', // 支付
+
+    sendCode: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/captcha', // 发送验证码
+    codeLogin: 'https://api7.huangbaoche.com/ucenter/v1.0/c/user/h5login/bycaptcha', // 验证码登录
+    getPackW: 'https://api7.huangbaoche.com//marketing/v1.0/e/openapi/coupon/packet/webkit', // 券批次
+    'queryGoodsStock': 'https://api6.huangbaoche.com/goods/v1.0/p/queryGoodsStock', // 查询商品库存日历
+    cdnHost: '',
+    packNo: '20161222114936',
+    channelId: '1108019942',
+    gChannelId: '1901198716', // G端channelId
+    cChannelId: '18',
+    cbcChannelId: '1145431513', // 建行channelId
+    masterChannelId: '1106049142',
+    cbcPackNo: '20170705141911',
+    masterPackNo: '20170711153750',
+    ENV: 'pub',
+
+    guideInfo: 'https://api7.huangbaoche.com/supplier/v2.0/e/open/personalinfo' // 司导个人页，司导信息
+
+
+};
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports) {
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var g;
+"use strict";
 
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
 
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
+/**
+ * Created by Gorden on 16/6/2.
+ */
 
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
+var css = __webpack_require__(14);
+// var $ = require("zepto");
+var $ = __webpack_require__(0);
+module.exports = {
+    init: function init() {
+        this.cacheDom();
+        this.renderUI();
+    },
+    cacheDom: function cacheDom() {
+        this.dom = $('body');
+    },
+    renderUI: function renderUI() {
+        this.loading = $('<div id="loading" class="loading J-loading"><div class="loading-content">loading...</div></div>');
+        this.dom.append(this.loading);
+    },
+    hide: function hide() {
+        this.loading.hide();
+    },
+    remove: function remove() {
+        $('.J-loading').remove();
+        // this.loading.remove();
+    }
+};
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1281,8 +1254,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *   msg:opt.msg
  * })
  */
-var tpl = __webpack_require__(13);
-__webpack_require__(14);
+var tpl = __webpack_require__(15);
+__webpack_require__(11);
 var template = __webpack_require__(1);
 
 var Layer = function () {
@@ -1337,7 +1310,46 @@ var Layer = function () {
 module.exports = Layer;
 
 /***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3319,18 +3331,6 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
-
-/***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
@@ -3338,6 +3338,12 @@ module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div>
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"J-layer-wrap\">	<div class=\"layer\">${msg}</div></div>"
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3435,13 +3441,13 @@ module.exports = function extend() {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3522,12 +3528,6 @@ var Hash = function () {
 module.exports = new Hash();
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 19 */
 /***/ (function(module, exports) {
 
@@ -3535,43 +3535,6 @@ module.exports = new Hash();
 
 /***/ }),
 /* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Created by Gorden on 16/6/8.
- */
-
-// let MD5 = require('./blueimp-md5.js');
-
-var getAK = function () {
-    function getAK() {
-        _classCallCheck(this, getAK);
-    }
-
-    _createClass(getAK, [{
-        key: "constuctor",
-        value: function constuctor() {}
-    }, {
-        key: "getAk",
-        value: function getAk(success) {
-            return success && success(window.__ACC_KEY);
-        }
-    }]);
-
-    return getAK;
-}();
-
-module.exports = new getAK();
-
-/***/ }),
-/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3593,7 +3556,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *
  */
 var util = __webpack_require__(2);
-var Cookie = __webpack_require__(7);
+var Cookie = __webpack_require__(4);
 var _glo = window || undefined;
 var CHANGE_NAME = ['iscbc', 'ismaster'];
 
@@ -3647,10 +3610,10 @@ var ChangeSkin = function () {
         value: function getConfig(css) {
             switch (css) {
                 case 'iscbc':
-                    __webpack_require__.e/* require */(1).then(function() {[__webpack_require__(25)];}).catch(__webpack_require__.oe);
+                    __webpack_require__.e/* require */(1).then(function() {[__webpack_require__(24)];}).catch(__webpack_require__.oe);
                     break;
                 case 'ismaster':
-                    __webpack_require__.e/* require */(0).then(function() {[__webpack_require__(26)];}).catch(__webpack_require__.oe);
+                    __webpack_require__.e/* require */(0).then(function() {[__webpack_require__(25)];}).catch(__webpack_require__.oe);
             }
         }
     }]);
@@ -3664,9 +3627,9 @@ if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = ChangeSkin;else _glo.ChangeSkin = ChangeSkin;
 
 /***/ }),
+/* 21 */,
 /* 22 */,
-/* 23 */,
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4067,9 +4030,9 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
 
 /***/ }),
+/* 24 */,
 /* 25 */,
-/* 26 */,
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4080,21 +4043,21 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var $ = __webpack_require__(0);
-var apiConfig = __webpack_require__(3);
-var loading = __webpack_require__(6);
-var ajax = __webpack_require__(4);
-var tplItem = __webpack_require__(28);
+var apiConfig = __webpack_require__(6);
+var loading = __webpack_require__(8);
+var ajax = __webpack_require__(3);
+var tplItem = __webpack_require__(27);
 var juicer = __webpack_require__(1);
 var util = __webpack_require__(2);
-var IScroll = __webpack_require__(29);
-var PopCoupon = __webpack_require__(30);
+var IScroll = __webpack_require__(28);
+var PopCoupon = __webpack_require__(29);
 var ComImg = __webpack_require__(46);
 var LazyLoad = __webpack_require__(47);
-__webpack_require__(19);
-__webpack_require__(8);
+__webpack_require__(12);
+__webpack_require__(7);
 __webpack_require__(48);
-__webpack_require__(18);
-new (__webpack_require__(21))();
+__webpack_require__(19);
+new (__webpack_require__(20))();
 
 var City = function () {
     function City() {
@@ -4549,13 +4512,13 @@ var City = function () {
 new City();
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = "  {@each goodses as good}    {@if good.headLable == \'超省心\'}    <div class=\"item item-economize\" data-goodsNo=${good.goodsNo}>      <div class=\"item-pic\">        <em>超省心</em>        <span class=\"item-guide\">${good.guideAmount} 位当地中文司导 <b></b></span>        {@if good.goodsPicture}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPicture)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}      </div>      <p class=\"item-title\">${good.goodsName}</p>      <div class=\"item-price\">        <strong><small>¥ </small>${good.perPrice}</strong>        <span>起/人·${good.daysCount}日{@if good.hotelStatus}·含酒店{@/if}</span>      </div>    </div>    {@else}    <div class=\"item item-free\" data-goodsNo=${good.goodsNo}>      <h2>${good.depCityName}${good.daysCount}日玩法推荐</h2>      <span class=\"item-guide\">${good.guideAmount} 位当地中文司导 <b></b></span>      <div class=\"item-pic\">        <em>超自由</em>        {@if good.goodsPics[0]}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPics[0],330,235)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}        {@if good.goodsPics[1]}        <div class=\"item-img lazy\" data-src=\"${handleImg(good.goodsPics[1],330,235)}\"></div>        {@else}        <div class=\"item-img lazy\" data-src=\"${img.errorGood}\"></div>        {@/if}      </div>      <p class=\"item-title\">${good.goodsName}</p>    </div>    {@/if}  {@/each}"
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5532,7 +5495,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 })(window, document, Math);
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5544,16 +5507,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var $ = __webpack_require__(0);
 var util = __webpack_require__(2);
-var Storage = __webpack_require__(31);
-var apiConfig = __webpack_require__(3);
-var ajax = __webpack_require__(4);
+var Storage = __webpack_require__(30);
+var apiConfig = __webpack_require__(6);
+var ajax = __webpack_require__(3);
 var juicer = __webpack_require__(1);
-var Ak = __webpack_require__(20);
-var loading = __webpack_require__(6);
+var Ak = __webpack_require__(34);
+var loading = __webpack_require__(8);
 var SearchAreaCode = __webpack_require__(35);
 var Scheme = __webpack_require__(43);
 var tpl = __webpack_require__(44);
-var Cookie = __webpack_require__(7);
+var Cookie = __webpack_require__(4);
 // const sensors = require("widgets/sensors/index");
 __webpack_require__(45);
 
@@ -5923,7 +5886,7 @@ var PopCoupon = function () {
 module.exports = PopCoupon;
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5947,10 +5910,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 ***   sign : Storage_,标示可自定义
 * }
 */
-__webpack_require__(32).polyfill();
+__webpack_require__(31).polyfill();
 
 var _gol = window || undefined,
-    _define = __webpack_require__(34),
+    _define = __webpack_require__(33),
     _exports = exports;
 
 var _ref = [_gol.localStorage, _gol.document],
@@ -6394,7 +6357,7 @@ if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if ((typeof _exports === 'undefined' ? 'undefined' : _typeof(_exports)) === 'object') module.exports = Storage;else _gol.Storage = Storage;
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {/*!
@@ -7577,10 +7540,10 @@ return Promise$1;
 
 //# sourceMappingURL=es6-promise.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32), __webpack_require__(10)))
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -7770,13 +7733,50 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
 	throw new Error("define cannot be used indirect");
 };
 
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Created by Gorden on 16/6/8.
+ */
+
+// let MD5 = require('./blueimp-md5.js');
+
+var getAK = function () {
+    function getAK() {
+        _classCallCheck(this, getAK);
+    }
+
+    _createClass(getAK, [{
+        key: "constuctor",
+        value: function constuctor() {}
+    }, {
+        key: "getAk",
+        value: function getAk(success) {
+            return success && success(window.__ACC_KEY);
+        }
+    }]);
+
+    return getAK;
+}();
+
+module.exports = new getAK();
 
 /***/ }),
 /* 35 */
@@ -7807,7 +7807,7 @@ var _li = __webpack_require__(38);
 
 var _li2 = _interopRequireDefault(_li);
 
-__webpack_require__(19);
+__webpack_require__(12);
 
 __webpack_require__(39);
 
@@ -12407,15 +12407,15 @@ var _index = __webpack_require__(42);
 
 var _index2 = _interopRequireDefault(_index);
 
-__webpack_require__(16);
+__webpack_require__(17);
 
-__webpack_require__(8);
+__webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Hash = __webpack_require__(17);
+var Hash = __webpack_require__(18);
 
 var Header = function () {
     function Header(opt) {
@@ -12570,7 +12570,7 @@ module.exports = "  <header class=\"header J-header hackmaxAuto\" id=\"J-header\
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function webpackUniversalModuleDefinition(root, factory) {
-	if (( false ? 'undefined' : _typeof2(exports)) === 'object' && ( false ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory(__webpack_require__(24));else if (true) !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(24)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+	if (( false ? 'undefined' : _typeof2(exports)) === 'object' && ( false ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory(__webpack_require__(23));else if (true) !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(23)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {

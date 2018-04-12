@@ -8,6 +8,9 @@ const priceTpl = require('./tpl/countPrice.tpl');
 const juicer = require('widgets/juicer/juicer.js');
 const util = require('widgets/util/index.js');
 const Header = require('widgets/header/index.js');
+const Alert = require('widgets/alert/alert.js');
+const ajax = require('widgets/ajax/index');
+const Cookie = require('widgets/cookie/index.js');
 require('widgets/csslib/base.css');
 require('widgets/csslib/fonts/fonts.css');
 require('./scss/index.scss');
@@ -217,7 +220,29 @@ class Car {
 
         that.dom.wrap.on('click', '.skucar-next-btn', function() {
             if (that.data.nextParam.carModelId && that.data.nextParam.priceMark) {
-                window.location.href = '/app/orderForm.html?param=' + JSON.stringify(that.data.nextParam);
+                const promise = new Promise(resolve => {
+                    const opt = {
+                        url: '/api/goods/book',
+                        method: 'POST',
+                        header: {
+                            'x-csrf-token': Cookie.get('csrfToken')
+                        },
+                        data: that.data.nextParam,
+                        success: () => {
+                            resolve();
+                        }
+                    };
+                    ajax.sendRequest(opt);
+                });
+                promise.then(() => {
+                    new Alert({
+                        msg: '预订成功!',
+                        btn: '确定',
+                        fn: () => {
+                            window.location.href = '/city/131';
+                        }
+                    });
+                });
             }
 
         });
